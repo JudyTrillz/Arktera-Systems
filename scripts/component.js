@@ -114,53 +114,53 @@ function buildMobileLinks(activePage) {
   }).join("");
 }
 
-// function injectNav(activePage) {
-//   const nav = document.createElement("header");
-//   nav.id = "siteHeader";
-//   nav.innerHTML = `
-//     <div class="cursor" id="cursor" aria-hidden="true"></div>
-//     <div class="cursor-follower" id="cursorFollower" aria-hidden="true"></div>
+function injectNav(activePage) {
+  const nav = document.createElement("header");
+  nav.id = "siteHeader";
+  nav.innerHTML = `
+    <div class="cursor" id="cursor" aria-hidden="true"></div>
+    <div class="cursor-follower" id="cursorFollower" aria-hidden="true"></div>
 
-//     <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
-//       <div class="nav-inner">
-//         <a href="${HOME_PATH}" class="nav-logo" aria-label="Arktera Systems — Home">
-//           ${LOGO_SVG}
-//         </a>
-//         <ul class="nav-links" id="navLinks" role="menubar" aria-label="Site navigation">
-//           ${buildNavLinks(activePage)}
-//         </ul>
-//         <div class="nav-actions">
-//           <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme" type="button">
-//             <span class="theme-icon dark-icon" aria-hidden="true">
-//               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-//             </span>
-//             <span class="theme-icon light-icon" aria-hidden="true">
-//               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-//             </span>
-//           </button>
-//           <a href="${PAGE_PATH}contact.html" class="btn btn-nav">Book a Strategy Session</a>
-//           <button class="nav-hamburger" id="navHamburger"
-//                   aria-label="Open navigation menu"
-//                   aria-expanded="false"
-//                   aria-controls="mobileMenu"
-//                   type="button">
-//             <span aria-hidden="true"></span>
-//             <span aria-hidden="true"></span>
-//             <span aria-hidden="true"></span>
-//           </button>
-//         </div>
-//       </div>
-//     </nav>
+    <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="${HOME_PATH}" class="nav-logo" aria-label="Arktera Systems — Home">
+          ${LOGO_SVG}
+        </a>
+        <ul class="nav-links" id="navLinks" role="menubar" aria-label="Site navigation">
+          ${buildNavLinks(activePage)}
+        </ul>
+        <div class="nav-actions">
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme" type="button">
+            <span class="theme-icon dark-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            </span>
+            <span class="theme-icon light-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </span>
+          </button>
+          <a href="${PAGE_PATH}contact.html" class="btn btn-nav">Book a Strategy Session</a>
+          <button class="nav-hamburger" id="navHamburger"
+                  aria-label="Open navigation menu"
+                  aria-expanded="false"
+                  aria-controls="mobileMenu"
+                  type="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </nav>
 
-//     <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu" hidden>
-//       <nav aria-label="Mobile navigation">
-//         <ul>${buildMobileLinks(activePage)}</ul>
-//       </nav>
-//       <a href="${PAGE_PATH}contact.html" class="btn btn-primary" style="margin-top:2rem">Book a Strategy Session</a>
-//     </div>`;
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu" hidden>
+      <nav aria-label="Mobile navigation">
+        <ul>${buildMobileLinks(activePage)}</ul>
+      </nav>
+      <a href="${PAGE_PATH}contact.html" class="btn btn-primary" style="margin-top:2rem">Book a Strategy Session</a>
+    </div>`;
 
-//   document.body.prepend(nav);
-// }
+  document.body.prepend(nav);
+}
 
 function injectFooter() {
   const footer = document.createElement("footer");
@@ -276,81 +276,81 @@ function initCursor() {
   });
 }
 
-// function initNav() {
-//   const nav = document.getElementById("nav");
-//   const burger = document.getElementById("navHamburger");
-//   const menu = document.getElementById("mobileMenu");
+function initNav() {
+  const nav = document.getElementById("nav");
+  const burger = document.getElementById("navHamburger");
+  const menu = document.getElementById("mobileMenu");
 
-//   if (nav) {
-//     window.addEventListener(
-//       "scroll",
-//       () => {
-//         nav.classList.toggle("scrolled", window.scrollY > 60);
-//       },
-//       { passive: true },
-//     );
-//   }
+  if (nav) {
+    window.addEventListener(
+      "scroll",
+      () => {
+        nav.classList.toggle("scrolled", window.scrollY > 60);
+      },
+      { passive: true },
+    );
+  }
 
-//   if (burger && menu) {
-//     burger.addEventListener("click", () => {
-//       const isOpen = burger.getAttribute("aria-expanded") === "true";
+  if (burger && menu) {
+    burger.addEventListener("click", () => {
+      const isOpen = burger.getAttribute("aria-expanded") === "true";
 
-//       if (isOpen) {
-//         // CLOSE
-//         menu.classList.remove("open");
-//         menu.setAttribute("hidden", "");
-//         burger.setAttribute("aria-expanded", "false");
-//         burger.setAttribute("aria-label", "Open navigation menu");
-//         burger.classList.remove("open");
-//         document.body.style.overflow = "";
-//       } else {
-//         // OPEN
-//         menu.removeAttribute("hidden");
+      if (isOpen) {
+        // CLOSE
+        menu.classList.remove("open");
+        menu.setAttribute("hidden", "");
+        burger.setAttribute("aria-expanded", "false");
+        burger.setAttribute("aria-label", "Open navigation menu");
+        burger.classList.remove("open");
+        document.body.style.overflow = "";
+      } else {
+        // OPEN
+        menu.removeAttribute("hidden");
 
-//         // Force reflow so transition works
-//         requestAnimationFrame(() => {
-//           menu.classList.add("open");
-//         });
+        // Force reflow so transition works
+        requestAnimationFrame(() => {
+          menu.classList.add("open");
+        });
 
-//         burger.setAttribute("aria-expanded", "true");
-//         burger.setAttribute("aria-label", "Close navigation menu");
-//         burger.classList.add("open");
-//         document.body.style.overflow = "hidden";
-//       }
-//     });
+        burger.setAttribute("aria-expanded", "true");
+        burger.setAttribute("aria-label", "Close navigation menu");
+        burger.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+    });
 
-//     // Close on link click
-//     menu.querySelectorAll("a").forEach((a) => {
-//       a.addEventListener("click", () => {
-//         menu.classList.remove("open");
+    // Close on link click
+    menu.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", () => {
+        menu.classList.remove("open");
 
-//         setTimeout(() => {
-//           menu.setAttribute("hidden", "");
-//         }, 400);
+        setTimeout(() => {
+          menu.setAttribute("hidden", "");
+        }, 400);
 
-//         burger.setAttribute("aria-expanded", "false");
-//         burger.classList.remove("open");
-//         document.body.style.overflow = "";
-//       });
-//     });
+        burger.setAttribute("aria-expanded", "false");
+        burger.classList.remove("open");
+        document.body.style.overflow = "";
+      });
+    });
 
-//     // Escape key close
-//     document.addEventListener("keydown", (e) => {
-//       if (e.key === "Escape" && burger.getAttribute("aria-expanded") === "true") {
-//         menu.classList.remove("open");
+    // Escape key close
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && burger.getAttribute("aria-expanded") === "true") {
+        menu.classList.remove("open");
 
-//         setTimeout(() => {
-//           menu.setAttribute("hidden", "");
-//         }, 400);
+        setTimeout(() => {
+          menu.setAttribute("hidden", "");
+        }, 400);
 
-//         burger.setAttribute("aria-expanded", "false");
-//         burger.classList.remove("open");
-//         document.body.style.overflow = "";
-//         burger.focus();
-//       }
-//     });
-//   }
-// }
+        burger.setAttribute("aria-expanded", "false");
+        burger.classList.remove("open");
+        document.body.style.overflow = "";
+        burger.focus();
+      }
+    });
+  }
+}
 
 function initReveal() {
   const items = document.querySelectorAll(".reveal-up, .reveal-fade");
@@ -611,7 +611,7 @@ function initComponents(activePage = "") {
   function run() {
     initTheme();
     initCursor();
-    // initNav();
+    initNav();
     initReveal();
     initCounters();
     initBarFills();
