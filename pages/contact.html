@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact — Arktera Systems</title>
+    <meta
+      name="description"
+      content="Book a strategy session or request a visibility audit. Tell us about your business and we'll identify what's limiting your lead generation performance." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../styles/extended.css" />
+  </head>
+  <body data-page="contact">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <main id="main-content">
+      <!-- ── HERO ── -->
+      <section class="page-hero" aria-labelledby="page-heading">
+        <div class="page-hero-bg" aria-hidden="true">
+          <div class="page-hero-grid"></div>
+          <div class="page-hero-glow"></div>
+        </div>
+        <div class="page-hero-content">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <span class="breadcrumb-sep" aria-hidden="true">›</span>
+            <span aria-current="page">Contact</span>
+          </nav>
+          <p class="page-hero-label" aria-hidden="true">
+            <span class="label-line"></span>
+            Strategy Session
+            <span class="label-line"></span>
+          </p>
+          <h1 id="page-heading" class="reveal-up">
+            Let's Identify What's Limiting<br /><em>Your Lead Generation Performance.</em>
+          </h1>
+          <p class="reveal-up delay-1">
+            Book a strategy session or request a visibility audit to identify the systems
+            affecting your visibility, trust, and conversion performance.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── CONTACT LAYOUT ── -->
+      <section class="inner-section" aria-labelledby="contact-form-heading">
+        <div class="container">
+          <div class="contact-layout">
+            <!-- FORM -->
+            <div class="reveal-up">
+              <h2
+                id="contact-form-heading"
+                style="
+                  font-size: 1.375rem;
+                  font-weight: 600;
+                  color: var(--text-primary);
+                  margin-bottom: 0.5rem;
+                ">
+                Tell Us About Your Business
+              </h2>
+              <p
+                style="
+                  font-size: 0.875rem;
+                  color: var(--text-secondary);
+                  line-height: 1.65;
+                  margin-bottom: 2rem;
+                ">
+                Complete the form below and we'll review your situation before getting
+                back to you within 24 hours.
+              </p>
+
+              <div class="contact-form-wrap">
+                <form
+                  id="contactForm"
+                  novalidate
+                  aria-label="Strategy session enquiry form">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="field-name"
+                        >Your Name
+                        <span aria-hidden="true" style="color: var(--red)">*</span></label
+                      >
+                      <input
+                        class="form-input"
+                        type="text"
+                        id="field-name"
+                        name="name"
+                        autocomplete="name"
+                        required
+                        placeholder="Jane Smith"
+                        aria-required="true" />
+                    </div>
+                    <div class="form-group">
+                      <label for="field-business"
+                        >Business Name
+                        <span aria-hidden="true" style="color: var(--red)">*</span></label
+                      >
+                      <input
+                        class="form-input"
+                        type="text"
+                        id="field-business"
+                        name="business"
+                        required
+                        placeholder="Acme Services Ltd"
+                        aria-required="true" />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="field-email"
+                        >Email Address
+                        <span aria-hidden="true" style="color: var(--red)">*</span></label
+                      >
+                      <input
+                        class="form-input"
+                        type="email"
+                        id="field-email"
+                        name="email"
+                        autocomplete="email"
+                        required
+                        placeholder="jane@example.com"
+                        aria-required="true" />
+                    </div>
+                    <div class="form-group">
+                      <label for="field-website">Website URL</label>
+                      <input
+                        class="form-input"
+                        type="url"
+                        id="field-website"
+                        name="website"
+                        placeholder="https://example.com" />
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="field-type"
+                      >Business Type
+                      <span aria-hidden="true" style="color: var(--red)">*</span></label
+                    >
+                    <select
+                      class="form-select"
+                      id="field-type"
+                      name="business_type"
+                      required
+                      aria-required="true">
+                      <option value="" disabled selected>
+                        Select your business type
+                      </option>
+                      <option>
+                        Professional Services (Legal, Accounting, Consulting)
+                      </option>
+                      <option>Trades &amp; Home Services</option>
+                      <option>Health &amp; Wellness</option>
+                      <option>Financial Services</option>
+                      <option>Real Estate</option>
+                      <option>Other Service Business</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="field-sources">Current Lead Sources</label>
+                    <input
+                      class="form-input"
+                      type="text"
+                      id="field-sources"
+                      name="lead_sources"
+                      placeholder="e.g. Referrals, Google, Social media" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="field-volume"
+                      >Monthly Lead Volume
+                      <span style="opacity: 0.6">(optional)</span></label
+                    >
+                    <select class="form-select" id="field-volume" name="lead_volume">
+                      <option value="" disabled selected>Select a range</option>
+                      <option>Less than 5 leads/month</option>
+                      <option>5–15 leads/month</option>
+                      <option>15–30 leads/month</option>
+                      <option>30–60 leads/month</option>
+                      <option>60+ leads/month</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="field-challenge"
+                      >Biggest Challenge
+                      <span aria-hidden="true" style="color: var(--red)">*</span></label
+                    >
+                    <select
+                      class="form-select"
+                      id="field-challenge"
+                      name="challenge"
+                      required
+                      aria-required="true">
+                      <option value="" disabled selected>
+                        Select your primary challenge
+                      </option>
+                      <option>Not getting found locally / poor visibility</option>
+                      <option>Website isn't converting visitors into leads</option>
+                      <option>Inconsistent or unpredictable lead flow</option>
+                      <option>Poor lead quality from current sources</option>
+                      <option>Weak follow-up systems and missed opportunities</option>
+                      <option>All of the above</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="field-goals"
+                      >Goals &amp; Context
+                      <span aria-hidden="true" style="color: var(--red)">*</span></label
+                    >
+                    <textarea
+                      class="form-textarea"
+                      id="field-goals"
+                      name="goals"
+                      required
+                      aria-required="true"
+                      placeholder="Tell us about your goals, timeline, and what you've already tried..."
+                      rows="5"></textarea>
+                  </div>
+
+                  <div
+                    id="form-error"
+                    role="alert"
+                    aria-live="polite"
+                    style="
+                      display: none;
+                      padding: 0.875rem 1rem;
+                      background: var(--red-dim);
+                      border: 1px solid var(--red);
+                      border-radius: 8px;
+                      font-size: 0.85rem;
+                      color: var(--red);
+                      margin-bottom: 1rem;
+                    "></div>
+
+                  <button
+                    class="btn btn-primary"
+                    type="submit"
+                    id="submitBtn"
+                    style="width: 100%; justify-content: center; padding: 1rem">
+                    <span>Request Visibility Audit</span>
+                    <svg
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      aria-hidden="true"
+                      width="18"
+                      height="18">
+                      <path d="M4 10h12M10 4l6 6-6 6" />
+                    </svg>
+                  </button>
+
+                  <p
+                    style="
+                      font-size: 0.72rem;
+                      color: var(--text-muted);
+                      text-align: center;
+                      margin-top: 1rem;
+                      font-family: &quot;IBM Plex Mono&quot;, monospace;
+                    ">
+                    No commitment required. We'll respond within 24 hours.
+                  </p>
+                </form>
+
+                <!-- Success state -->
+                <div
+                  id="formSuccess"
+                  hidden
+                  style="text-align: center; padding: 3rem 1rem">
+                  <div
+                    style="
+                      width: 56px;
+                      height: 56px;
+                      border-radius: 50%;
+                      background: var(--green-dim);
+                      border: 1px solid var(--green);
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      margin: 0 auto 1.5rem;
+                      color: var(--green);
+                    "
+                    aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      width="24"
+                      height="24">
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>
+                  </div>
+                  <h3
+                    style="
+                      font-size: 1.25rem;
+                      font-weight: 600;
+                      color: var(--text-primary);
+                      margin-bottom: 0.75rem;
+                    ">
+                    Enquiry Received
+                  </h3>
+                  <p
+                    style="
+                      font-size: 0.9rem;
+                      color: var(--text-secondary);
+                      line-height: 1.65;
+                    ">
+                    Thank you for reaching out. We'll review your situation and get back
+                    to you within 24 hours with next steps.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- SIDEBAR -->
+            <aside
+              class="contact-info reveal-up delay-2"
+              aria-label="Contact information">
+              <div class="contact-info-block">
+                <h2
+                  style="
+                    font-size: 1.375rem;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                    margin-bottom: 0.5rem;
+                  ">
+                  What Happens Next
+                </h2>
+                <p>Once we receive your enquiry, here's how the process works:</p>
+                <div class="next-steps" role="list">
+                  <div class="next-step" role="listitem">
+                    <div class="next-step-num" aria-hidden="true">01</div>
+                    <div class="next-step-body">
+                      <h4>We Review Your Situation</h4>
+                      <p>
+                        We review your website, visibility, and current lead systems
+                        before our first conversation.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="next-step" role="listitem">
+                    <div class="next-step-num" aria-hidden="true">02</div>
+                    <div class="next-step-body">
+                      <h4>Strategic Analysis</h4>
+                      <p>
+                        We identify the specific gaps affecting your visibility, trust,
+                        and conversion performance.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="next-step" role="listitem">
+                    <div class="next-step-num" aria-hidden="true">03</div>
+                    <div class="next-step-body">
+                      <h4>Clear Recommendations</h4>
+                      <p>
+                        We provide strategic direction — even if we aren't the right fit
+                        to help you implement it.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="contact-info-block"
+                style="border-top: 1px solid var(--border); padding-top: 2rem">
+                <h3
+                  style="
+                    font-size: 1rem;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                    margin-bottom: 0.5rem;
+                  ">
+                  Prefer email?
+                </h3>
+                <a href="mailto:hello@lumenstrategy.com" class="footer-email"
+                  >hello@lumenstrategy.com</a
+                >
+              </div>
+
+              <div
+                class="contact-info-block"
+                style="border-top: 1px solid var(--border); padding-top: 2rem">
+                <p
+                  style="
+                    font-family: &quot;IBM Plex Mono&quot;, monospace;
+                    font-size: 0.68rem;
+                    color: var(--text-muted);
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    margin-bottom: 1rem;
+                  ">
+                  What We Review
+                </p>
+                <ul
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.6rem;
+                    list-style: none;
+                    padding: 0;
+                  ">
+                  <li
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 0.75rem;
+                      font-size: 0.875rem;
+                      color: var(--text-secondary);
+                    ">
+                    <span
+                      style="
+                        width: 5px;
+                        height: 5px;
+                        border-radius: 50%;
+                        background: var(--accent);
+                        flex-shrink: 0;
+                      "></span>
+                    Local search visibility and GBP performance
+                  </li>
+                  <li
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 0.75rem;
+                      font-size: 0.875rem;
+                      color: var(--text-secondary);
+                    ">
+                    <span
+                      style="
+                        width: 5px;
+                        height: 5px;
+                        border-radius: 50%;
+                        background: var(--accent);
+                        flex-shrink: 0;
+                      "></span>
+                    Website conversion structure and messaging
+                  </li>
+                  <li
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 0.75rem;
+                      font-size: 0.875rem;
+                      color: var(--text-secondary);
+                    ">
+                    <span
+                      style="
+                        width: 5px;
+                        height: 5px;
+                        border-radius: 50%;
+                        background: var(--accent);
+                        flex-shrink: 0;
+                      "></span>
+                    Trust signals and authority indicators
+                  </li>
+                  <li
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 0.75rem;
+                      font-size: 0.875rem;
+                      color: var(--text-secondary);
+                    ">
+                    <span
+                      style="
+                        width: 5px;
+                        height: 5px;
+                        border-radius: 50%;
+                        background: var(--accent);
+                        flex-shrink: 0;
+                      "></span>
+                    Lead capture and follow-up systems
+                  </li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="../scripts/component.js"></script>
+    <script>
+      // Contact form validation + submission handler
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("contactForm");
+        const submitBtn = document.getElementById("submitBtn");
+        const errorBox = document.getElementById("form-error");
+        const successBox = document.getElementById("formSuccess");
+
+        if (!form) return;
+
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          errorBox.style.display = "none";
+
+          const required = form.querySelectorAll("[required]");
+          let hasError = false;
+          required.forEach((field) => {
+            if (!field.value.trim()) {
+              field.style.borderColor = "var(--red)";
+              hasError = true;
+            } else {
+              field.style.borderColor = "";
+            }
+          });
+
+          if (hasError) {
+            errorBox.textContent =
+              "Please complete all required fields before submitting.";
+            errorBox.style.display = "block";
+            errorBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            return;
+          }
+
+          submitBtn.disabled = true;
+          submitBtn.querySelector("span").textContent = "Sending…";
+
+          // Simulate submission — replace with your endpoint
+          await new Promise((r) => setTimeout(r, 1200));
+
+          form.setAttribute("hidden", "");
+          successBox.removeAttribute("hidden");
+          successBox.focus();
+        });
+
+        // Clear error state on input
+        form
+          .querySelectorAll(".form-input, .form-select, .form-textarea")
+          .forEach((field) => {
+            field.addEventListener("input", () => {
+              field.style.borderColor = "";
+            });
+          });
+      });
+    </script>
+  </body>
+</html>

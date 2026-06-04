@@ -1,0 +1,1799 @@
+/* ============================================================
+   Arktera Systems — motion.css
+   Perpetual ambient animation system.
+   All keyframes, floating elements, orbital rings,
+   magnetic interactions, and depth systems.
+   Import AFTER style.css and extended.css.
+   ============================================================ */
+
+/* ── KEYFRAME LIBRARY ── */
+
+/* Slow vertical oscillation */
+@keyframes floatY {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes floatYSlow {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes floatYInverse {
+  0% {
+    transform: translateY(-8px);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Compound drift — X+Y for suspended feeling */
+@keyframes ambientDrift {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  25% {
+    transform: translate(6px, -10px) rotate(0.4deg);
+  }
+  50% {
+    transform: translate(-4px, -16px) rotate(-0.3deg);
+  }
+  75% {
+    transform: translate(-8px, -6px) rotate(0.2deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+@keyframes ambientDriftB {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  33% {
+    transform: translate(-8px, 8px) rotate(-0.5deg);
+  }
+  66% {
+    transform: translate(5px, 14px) rotate(0.3deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+@keyframes ambientDriftC {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    transform: translate(10px, -5px);
+  }
+  75% {
+    transform: translate(-6px, 8px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+/* Orbital rotation */
+@keyframes orbitCW {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes orbitCCW {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes orbitCWHalf {
+  from {
+    transform: rotate(0deg) translateX(60px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(60px) rotate(-360deg);
+  }
+}
+
+/* Glow breathing */
+@keyframes glowBreathe {
+  0%,
+  100% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 12px var(--accent);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.08);
+    box-shadow: 0 0 24px var(--accent);
+  }
+}
+@keyframes glowBreatheAlt {
+  0%,
+  100% {
+    opacity: 0.4;
+    filter: blur(40px);
+  }
+  50% {
+    opacity: 0.8;
+    filter: blur(55px);
+  }
+}
+
+/* Scanline sweep */
+@keyframes scanSweep {
+  0% {
+    top: -2px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+/* Pulse ring */
+@keyframes ringPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+@keyframes ringPulseSlow {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* Data tick — simulates live data updating */
+@keyframes dataTick {
+  0%,
+  90% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Horizontal shimmer on bars */
+@keyframes shimmerFill {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: var(--fill-target, 80%);
+  }
+}
+
+/* Subtle border rotate */
+@keyframes borderRotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Number count-up handled in JS — this just pulses container */
+@keyframes metricPulse {
+  0%,
+  100% {
+    color: var(--text-primary);
+  }
+  50% {
+    color: var(--accent);
+  }
+}
+
+/* Dangle — for hanging card feeling */
+@keyframes dangle {
+  0% {
+    transform: rotate(-1.5deg) translateY(0px);
+  }
+  50% {
+    transform: rotate(1.5deg) translateY(-6px);
+  }
+  100% {
+    transform: rotate(-1.5deg) translateY(0px);
+  }
+}
+@keyframes dangleB {
+  0% {
+    transform: rotate(1deg) translateY(-4px);
+  }
+  50% {
+    transform: rotate(-2deg) translateY(0px);
+  }
+  100% {
+    transform: rotate(1deg) translateY(-4px);
+  }
+}
+
+/* Progress bar fill animation */
+@keyframes barFill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ── AMBIENT FLOATING ELEMENT BASE ── */
+.ambient-float {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform;
+}
+.ambient-float--a {
+  animation: ambientDrift 18s ease-in-out infinite;
+}
+.ambient-float--b {
+  animation: ambientDriftB 22s ease-in-out infinite;
+}
+.ambient-float--c {
+  animation: ambientDriftC 16s ease-in-out infinite;
+}
+.ambient-float--y {
+  animation: floatY 10s ease-in-out infinite;
+}
+.ambient-float--ys {
+  animation: floatYSlow 14s ease-in-out infinite;
+}
+.ambient-float--yi {
+  animation: floatYInverse 12s ease-in-out infinite;
+}
+.ambient-float--dangle {
+  animation: dangle 9s ease-in-out infinite;
+  transform-origin: top center;
+}
+.ambient-float--dangleB {
+  animation: dangleB 11s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+/* ── ORBITAL RING SYSTEM ── */
+.orbital-system {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.orbital-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+.orbital-ring--cw {
+  animation: orbitCW 40s linear infinite;
+}
+.orbital-ring--ccw {
+  animation: orbitCCW 55s linear infinite;
+}
+.orbital-ring--slow-cw {
+  animation: orbitCW 80s linear infinite;
+}
+.orbital-ring--slow-ccw {
+  animation: orbitCCW 90s linear infinite;
+}
+
+.orbital-dot {
+  position: absolute;
+  border-radius: 50%;
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  top: -2.5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.orbital-dot--dim {
+  background: var(--border-hover);
+  box-shadow: none;
+  width: 4px;
+  height: 4px;
+  top: -2px;
+}
+
+/* ── AMBIENT GLOW ANCHORS ── */
+.glow-anchor {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+.glow-anchor--primary {
+  animation: glowBreathe 8s ease-in-out infinite;
+}
+.glow-anchor--secondary {
+  animation: glowBreatheAlt 11s ease-in-out infinite 2s;
+}
+
+/* ── SCANLINE OVERLAY ── */
+.scanline-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: inherit;
+}
+.scanline-overlay::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0;
+  animation: scanSweep 6s ease-in-out infinite 2s;
+}
+
+/* ── GLASS PANEL SYSTEM (enhanced) ── */
+.glass-panel {
+  background: var(--bg-glass);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  box-shadow:
+    0 4px 32px hsla(199, 69%, 3%, 0.35),
+    inset 0 1px 0 hsla(255, 255%, 255%, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+.glass-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, hsla(255, 255%, 255%, 0.03) 0%, transparent 60%);
+  border-radius: inherit;
+  pointer-events: none;
+}
+[data-theme="light"] .glass-panel {
+  box-shadow:
+    0 4px 32px hsla(209, 44%, 12%, 0.08),
+    inset 0 1px 0 hsla(255, 255%, 255%, 0.6);
+}
+[data-theme="light"] .glass-panel::before {
+  background: linear-gradient(135deg, hsla(255, 255%, 255%, 0.5) 0%, transparent 60%);
+}
+
+/* Enhanced hover on glass panels */
+.glass-panel--hoverable {
+  transition:
+    transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 0.3s ease,
+    box-shadow 0.4s ease;
+  cursor: default;
+}
+.glass-panel--hoverable:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-hover);
+  box-shadow:
+    0 12px 48px hsla(199, 69%, 3%, 0.5),
+    0 0 0 1px var(--accent-glow),
+    inset 0 1px 0 hsla(255, 255%, 255%, 0.06);
+}
+.glass-panel--hoverable:hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 0%,
+    var(--accent-glow) 0%,
+    transparent 70%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* ── METRIC PANEL ── */
+.metric-panel {
+  padding: 1.25rem 1.5rem;
+  min-width: 180px;
+}
+.metric-panel-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.875rem;
+}
+.metric-panel-status {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: dataTick 4s ease-in-out infinite;
+}
+.metric-panel-status--green {
+  background: var(--green);
+  box-shadow: 0 0 6px var(--green);
+}
+.metric-panel-status--amber {
+  background: var(--amber);
+  box-shadow: 0 0 6px var(--amber);
+  animation-delay: 1s;
+}
+.metric-panel-status--accent {
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent);
+  animation-delay: 2s;
+}
+.metric-panel-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.metric-panel-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.25rem;
+}
+.metric-panel-value .accent {
+  color: var(--accent);
+}
+.metric-panel-sub {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+.metric-panel-bar {
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  margin-top: 0.875rem;
+  overflow: hidden;
+}
+.metric-panel-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.8s cubic-bezier(0.23, 1, 0.32, 1) 0.3s;
+}
+.metric-panel-bar-fill--green {
+  background: var(--green);
+}
+.metric-panel-bar-fill--amber {
+  background: var(--amber);
+}
+.metric-panel-bar-fill.animated {
+  transform: scaleX(1);
+}
+
+/* ── PROCESS STEP — ENHANCED ── */
+.process-node-outer {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.process-node-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  opacity: 0;
+  animation: ringPulseSlow 3.5s ease-out infinite;
+}
+.process-node-core {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  color: var(--accent);
+  box-shadow: 0 0 16px var(--accent-dim);
+  position: relative;
+  z-index: 1;
+}
+
+/* ── OUTCOME CHIP SYSTEM ── */
+.outcome-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+.outcome-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1rem;
+  background: var(--bg-glass);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  transition:
+    border-color 0.25s,
+    color 0.25s,
+    transform 0.25s;
+}
+.outcome-chip:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+.outcome-chip-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 6px var(--green);
+  flex-shrink: 0;
+  animation: dataTick 3s ease-in-out infinite;
+}
+
+/* ── FLOATING DATA PANEL (positioned) ── */
+.fdp {
+  position: absolute;
+  z-index: 4;
+  will-change: transform;
+}
+.fdp--a {
+  animation: ambientDrift 22s ease-in-out infinite;
+}
+.fdp--b {
+  animation: ambientDriftB 18s ease-in-out infinite;
+}
+.fdp--c {
+  animation: floatY 12s ease-in-out infinite;
+}
+.fdp--d {
+  animation: dangle 10s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+/* ── CONVERSION PSYCHOLOGY BREAKDOWN ── */
+.psych-layer {
+  position: relative;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.75rem;
+  overflow: hidden;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+  animation: floatMed 8s ease-in-out infinite;
+  -webkit-animation: floatMed 8s ease-in-out infinite;
+}
+.psych-layer:hover {
+  border-color: var(--accent);
+}
+.psych-layer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.psych-layer:hover::before {
+  opacity: 1;
+}
+.psych-layer-num {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  margin-bottom: 0.75rem;
+}
+.psych-layer h4 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+.psych-layer p {
+  font-size: 0.8375rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.psych-layer-bar {
+  height: 2px;
+  background: var(--border);
+  border-radius: 1px;
+  margin-top: 1rem;
+  overflow: hidden;
+}
+.psych-layer-bar-fill {
+  height: 100%;
+  border-radius: 1px;
+  background: linear-gradient(90deg, var(--accent), var(--green));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.psych-layer-bar-fill.animated {
+  transform: scaleX(1);
+}
+
+/* ── OPERATIONAL PROBLEM GRID ── */
+.op-problem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+.op-problem-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  transition:
+    border-color 0.3s,
+    transform 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.op-problem-card:hover {
+  border-color: var(--red);
+  transform: translateY(-3px);
+}
+.op-problem-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 60% at 0% 0%,
+    var(--red-dim) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.op-problem-card:hover::after {
+  opacity: 1;
+}
+.op-problem-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: var(--red-dim);
+  border: 1px solid var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--red);
+  position: relative;
+  z-index: 1;
+}
+.op-problem-icon svg {
+  width: 16px;
+  height: 16px;
+}
+.op-problem-body {
+  position: relative;
+  z-index: 1;
+}
+.op-problem-body h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+.op-problem-body p {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ── WHAT WE IMPROVE CARD (enhanced) ── */
+.improve-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+.improve-card {
+  background: var(--bg-glass);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+  transition:
+    border-color 0.35s,
+    transform 0.35s,
+    box-shadow 0.35s;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.improve-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, hsla(255, 255%, 255%, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+.improve-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-5px) scale(1.01);
+  box-shadow:
+    0 16px 48px hsla(199, 69%, 3%, 0.45),
+    0 0 0 1px var(--accent-glow);
+}
+.improve-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+  transition: background 0.3s;
+}
+.improve-card:hover .improve-card-icon {
+  background: var(--accent);
+  color: hsl(199, 69%, 5%);
+}
+[data-theme="light"] .improve-card:hover .improve-card-icon {
+  color: hsl(209, 44%, 8%);
+}
+.improve-card-icon svg {
+  width: 20px;
+  height: 20px;
+}
+.improve-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+.improve-card p {
+  font-size: 0.8375rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* ── FAQ ENHANCED ── */
+.faq-item-enhanced {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+.faq-item-enhanced.open {
+  border-color: var(--accent);
+  box-shadow: 0 4px 24px var(--accent-glow);
+}
+.faq-item-enhanced .faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.375rem 1.5rem;
+  background: none;
+  border: none;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.2s;
+  gap: 1rem;
+}
+.faq-item-enhanced .faq-question:hover {
+  color: var(--accent);
+}
+.faq-icon-wrap {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition:
+    transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 0.3s,
+    color 0.3s,
+    background 0.3s;
+}
+.faq-item-enhanced.open .faq-icon-wrap {
+  transform: rotate(45deg);
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+.faq-answer-wrap {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.faq-answer-body {
+  padding: 0 1.5rem 1.5rem;
+  font-size: 0.8875rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+.faq-answer-body strong {
+  color: var(--text-primary);
+}
+.faq-answer-body ul {
+  margin: 0.75rem 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.faq-answer-body ul li {
+  list-style: disc;
+}
+
+/* ── SERVICE HERO PANEL DOCK ── */
+.hero-panel-dock {
+  position: relative;
+  max-width: 960px;
+  margin: 3rem auto 0;
+  min-height: 200px;
+}
+.hero-panel-dock .fdp {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .fdp {
+    display: none;
+  }
+  .orbital-system {
+    display: none;
+  }
+  .improve-grid {
+    grid-template-columns: 1fr;
+  }
+  .op-problem-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── REDUCED MOTION ── */
+@media (prefers-reduced-motion: reduce) {
+  .ambient-float--a,
+  .ambient-float--b,
+  .ambient-float--c,
+  .ambient-float--y,
+  .ambient-float--ys,
+  .ambient-float--yi,
+  .ambient-float--dangle,
+  .ambient-float--dangleB,
+  .orbital-ring--cw,
+  .orbital-ring--ccw,
+  .orbital-ring--slow-cw,
+  .orbital-ring--slow-ccw,
+  .glow-anchor--primary,
+  .glow-anchor--secondary,
+  .fdp--a,
+  .fdp--b,
+  .fdp--c,
+  .fdp--d {
+    animation: none !important;
+  }
+  .scanline-overlay::after {
+    animation: none;
+  }
+  .metric-panel-status {
+    animation: none;
+  }
+  .outcome-chip-dot {
+    animation: none;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   INSIGHT ARTICLE SYSTEM — appended to motion.css
+   Reading progress, article layout, floating aside panels,
+   ranking factor visuals, lead-flow diagrams.
+══════════════════════════════════════════════════════════ */
+
+/* ── READING PROGRESS BAR ── */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), hsl(158, 64%, 52%));
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* ── ARTICLE LAYOUT ── */
+.article-wrap {
+  display: grid;
+  grid-template-columns: 1fr min(720px, 100%) 1fr;
+  gap: 0;
+}
+.article-wrap > * {
+  grid-column: 2;
+}
+.article-wrap > .full-bleed {
+  grid-column: 1 / -1;
+}
+
+.article-body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+}
+.article-body p {
+  font-size: 1.0625rem;
+  color: var(--text-secondary);
+  line-height: 1.82;
+  margin-bottom: 1.375rem;
+}
+.article-body h2 {
+  font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.22;
+  margin: 3.5rem 0 1.25rem;
+  padding-top: 3.5rem;
+  border-top: 1px solid var(--border);
+}
+.article-body h2:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 1rem;
+}
+.article-body h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 2rem 0 0.75rem;
+}
+.article-body ul,
+.article-body ol {
+  padding-left: 0;
+  margin-bottom: 1.375rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.article-body ul li,
+.article-body ol li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.article-body ul li::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  margin-top: 0.55rem;
+}
+.article-body ol {
+  counter-reset: ol-counter;
+}
+.article-body ol li {
+  counter-increment: ol-counter;
+}
+.article-body ol li::before {
+  content: counter(ol-counter);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.2rem;
+  font-weight: 500;
+}
+
+/* ── ARTICLE META ROW ── */
+.article-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2.5rem;
+}
+.article-meta-tag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: 0.2rem 0.6rem;
+}
+.article-meta-item {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ── PULL QUOTE ── */
+.pull-quote {
+  margin: 2.5rem 0;
+  padding: 1.5rem 2rem;
+  border-left: 2px solid var(--accent);
+  background: var(--bg-secondary);
+  border-radius: 0 10px 10px 0;
+}
+.pull-quote p {
+  font-size: 1.125rem !important;
+  font-weight: 500;
+  color: var(--text-primary) !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+  font-style: italic;
+  font-family: "Cormorant Garamond", serif;
+}
+
+/* ── INSIGHT CALLOUT BOX ── */
+.insight-callout {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--bg-glass);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+}
+.insight-callout::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+.insight-callout-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+.insight-callout p {
+  font-size: 0.9375rem !important;
+  margin-bottom: 0 !important;
+}
+
+/* ── VISUAL PANEL (inline infographic) ── */
+.visual-panel {
+  margin: 2.5rem 0;
+  border-radius: 14px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+}
+.visual-panel-header {
+  padding: 1rem 1.5rem;
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.visual-panel-title {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.visual-panel-body {
+  padding: 1.75rem;
+  position: relative;
+}
+
+/* ── RANKING FACTOR ROW ── */
+.factor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+.factor-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 180px) 1fr minmax(44px, 52px);
+  align-items: center;
+  gap: 1rem;
+  padding: 0.875rem 1.25rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition:
+    border-color 0.3s,
+    transform 0.3s;
+}
+.factor-row:hover {
+  border-color: var(--accent);
+  transform: translateX(4px);
+}
+.factor-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+.factor-bar-track {
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.factor-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  width: 0;
+  transition: width 1.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.factor-bar-fill--high {
+  background: var(--accent);
+}
+.factor-bar-fill--medium {
+  background: var(--amber);
+}
+.factor-bar-fill--low {
+  background: hsl(208, 18%, 40%);
+}
+.factor-weight {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: right;
+  color: var(--text-secondary);
+}
+.factor-weight--high {
+  color: var(--accent);
+}
+.factor-weight--medium {
+  color: var(--amber);
+}
+
+@media (max-width: 768px) {
+  .factor-row {
+    grid-template-columns: minmax(100px, 140px) 1fr minmax(40px, 50px);
+    gap: 0.75rem;
+  }
+
+  .factor-label {
+    font-size: 0.82rem;
+  }
+
+  .factor-weight {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .factor-row {
+    grid-template-columns: 1fr;
+    row-gap: 0.4rem;
+  }
+
+  .factor-weight {
+    text-align: left;
+  }
+}
+
+/* ── STAT HIGHLIGHT ── */
+.stat-highlight {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+.stat-highlight-num {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.stat-highlight-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+/* ── SYSTEM FLOW DIAGRAM ── */
+.flow-diagram {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 0;
+  flex-wrap: wrap;
+  /* margin: 1.5rem 0; */
+}
+
+.flow-node-box {
+  padding: 0.875rem 1.25rem;
+  border-radius: 10px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  text-align: center;
+  flex: 1;
+  min-width: 120px;
+  transition: border-color 0.3s;
+}
+.flow-node-box:hover {
+  border-color: var(--accent);
+}
+.flow-node-box.active {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+}
+.flow-node-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+.flow-node-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.flow-node-box.active .flow-node-value {
+  color: var(--accent);
+}
+
+.flow-node-box-margin {
+  margin-top: 1rem;
+}
+
+.flow-connector {
+  width: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  position: relative;
+  width: clamp(16px, 3vw, 40px);
+}
+
+.flow-connector::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border), var(--accent), var(--border));
+  animation: trustFlowRight 3s ease-in-out infinite;
+}
+
+@media (max-width: 900px) {
+  .flow-diagram {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .flow-node-box {
+    flex: 0 0 calc(50% - 1rem);
+    min-width: unset;
+  }
+
+  .flow-connector {
+    display: none;
+  }
+
+  .flow-node-box-margin {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .flow-diagram {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .flow-node-box {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .flow-connector {
+    display: none;
+  }
+}
+
+/* ── FAQ (insight variant) ── */
+.insight-faq {
+  margin-top: 3.5rem;
+}
+.insight-faq-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.insight-faq .faq-item {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  transition: border-color 0.3s;
+}
+.insight-faq .faq-item.open {
+  border-color: var(--accent);
+}
+.insight-faq .faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.125rem 1.375rem;
+  background: none;
+  border: none;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  gap: 1rem;
+  transition: color 0.2s;
+}
+.insight-faq .faq-question:hover {
+  color: var(--accent);
+}
+.insight-faq .faq-icon-wrap {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition:
+    transform 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 0.3s,
+    color 0.3s,
+    background 0.3s;
+}
+.insight-faq .faq-item.open .faq-icon-wrap {
+  transform: rotate(45deg);
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+.insight-faq .faq-answer-wrap {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.42s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.insight-faq .faq-answer-body {
+  padding: 0 1.375rem 1.375rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.72;
+}
+
+/* ── RELATED ARTICLES ROW ── */
+.related-articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+.related-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition:
+    border-color 0.3s,
+    transform 0.3s;
+  text-decoration: none;
+  display: block;
+}
+.related-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+.related-card-tag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+.related-card h4 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+.related-card p {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.related-card-arrow {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  color: var(--accent);
+  margin-top: 1rem;
+  display: block;
+  transition: gap 0.2s;
+}
+
+/* ── FLOATING ASIDE PANEL (ambient, right side) ── */
+.aside-panel {
+  position: absolute;
+  right: -200px;
+  top: 0;
+  width: 180px;
+}
+@media (max-width: 1200px) {
+  .aside-panel {
+    display: none;
+  }
+}
+
+/* ── PRIORITY CARD (numbered insight) ── */
+.priority-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.priority-item {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition:
+    border-color 0.3s,
+    transform 0.3s;
+}
+.priority-item:hover {
+  border-color: var(--accent);
+  transform: translateX(4px);
+}
+.priority-num {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  flex-shrink: 0;
+  font-weight: 500;
+}
+.priority-item h4 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+.priority-item p {
+  font-size: 0.8375rem;
+  color: var(--text-secondary);
+  line-height: 1.62;
+}
+
+@media (max-width: 768px) {
+  .priority-item {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .priority-num {
+    align-self: flex-start;
+  }
+
+  .priority-item > div {
+    min-width: 0;
+  }
+}
+
+/* ── RESULT METRIC CARD ── */
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin: 2rem 0;
+}
+.result-item {
+  background: var(--bg-secondary);
+  padding: 1.5rem;
+  text-align: center;
+  transition: background 0.2s;
+}
+.result-item:hover {
+  background: var(--bg-glass);
+}
+.result-num {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+.result-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── REDUCED MOTION ADDITIONS ── */
+@media (prefers-reduced-motion: reduce) {
+  .reading-progress {
+    transition: none;
+  }
+  .factor-bar-fill {
+    transition: none;
+  }
+  .flow-connector::before {
+    animation: none;
+  }
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE MOTION — appended
+   Hides/simplifies motion-heavy elements on mobile
+══════════════════════════════════════════════ */
+
+/* Orbital systems: hide outermost ring on small screens */
+@media (max-width: 768px) {
+  .orbital-system {
+    display: none;
+  }
+  .glow-anchor {
+    opacity: 0.5;
+  }
+  /* Reduce animation cost on low-power devices */
+  .fdp {
+    display: none;
+  }
+}
+
+/* Metric panel bar fill animation */
+.metric-panel-bar-fill {
+  width: 0;
+  transition: width 1.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.metric-panel-bar-fill.animated {
+  width: var(--fill-target, 60%);
+}
+
+/* metric-panel-bar-fill colour variants */
+.metric-panel-bar-fill--amber {
+  background: var(--amber);
+}
+.metric-panel-bar-fill--green {
+  background: var(--green);
+}
+.metric-panel-bar-fill--red {
+  background: var(--red);
+}
+
+/* metric-panel-status colours */
+.metric-panel-status--green {
+  background: var(--green);
+  box-shadow: 0 0 6px var(--green);
+}
+.metric-panel-status--amber {
+  background: var(--amber);
+  box-shadow: 0 0 6px var(--amber);
+}
+.metric-panel-status--red {
+  background: var(--red);
+  box-shadow: 0 0 6px var(--red);
+}
+.metric-panel-status--accent {
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent);
+}
+
+/* diag score colours */
+.diag-score--red {
+  color: var(--red);
+}
+.diag-score--amber {
+  color: var(--amber);
+}
+.diag-score--green {
+  color: var(--green);
+}
+
+/* diag bar fill colours */
+.diag-bar-fill--red {
+  background: var(--red);
+}
+.diag-bar-fill--amber {
+  background: var(--amber);
+}
+.diag-bar-fill--green {
+  background: var(--green);
+}
+.diag-bar-fill--accent {
+  background: var(--accent);
+}
+
+/* factor bar fill colours */
+.factor-bar-fill--high {
+  background: var(--accent);
+}
+.factor-bar-fill--medium {
+  background: var(--amber);
+}
+.factor-bar-fill--low {
+  background: hsl(208, 18%, 40%);
+}
+
+/* Trust layer animated state */
+.trust-layer.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+.trust-layer {
+  opacity: 0;
+  transform: translateX(-12px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+.trust-layer:nth-child(2) {
+  transition-delay: 0.1s;
+}
+.trust-layer:nth-child(3) {
+  transition-delay: 0.2s;
+}
+.trust-layer:nth-child(4) {
+  transition-delay: 0.3s;
+}
+.trust-layer:nth-child(5) {
+  transition-delay: 0.4s;
+}
+
+/* Reduce motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .fdp,
+  .orbital-system,
+  .glow-anchor {
+    animation: none !important;
+  }
+  .trust-layer {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .metric-panel-bar-fill {
+    transition: none;
+  }
+  .factor-bar-fill,
+  .diag-bar-fill,
+  .tvc-fill {
+    transition: none;
+  }
+}
