@@ -56,7 +56,7 @@ const LOGO_SVG = `
 
 // Resolve base path dynamically based on current page depth
 const _depth = (window.location.pathname.match(/\//g) || []).length - 1;
-const _base = _depth >= 2 ? "../" : "/";
+const _base = "/";
 const HOME_PATH = _base;
 const PAGE_PATH = _base + "pages/";
 
@@ -598,7 +598,7 @@ function initHeroParallax() {
 /* ── MAIN INIT ── */
 function initComponents(activePage = "") {
   // Inject structure
-  // injectNav(activePage);
+  injectNav(activePage);
   injectFooter();
 
   // Init behaviours (deferred until DOM is ready)
