@@ -2152,6 +2152,12 @@ label {
   box-shadow: var(--shadow-card);
 }
 
+@media (max-width: 768px) {
+  .glass-panel {
+    display: none;
+  }
+}
+
 /* ── Metric panel ── */
 .metric-panel {
   padding: 1rem 1.25rem;
@@ -2988,5 +2994,245 @@ label {
   }
   .impact-card {
     padding: 1.5rem;
+  }
+}
+
+/* PATCH FOR RESPONSIVENESS */
+/* ============================================================
+   extended.css — Responsive Audit Patch
+   Append to the end of extended.css
+   ============================================================ */
+
+/* ── PAGE HERO — mobile padding & content ── */
+@media (max-width: 768px) {
+  .page-hero {
+    padding: 100px 1.25rem 60px;
+  }
+  .page-hero h1 {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+  .page-hero p {
+    font-size: 0.9375rem;
+    margin-bottom: 2rem;
+  }
+  .page-hero-ctas {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  .page-hero-ctas .btn {
+    text-align: center;
+    justify-content: center;
+  }
+  .page-hero-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-hero {
+    padding: 88px 1rem 48px;
+  }
+}
+
+/* ── SP-HERO (service pages) — no breakpoint existed ── */
+@media (max-width: 900px) {
+  .sp-hero {
+    min-height: auto;
+    padding: 110px 1.5rem 72px;
+  }
+  .sp-hero-content {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .sp-hero {
+    padding: 96px 1.25rem 56px;
+  }
+  .sp-hero p.lead {
+    font-size: 0.9375rem;
+    max-width: 100%;
+  }
+  .sp-hero-ctas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .sp-hero-ctas .btn {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* ── FLOAT DATA PANELS — hide on mobile, they overflow ── */
+@media (max-width: 900px) {
+  .float-data-panel {
+    display: none;
+  }
+}
+
+/* ── CORE SERVICE GRID — minmax floor too wide for small screens ── */
+@media (max-width: 520px) {
+  .core-service-grid {
+    grid-template-columns: 1fr;
+  }
+  .core-service-card {
+    padding: 1.75rem;
+  }
+}
+
+/* ── CONTACT FORM — inner padding on small screens ── */
+@media (max-width: 480px) {
+  .contact-form-wrap {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+/* ── STAT ROW — wrapping gap control ── */
+@media (max-width: 480px) {
+  .stat-row {
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  .stat-num {
+    font-size: 1.625rem;
+  }
+}
+
+/* ── APPROACH ITEM — overflow on translateX hover ── */
+@media (max-width: 600px) {
+  .approach-item:hover {
+    transform: none;
+  }
+  .approach-item {
+    padding: 0.875rem 1rem;
+  }
+}
+
+/* ── PROCESS COMPACT — step text overflow ── */
+@media (max-width: 480px) {
+  .pc-step {
+    padding: 1.5rem 1rem;
+  }
+  .pc-step p {
+    max-width: 100%;
+  }
+}
+
+/* ── IMPROVE GRID — minmax too wide on small phones ── */
+@media (max-width: 480px) {
+  .improve-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── OUTCOME METRICS — minmax floor fix ── */
+@media (max-width: 480px) {
+  .outcome-metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+  .outcome-metric {
+    padding: 1.25rem 1rem;
+  }
+}
+
+/* ── INTEL CARD — icon + text gap ── */
+@media (max-width: 480px) {
+  .intel-card {
+    gap: 0.875rem;
+    padding: 1rem;
+  }
+  .intel-num {
+    min-width: 20px;
+  }
+}
+
+/* ── NEXT STEPS (contact page) ── */
+@media (max-width: 480px) {
+  .next-step {
+    gap: 0.75rem;
+  }
+}
+
+/* ── PRINCIPLE CARDS — padding on small screens ── */
+@media (max-width: 480px) {
+  .principle-card {
+    padding: 1.5rem;
+    gap: 0.875rem;
+  }
+  .principle-num {
+    font-size: 1.2rem;
+  }
+}
+
+/* ── TRUST LAYER — icon shrink on very small ── */
+@media (max-width: 380px) {
+  .trust-layer {
+    gap: 0.875rem;
+  }
+  .trust-layer-icon {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+  }
+  .trust-layer-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+  .trust-layer-body h4 {
+    font-size: 0.875rem;
+  }
+}
+
+/* ── PRIORITY ITEM — flex gap on tiny screens ── */
+@media (max-width: 380px) {
+  .priority-item {
+    flex-direction: column;
+    gap: 0.625rem;
+    padding: 1rem;
+  }
+}
+
+/* ── PHILOSOPHY VISUAL float tags — clip on mobile ── */
+@media (max-width: 768px) {
+  .philosophy-float-tag {
+    display: none;
+  }
+}
+
+/* ── TICKER — pause animation on reduced motion already handled; 
+   ensure no overflow on mobile ── */
+@media (max-width: 480px) {
+  .ticker-item {
+    padding: 0 1.5rem;
+    font-size: 0.65rem;
+  }
+}
+
+/* ── OUTCOME CHIPS — wrap tightly ── */
+@media (max-width: 480px) {
+  .outcome-chips {
+    gap: 0.5rem;
+  }
+  .outcome-chip {
+    font-size: 0.68rem;
+    padding: 0.3rem 0.75rem;
+  }
+}
+
+/* ── LEGAL LAYOUT — mobile padding ── */
+@media (max-width: 600px) {
+  .legal-layout {
+    padding: 5rem 1.25rem 6rem;
+  }
+}
+
+/* ── SHIMMER BADGE — overflow clip ── */
+@media (max-width: 480px) {
+  .shimmer-badge {
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.75rem;
   }
 }

@@ -1655,3 +1655,195 @@
   z-index: 5;
   animation: analysisScan 7s ease-in-out infinite 3s;
 }
+
+/* ============================================================
+   breakdown-motion.css — Responsive Audit Patch
+   Append to the end of breakdown-motion.css
+   ============================================================ */
+
+/* ── BD-HERO-VISUAL — overflow + floating panel hide ── */
+.bd-hero-visual {
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .bd-float {
+    display: none;
+  }
+}
+
+/* ── IMPACT GRID — was undefined; now defined ── */
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 900px) {
+  .impact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── BROWSER MOCKUP — clamp height, ensure no h-scroll ── */
+@media (max-width: 480px) {
+  .browser-mockup {
+    border-radius: 10px;
+  }
+  .browser-bar {
+    padding: 0.5rem 0.75rem;
+  }
+  .browser-url {
+    font-size: 0.62rem;
+    padding: 0.25rem 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .browser-content {
+    min-height: 220px;
+  }
+}
+
+/* ── ISSUE SECTION — padding collapse on mobile ── */
+@media (max-width: 600px) {
+  .issue-section {
+    padding: 3rem 0;
+  }
+  .issue-title {
+    font-size: 1.125rem;
+  }
+  .issue-header {
+    gap: 0.875rem;
+    margin-bottom: 1.5rem;
+  }
+  .issue-badge {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+  }
+}
+
+/* ── ISSUE CARDS — padding on very small screens ── */
+@media (max-width: 480px) {
+  .issue-card {
+    padding: 1.25rem;
+  }
+  .issue-card h4 {
+    font-size: 0.875rem;
+  }
+}
+
+/* ── DIAGNOSTIC DASHBOARD (breakdown version) ── */
+/* Already handled at 900px and 600px in the file;
+   add 380px floor for ultra-narrow */
+@media (max-width: 380px) {
+  .diagnostic-dashboard {
+    padding: 1.25rem 1rem;
+  }
+  .diag-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding-bottom: 0.875rem;
+    margin-bottom: 1.25rem;
+  }
+  .diag-title {
+    font-size: 0.62rem;
+  }
+}
+
+/* ── COMPARISON SYSTEM (breakdown version) ── */
+/* Already collapses at 900px; add padding tightening */
+@media (max-width: 600px) {
+  .comparison-card {
+    padding: 1.5rem 1.25rem;
+  }
+  .comparison-card h3 {
+    font-size: 1rem;
+  }
+}
+
+/* ── MOCK IMAGE WRAPPER — ensure SVGs never overflow ── */
+.mock-img-wrap svg {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 480px) {
+  .mock-img-wrap {
+    border-radius: 8px;
+  }
+  .mock-caption {
+    font-size: 0.6rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* ── LIGHTBOX — full-screen on mobile ── */
+@media (max-width: 600px) {
+  .lx-overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+  .lx-inner {
+    max-width: 100%;
+    border-radius: 16px 16px 0 0;
+    overflow: hidden;
+  }
+  .lx-frame {
+    border-radius: 0;
+  }
+  .lx-nav {
+    padding: 0 0.25rem;
+  }
+  .lx-nav-btn {
+    width: 36px;
+    height: 36px;
+  }
+  .lx-esc {
+    display: none;
+  }
+}
+
+/* ── OUTCOME STRIP — collapse to 2-col on mobile ── */
+@media (max-width: 480px) {
+  .outcome-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .outcome-strip-item {
+    padding: 1.25rem;
+  }
+  .outcome-strip-num {
+    font-size: 1.375rem;
+  }
+}
+
+/* ── TRUST FLOW — hide on tiny screens ── */
+@media (max-width: 480px) {
+  .trust-flow {
+    display: none;
+  }
+}
+
+/* ── IMPACT CARD (breakdown version) — padding tighten ── */
+@media (max-width: 480px) {
+  .impact-card {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+/* ── ISSUE WITH MOCK — already 1-col at 860px;
+   tighten gap on mobile ── */
+@media (max-width: 600px) {
+  .issue-with-mock {
+    gap: 1.25rem;
+  }
+}

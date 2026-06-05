@@ -1797,3 +1797,100 @@
     transition: none;
   }
 }
+
+/* ============================================================
+   motion.css — Responsive Audit Patch
+   Append to the end of motion.css
+   ============================================================ */
+
+/* ── AMBIENT ORBS — fixed px sizes cause overflow on mobile ── */
+@media (max-width: 768px) {
+  .ambient-orb--1 {
+    width: 280px;
+    height: 220px;
+    right: -40px;
+  }
+  .ambient-orb--2 {
+    width: 220px;
+    height: 220px;
+    left: -40px;
+  }
+  .ambient-orb--3 {
+    display: none;
+  }
+}
+
+/* ── PAGE HERO GLOW — 500px fixed width overflows ── */
+@media (max-width: 600px) {
+  .page-hero-glow {
+    width: min(500px, 100vw);
+    height: 260px;
+  }
+}
+
+/* ── ORBITAL SYSTEM (CSS-positioned) — hide earlier ── */
+/* Already hides at 1100px; HTML inline-override patched separately */
+
+/* ── GLASS PANEL / FLOAT PANELS (hero context) ── */
+/* .glass-panel already hidden at 768px via extended.css */
+
+/* ── METRIC PANEL — min-width causes overflow on narrow containers ── */
+@media (max-width: 480px) {
+  .metric-panel {
+    min-width: 120px;
+    padding: 0.75rem 1rem;
+  }
+  .metric-panel-value {
+    font-size: 1.625rem;
+  }
+}
+
+/* ── FDP (float data panels, home page) — hidden at 768 already;
+   ensure fdp--a/b/c/d variants also hidden ── */
+@media (max-width: 768px) {
+  .fdp--a,
+  .fdp--b,
+  .fdp--c,
+  .fdp--d {
+    display: none;
+  }
+}
+
+/* ── STAT TICKER CARD — number overflow on small screens ── */
+@media (max-width: 480px) {
+  .stc-num {
+    font-size: 1.875rem;
+  }
+  .stat-ticker-card {
+    padding: 1.25rem;
+  }
+}
+
+/* ── SHIMMER BADGE ── */
+@media (max-width: 380px) {
+  .shimmer-badge {
+    font-size: 0.6rem;
+    padding: 0.3rem 0.65rem;
+  }
+}
+
+/* ── FLOW DIAGRAM — already handled at 900/520; add 380px floor ── */
+@media (max-width: 380px) {
+  .flow-node-box {
+    padding: 1rem;
+  }
+}
+
+/* ── DIAG ROW (motion.css version) — label overflow on very small ── */
+@media (max-width: 380px) {
+  .diag-row {
+    gap: 0.5rem;
+  }
+  .diag-label {
+    font-size: 0.65rem;
+  }
+  .diag-score {
+    font-size: 0.7rem;
+    min-width: 28px;
+  }
+}

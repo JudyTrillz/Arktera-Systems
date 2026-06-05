@@ -172,6 +172,7 @@ function injectFooter() {
         <a href="${HOME_PATH}" aria-label="Arktera Systems — Home">${LOGO_SVG}</a>
         <p class="footer-tagline">Infrastructure Systems for Service Businesses</p>
         <p class="footer-desc">We help service businesses improve visibility, strengthen conversion performance, and build more reliable lead generation systems.</p>
+      
       </div>
       <nav class="footer-links" aria-label="Footer navigation">
         <div class="footer-col">
@@ -203,6 +204,55 @@ function injectFooter() {
           <div style="margin-top:1.5rem">
             <p class="footer-col-title mono">Contact</p>
             <a href="mailto:hello@arkterasystems.com" class="footer-email">hello@arkterasystems.com</a>
+
+            <div class="footer-social" aria-label="Social media links">
+        <a href="https://facebook.com/arkterasystems"
+           class="footer-social-link"
+           aria-label="Facebook"
+           target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+        </a>
+        <a href="https://instagram.com/arkterasystems"
+           class="footer-social-link"
+           aria-label="Instagram"
+           target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a href="https://tiktok.com/@arkterasystems"
+           class="footer-social-link"
+           aria-label="TikTok"
+           target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.07a8.16 8.16 0 0 0 4.77 1.52V7.15a4.85 4.85 0 0 1-1-.46z"/>
+          </svg>
+        </a>
+        <a href="#"
+           class="footer-social-link footer-social-link--disabled"
+           aria-label="X (Twitter) — coming soon"
+           aria-disabled="true"
+           tabindex="-1">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.741l7.73-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
+          </svg>
+        </a>
+        <a href="#"
+           class="footer-social-link footer-social-link--disabled"
+           aria-label="LinkedIn — coming soon"
+           aria-disabled="true"
+           tabindex="-1">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+      </div>
           </div>
         </div>
       </nav>
@@ -595,6 +645,33 @@ function initHeroParallax() {
   })();
 }
 
+function injectScrollTopBtn() {
+  const btn = document.createElement("button");
+  btn.id = "scrollTopBtn";
+  btn.className = "scroll-top-btn";
+  btn.setAttribute("aria-label", "Scroll to top");
+  btn.setAttribute("type", "button");
+  btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>`;
+  document.body.appendChild(btn);
+  return btn;
+}
+
+function initScrollTop() {
+  const btn = injectScrollTopBtn();
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      btn.classList.toggle("visible", window.scrollY > 400);
+    },
+    { passive: true },
+  );
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
 /* ── MAIN INIT ── */
 function initComponents(activePage = "") {
   // Inject structure
@@ -620,6 +697,7 @@ function initComponents(activePage = "") {
     initCardTilt();
     initHeroCanvas();
     initHeroParallax();
+    initScrollTop();
   }
 }
 

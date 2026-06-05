@@ -19,6 +19,51 @@
     <link rel="stylesheet" href="../../styles/extended.css" />
     <link rel="stylesheet" href="../../styles/motion.css" />
     <link rel="stylesheet" href="../../styles/breakdown-motion.css" />
+    <style>
+      /* ── Hero floating elements — responsive control ──────────────
+         All four elements use inline position:absolute with no
+         external class-based breakpoints. This block overrides them.
+         ──────────────────────────────────────────────────────────── */
+
+      /* TABLET (≤1024px):
+         Floating panels (bd-float--a, --b, --d) overlap the centred
+         hero text. Hide all three. The orbit system sits far right
+         and is safe until ~900px, then also overlaps. */
+      @media (max-width: 1024px) {
+        .bd-float {
+          display: none !important;
+        }
+      }
+
+      @media (max-width: 900px) {
+        /* Orbit system sits at right:4% — starts clipping into text */
+        .msg-orbit-system {
+          display: none !important;
+        }
+        /* Also hide its absolute wrapper (no class, targets the aria-hidden div
+           wrapping msg-orbit-system) via the child selector */
+        .page-hero [aria-hidden="true"]:has(.msg-orbit-system) {
+          display: none !important;
+        }
+      }
+
+      /* MOBILE (≤600px):
+         Glow anchors are decorative radial blurs. The primary one is
+         580px wide centred — wider than the viewport, causing a faint
+         horizontal bloom behind text that reads as noise. Reduce opacity
+         and clamp width so it stays a subtle background wash. */
+      @media (max-width: 600px) {
+        .page-hero .glow-anchor--primary {
+          width: 100vw !important;
+          margin-left: -50vw !important;
+          height: 280px !important;
+          opacity: 0.45;
+        }
+        .page-hero .glow-anchor--secondary {
+          display: none !important;
+        }
+      }
+    </style>
   </head>
   <body data-page="breakdowns">
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -46,7 +91,7 @@
           <div id="lxContent"></div>
           <div class="lx-footer" id="lxCaption"></div>
         </div>
-        <!-- <div class="lx-nav" aria-label="Navigate images">
+        <div class="lx-nav" aria-label="Navigate images">
           <button
             class="lx-nav-btn"
             id="lxPrev"
@@ -57,7 +102,7 @@
           <button class="lx-nav-btn" id="lxNext" aria-label="Next image" type="button">
             →
           </button>
-        </div> -->
+        </div>
         <p class="lx-esc" aria-hidden="true">
           Press ESC to close · Arrow keys to navigate
         </p>
