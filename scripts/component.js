@@ -402,9 +402,16 @@ function initNav() {
   }
 }
 
+// Replaced the entire INIT func for compactibility =====>
 function initReveal() {
   const items = document.querySelectorAll(".reveal-up, .reveal-fade");
   if (!items.length) return;
+
+  // Fallback: if IntersectionObserver isn't reliable, show everything
+  if (!("IntersectionObserver" in window)) {
+    items.forEach((el) => el.classList.add("visible"));
+    return;
+  }
 
   const obs = new IntersectionObserver(
     (entries) => {
@@ -415,7 +422,8 @@ function initReveal() {
         }
       });
     },
-    { threshold: 0.08, rootMargin: "0px 0px -50px 0px" },
+    { threshold: 0, rootMargin: "0px 0px -20px 0px" },
+    //            ^^ was 0.08    ^^ was -50px
   );
 
   items.forEach((el) => obs.observe(el));
@@ -672,6 +680,59 @@ function initScrollTop() {
   });
 }
 
+function initMiuiCompat() {
+  // 1. Force nav to never exceed viewport width on MIUI
+  //    body overflow-x:hidden doesn't clip fixed elements on older Chrome.
+  //    Setting width on the nav element directly guarantees it.
+  const nav = document.getElementById("nav");
+  if (nav) {
+    nav.style.maxWidth = "100vw";
+    nav.style.overflowX = "hidden";
+  }
+
+  // 2. On very narrow viewports (Note 9 Pro ~392px CSS width),
+  //    detect if nav content is overflowing and apply tight class.
+  function checkNavFit() {
+    const inner = document.querySelector(".nav-inner");
+    if (!inner) return;
+    if (inner.scrollWidth > inner.clientWidth) {
+      inner.classList.add("nav-inner--tight");
+    } else {
+      inner.classList.remove("nav-inner--tight");
+    }
+  }
+  checkNavFit();
+  window.addEventListener("resize", checkNavFit, { passive: true });
+
+  // 3. Detect MIUI Browser / older Chrome and disable expensive
+  //    canvas animations that cause jank (particle canvas, star canvas).
+  //    Check by user-agent and Chrome version.
+  const ua = navigator.userAgent;
+  const chromeMatch = ua.match(/Chrome\/(\d+)/);
+  const chromeVersion = chromeMatch ? parseInt(chromeMatch[1], 10) : 999;
+  const isMiui = ua.includes("XiaoMi") || ua.includes("MiuiBrowser");
+  const isOldChrome = chromeVersion < 95;
+
+  if (isMiui || isOldChrome) {
+    // Kill canvas-based animations — they're GPU-intensive and
+    // break silently on MIUI 12 with battery optimization active.
+    const canvases = document.querySelectorAll("canvas[id]");
+    canvases.forEach((c) => {
+      c.style.display = "none";
+    });
+
+    // Mark body so CSS can scope additional fallbacks if needed
+    document.body.setAttribute("data-compat", "reduced");
+  }
+
+  // 4. scroll-behavior: smooth is set on html in CSS.
+  //    On MIUI Browser this sometimes causes blank flashes during
+  //    navigation. Override to auto if MIUI detected.
+  if (isMiui) {
+    document.documentElement.style.scrollBehavior = "auto";
+  }
+}
+
 /* ── MAIN INIT ── */
 function initComponents(activePage = "") {
   // Inject structure
@@ -686,6 +747,7 @@ function initComponents(activePage = "") {
   }
 
   function run() {
+    initMiuiCompat();
     initTheme();
     initCursor();
     initNav();
