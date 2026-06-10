@@ -2429,33 +2429,6 @@ button {
   }
 }
 
-/* ── FIX 6: Animation GPU promotion — MIUI PowerSave layer fix ── */
-.reveal-up,
-.reveal-fade {
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-/* Tighten reduced-motion: MIUI often reports prefers-reduced-motion
-   even when user hasn't set it, due to battery optimization.
-   Instead of killing animations entirely, shorten duration.         */
-@media (prefers-reduced-motion: reduce) {
-  .reveal-up,
-  .reveal-fade {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-  }
-  /* But still allow the visible state to apply immediately */
-  .reveal-up.visible,
-  .reveal-fade.visible {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
-
 /* ── FIX 7: Desktop mode safety — max-width containers ──
    When desktop mode is forced on Redmi 15, viewport meta is ignored
    and layout hits ~980px. These guards prevent full breakage.       ── */

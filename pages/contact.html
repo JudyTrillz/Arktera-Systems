@@ -383,7 +383,7 @@
                   Prefer email?
                 </h3>
                 <a href="mailto:hello@lumenstrategy.com" class="footer-email"
-                  >hello@lumenstrategy.com</a
+                  >hello@arkterasystems.com</a
                 >
               </div>
 
@@ -490,59 +490,7 @@
     </main>
 
     <script src="../scripts/component.js"></script>
-    <script>
-      // Contact form validation + submission handler
-      document.addEventListener("DOMContentLoaded", () => {
-        const form = document.getElementById("contactForm");
-        const submitBtn = document.getElementById("submitBtn");
-        const errorBox = document.getElementById("form-error");
-        const successBox = document.getElementById("formSuccess");
-
-        if (!form) return;
-
-        form.addEventListener("submit", async (e) => {
-          e.preventDefault();
-          errorBox.style.display = "none";
-
-          const required = form.querySelectorAll("[required]");
-          let hasError = false;
-          required.forEach((field) => {
-            if (!field.value.trim()) {
-              field.style.borderColor = "var(--red)";
-              hasError = true;
-            } else {
-              field.style.borderColor = "";
-            }
-          });
-
-          if (hasError) {
-            errorBox.textContent =
-              "Please complete all required fields before submitting.";
-            errorBox.style.display = "block";
-            errorBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
-            return;
-          }
-
-          submitBtn.disabled = true;
-          submitBtn.querySelector("span").textContent = "Sending…";
-
-          // Simulate submission — replace with your endpoint
-          await new Promise((r) => setTimeout(r, 1200));
-
-          form.setAttribute("hidden", "");
-          successBox.removeAttribute("hidden");
-          successBox.focus();
-        });
-
-        // Clear error state on input
-        form
-          .querySelectorAll(".form-input, .form-select, .form-textarea")
-          .forEach((field) => {
-            field.addEventListener("input", () => {
-              field.style.borderColor = "";
-            });
-          });
-      });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../scripts/contact-form.js"></script>
   </body>
 </html>
