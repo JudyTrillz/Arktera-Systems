@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>
       Homepage CTA Analysis: Why Vague CTAs Kill Lead Volume — Arktera Systems
     </title>
@@ -60,6 +61,7 @@
         style="padding-bottom: 5rem; overflow: visible"
         aria-labelledby="hero-h1">
         <div class="page-hero-bg" aria-hidden="true">
+          <canvas class="hero-canvas" id="heroCanvas"></canvas>
           <div class="page-hero-grid"></div>
           <div
             class="glow-anchor glow-anchor--primary"
@@ -280,7 +282,7 @@
               border: 1px solid hsl(185, 80%, 55%);
               font-weight: 600;
             ">
-            "Request Visibility Audit"
+            "Request Growth Assessment"
           </div>
           <div
             style="
@@ -766,7 +768,7 @@
                   ✓ Specific. Clear next step.
                 </text>
 
-                <!-- ROW 5: Request Visibility Audit — Strong -->
+                <!-- ROW 5: Request Growth Assessment — Strong -->
                 <rect
                   x="0"
                   y="254"
@@ -790,7 +792,7 @@
                   fill="hsl(185,80%,70%)"
                   text-anchor="middle"
                   font-weight="600">
-                  Request Visibility Audit
+                  Request Growth Assessment
                 </text>
                 <rect
                   x="270"
@@ -914,7 +916,7 @@
             <figcaption class="sr-only">
               Dashboard scoring eight CTAs across specificity, outcome clarity, commitment
               level, and psychological safety. Learn More scores 12, Submit scores 8,
-              Contact Us scores 13. Request Visibility Audit scores 91, Get Repair
+              Contact Us scores 13. Request Growth Assessment scores 91, Get Repair
               Estimate scores 83, Schedule Inspection scores 74.
             </figcaption>
           </figure>
@@ -2589,8 +2591,8 @@
               affecting your conversion rate, lead volume, and inquiry quality.
             </p>
             <div class="cta-buttons">
-              <a href="../contact.html" class="btn btn-primary btn-large"
-                >Request Visibility Audit<svg
+              <a href="../assessment.html" class="btn btn-primary btn-large"
+                >Request Growth Assessment<svg
                   viewBox="0 0 20 20"
                   fill="none"
                   stroke="currentColor"
@@ -2598,7 +2600,8 @@
                   aria-hidden="true">
                   <path d="M4 10h12M10 4l6 6-6 6" /></svg
               ></a>
-              <a href="../../contact.html" class="btn btn-ghost btn-large"
+              <!-- TODO: Replace with Calendly booking link -->
+            <a href="#" class="btn btn-ghost btn-large"
                 >Book Strategy Session</a
               >
             </div>

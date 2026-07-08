@@ -787,6 +787,38 @@ label {
   background: var(--bg-secondary);
 }
 
+/* ── SHARED FORM ERROR / SUCCESS (contact + assessment) ── */
+.form-error-box {
+  display: none;
+  padding: 0.875rem 1rem;
+  background: var(--red-dim);
+  border: 1px solid var(--red);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: var(--red);
+  margin-bottom: 1rem;
+}
+.form-error-box.visible {
+  display: block;
+}
+.form-input.invalid,
+.form-select.invalid,
+.form-textarea.invalid {
+  border-color: var(--red);
+}
+.form-success-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--green-dim);
+  border: 1px solid var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: var(--green);
+}
+
 .contact-info {
   display: flex;
   flex-direction: column;
@@ -2875,7 +2907,7 @@ label {
 
 /* ── Article body typography ── */
 .article-body {
-  max-width: 720px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 4rem 2rem 6rem;
 }

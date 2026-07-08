@@ -690,15 +690,18 @@
   display: flex;
   gap: 1rem;
   align-items: flex-start;
+  box-shadow: var(--shadow-rest);
   transition:
     border-color 0.3s,
-    transform 0.3s;
+    transform 0.3s,
+    box-shadow 0.3s;
   position: relative;
   overflow: hidden;
 }
 .op-problem-card:hover {
   border-color: var(--red);
   transform: translateY(-3px);
+  box-shadow: var(--shadow-rest-hover);
 }
 .op-problem-card::after {
   content: "";
@@ -762,6 +765,7 @@
   padding: 1.75rem;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-rest);
   transition:
     border-color 0.35s,
     transform 0.35s,

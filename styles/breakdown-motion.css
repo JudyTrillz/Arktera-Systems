@@ -1143,6 +1143,7 @@
   padding: 2rem;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-rest);
   transition:
     border-color 0.35s,
     transform 0.35s,

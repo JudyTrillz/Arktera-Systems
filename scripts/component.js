@@ -138,7 +138,8 @@ function injectNav(activePage) {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
             </span>
           </button>
-          <a href="${PAGE_PATH}contact.html" class="btn btn-nav">Book a Strategy Session</a>
+          <!-- TODO: Replace with Calendly booking link -->
+          <a href="#" class="btn btn-nav">Book a Strategy Session</a>
           <button class="nav-hamburger" id="navHamburger"
                   aria-label="Open navigation menu"
                   aria-expanded="false"
@@ -156,7 +157,8 @@ function injectNav(activePage) {
       <nav aria-label="Mobile navigation">
         <ul>${buildMobileLinks(activePage)}</ul>
       </nav>
-      <a href="${PAGE_PATH}contact.html" class="btn btn-primary" style="margin-top:2rem">Book a Strategy Session</a>
+      <!-- TODO: Replace with Calendly booking link -->
+      <a href="#" class="btn btn-primary" style="margin-top:2rem">Book a Strategy Session</a>
     </div>`;
 
   document.body.prepend(nav);
@@ -402,6 +404,61 @@ function initNav() {
   }
 }
 
+function initTextReveal() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const STEP = 45; // ms added per word
+  const MAX_DELAY = 500; // ms cap so long headlines don't drag
+
+  function splitWords(root) {
+    let count = 0;
+
+    function walk(node) {
+      if (node.nodeType === Node.TEXT_NODE) {
+        if (!node.textContent.trim()) return;
+        const frag = document.createDocumentFragment();
+        node.textContent.split(/(\s+)/).forEach((part) => {
+          if (part === "") return;
+          if (/^\s+$/.test(part)) {
+            frag.appendChild(document.createTextNode(part));
+            return;
+          }
+          const span = document.createElement("span");
+          span.className = "text-split-word";
+          span.style.transitionDelay = `${Math.min(count * STEP, MAX_DELAY)}ms`;
+          span.textContent = part;
+          count++;
+          frag.appendChild(span);
+        });
+        node.replaceWith(frag);
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        Array.from(node.childNodes).forEach(walk);
+      }
+    }
+
+    Array.from(root.childNodes).forEach(walk);
+  }
+
+  // Headings that reveal themselves: neutralize their own block
+  // fade/slide (via .text-split) so only the words move.
+  document
+    .querySelectorAll("h1.reveal-up, .hero-headline.reveal-up, .section-headline.reveal-up")
+    .forEach((el) => {
+      if (el.dataset.textSplit) return;
+      el.dataset.textSplit = "1";
+      splitWords(el);
+      el.classList.add("text-split");
+    });
+
+  // Headings nested inside an already-revealing ancestor (e.g. CTA
+  // blocks) — just split; the ancestor's .visible toggle drives them.
+  document.querySelectorAll(".cta-headline").forEach((el) => {
+    if (el.dataset.textSplit) return;
+    el.dataset.textSplit = "1";
+    splitWords(el);
+  });
+}
+
 // Replaced the entire INIT func for compactibility =====>
 function initReveal() {
   const items = document.querySelectorAll(".reveal-up, .reveal-fade");
@@ -525,7 +582,7 @@ function initFAQ() {
 
 function initCardTilt() {
   if (window.matchMedia("(pointer: coarse)").matches) return;
-  document.querySelectorAll(".service-card, .breakdown-card").forEach((card) => {
+  document.querySelectorAll(".service-card, .breakdown-card, .insight-card").forEach((card) => {
     card.addEventListener("mousemove", (e) => {
       const r = card.getBoundingClientRect();
       const rx = ((e.clientY - r.top - r.height / 2) / r.height) * -5;
@@ -547,7 +604,7 @@ function initHeroCanvas() {
   let W,
     H,
     particles = [];
-  const N = 55;
+  const N = 70;
 
   function resize() {
     W = canvas.width = canvas.offsetWidth;
@@ -558,10 +615,10 @@ function initHeroCanvas() {
     return {
       x: Math.random() * W,
       y: Math.random() * H,
-      r: Math.random() * 1.4 + 0.3,
+      r: Math.random() * 1.7 + 0.6,
       vx: (Math.random() - 0.5) * 0.28,
       vy: (Math.random() - 0.5) * 0.18,
-      alpha: Math.random() * 0.5 + 0.1,
+      alpha: Math.random() * 0.6 + 0.25,
       phase: Math.random() * Math.PI * 2,
       spd: Math.random() * 0.012 + 0.005,
     };
@@ -598,12 +655,12 @@ function initHeroCanvas() {
         const dx = particles[i].x - particles[j].x;
         const dy = particles[i].y - particles[j].y;
         const d = Math.sqrt(dx * dx + dy * dy);
-        if (d < 115) {
+        if (d < 140) {
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(${rgb},${0.07 * (1 - d / 115)})`;
-          ctx.lineWidth = 0.5;
+          ctx.strokeStyle = `rgba(${rgb},${0.14 * (1 - d / 140)})`;
+          ctx.lineWidth = 0.7;
           ctx.stroke();
         }
       }
@@ -680,6 +737,117 @@ function initScrollTop() {
   });
 }
 
+function initMotionPause() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const selector = [
+    ".ambient-float--a",
+    ".ambient-float--b",
+    ".ambient-float--c",
+    ".ambient-float--y",
+    ".ambient-float--ys",
+    ".ambient-float--yi",
+    ".ambient-float--dangle",
+    ".ambient-float--dangleB",
+    ".orbital-ring--cw",
+    ".orbital-ring--ccw",
+    ".orbital-ring--slow-cw",
+    ".orbital-ring--slow-ccw",
+    ".glow-anchor--primary",
+    ".glow-anchor--secondary",
+    ".fdp--a",
+    ".fdp--b",
+    ".fdp--c",
+    ".fdp--d",
+    ".bd-float--a",
+    ".bd-float--b",
+    ".bd-float--c",
+    ".bd-float--d",
+    ".metric-panel-status",
+    ".outcome-chip-dot",
+    ".diag-live-dot",
+    ".browser-mockup",
+    ".analysis-scan",
+    ".mock-scan",
+    ".issue-marker--critical",
+    ".issue-marker--warning",
+    ".issue-marker--info",
+    ".issue-badge--critical",
+    ".issue-badge--warning",
+    ".issue-annotation",
+    ".trust-flow-particle",
+    ".msg-orbit-core",
+    ".msg-orbit-ring--1",
+    ".msg-orbit-ring--2",
+  ].join(", ");
+
+  const els = document.querySelectorAll(selector);
+  if (!els.length) return;
+
+  const obs = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        entry.target.style.animationPlayState = entry.isIntersecting ? "running" : "paused";
+      });
+    },
+    { rootMargin: "150px" },
+  );
+
+  els.forEach((el) => obs.observe(el));
+}
+
+function shouldShowLoader() {
+  try {
+    return !sessionStorage.getItem("arktera-loaded");
+  } catch (e) {
+    return true;
+  }
+}
+
+function injectLoader() {
+  const loader = document.createElement("div");
+  loader.className = "loader-screen";
+  loader.id = "loaderScreen";
+  loader.setAttribute("aria-hidden", "true");
+  loader.innerHTML = `
+    <div class="loader-inner">
+      <svg class="loader-mark" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon class="loader-mark-outer" points="17,4 30,27 4,27" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
+        <polygon class="loader-mark-inner" points="17,22 23.5,11 10.5,11" stroke="currentColor" stroke-width="1" stroke-linejoin="round" fill="none" opacity="0.55"/>
+        <line class="loader-mark-axis" x1="17" y1="4" x2="17" y2="27" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+        <circle class="loader-mark-core" cx="17" cy="17" r="1.8" stroke="currentColor" stroke-width="1" fill="none"/>
+      </svg>
+      <div class="loader-word">
+        <span class="loader-word-main">ARKTERA</span>
+        <span class="loader-word-sub">SYSTEMS</span>
+      </div>
+      <div class="loader-bar"><span class="loader-bar-fill"></span></div>
+    </div>`;
+  document.body.prepend(loader);
+
+  const MIN_DISPLAY = 1900;
+  const start = performance.now();
+
+  function hide() {
+    const wait = Math.max(MIN_DISPLAY - (performance.now() - start), 0);
+    setTimeout(() => {
+      loader.classList.add("loader-hidden");
+      try {
+        sessionStorage.setItem("arktera-loaded", "1");
+      } catch (e) {
+        /* private-mode storage may throw; loader just replays next visit */
+      }
+      setTimeout(() => loader.remove(), 700);
+    }, wait);
+  }
+
+  if (document.readyState === "complete") {
+    hide();
+  } else {
+    window.addEventListener("load", hide, { once: true });
+  }
+}
+
 function initMiuiCompat() {
   // 1. Force nav to never exceed viewport width on MIUI
   //    body overflow-x:hidden doesn't clip fixed elements on older Chrome.
@@ -735,6 +903,15 @@ function initMiuiCompat() {
 
 /* ── MAIN INIT ── */
 function initComponents(activePage = "") {
+  // First-visit brand splash (skipped on repeat nav within the session,
+  // and entirely under prefers-reduced-motion)
+  if (
+    shouldShowLoader() &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
+    injectLoader();
+  }
+
   // Inject structure
   injectNav(activePage);
   injectFooter();
@@ -751,6 +928,7 @@ function initComponents(activePage = "") {
     initTheme();
     initCursor();
     initNav();
+    initTextReveal();
     initReveal();
     initCounters();
     initBarFills();
@@ -760,6 +938,7 @@ function initComponents(activePage = "") {
     initHeroCanvas();
     initHeroParallax();
     initScrollTop();
+    initMotionPause();
   }
 }
 

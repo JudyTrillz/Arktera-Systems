@@ -1,18 +1,18 @@
+/**
+ * ARKTERA SYSTEMS — Contact Form
+ * Quick, low-friction enquiry form. Relies on the shared Supabase
+ * client set up in scripts/supabase.js (loaded before this file).
+ */
 const form = document.getElementById("contactForm");
 const submitBtn = document.getElementById("submitBtn");
 const errorBox = document.getElementById("form-error");
 const successBox = document.getElementById("formSuccess");
 
-const SUPABASE_URL = "https://mxtwqmcbyslvaqryksww.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_y5dYbF2-dJipNnrBELfPBQ_86dVwtrj";
-
-const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
 if (form) {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    errorBox.style.display = "none";
+    errorBox.classList.remove("visible");
 
     // Validation
     const requiredFields = form.querySelectorAll("[required]");
@@ -20,32 +20,31 @@ if (form) {
 
     requiredFields.forEach((field) => {
       if (!field.value.trim()) {
-        field.style.borderColor = "var(--red)";
+        field.classList.add("invalid");
         hasError = true;
       } else {
-        field.style.borderColor = "";
+        field.classList.remove("invalid");
       }
     });
 
     if (hasError) {
       errorBox.textContent = "Please complete all required fields before submitting.";
-      errorBox.style.display = "block";
+      errorBox.classList.add("visible");
       return;
     }
 
     submitBtn.disabled = true;
-    submitBtn.querySelector("span").textContent = "Submitting Request...";
+    submitBtn.querySelector("span").textContent = "Sending...";
 
     const formData = {
-      name: form.name?.value || "",
+      form_type: "contact",
+      first_name: form.first_name?.value || "",
+      last_name: form.last_name?.value || "",
       business: form.business?.value || "",
       email: form.email?.value || "",
-      website: form.website?.value || "",
-      business_type: form.business_type?.value || "",
-      lead_sources: form.lead_sources?.value || "",
-      lead_volume: form.lead_volume?.value || "",
-      challenge: form.challenge?.value || "",
-      goals: form.goals?.value || "",
+      phone: form.phone?.value || "",
+      subject: form.subject?.value || "",
+      message: form.message?.value || "",
     };
 
     try {
@@ -67,19 +66,19 @@ if (form) {
       console.error(err);
 
       errorBox.textContent =
-        "Unable to submit your request right now. Please try again shortly.";
+        "Unable to send your message right now. Please try again shortly.";
 
-      errorBox.style.display = "block";
+      errorBox.classList.add("visible");
 
       submitBtn.disabled = false;
-      submitBtn.querySelector("span").textContent = "Request Visibility Audit";
+      submitBtn.querySelector("span").textContent = "Send Message";
     }
   });
 
   // Remove validation styling as user types
   form.querySelectorAll(".form-input, .form-select, .form-textarea").forEach((field) => {
     field.addEventListener("input", () => {
-      field.style.borderColor = "";
+      field.classList.remove("invalid");
     });
   });
 }

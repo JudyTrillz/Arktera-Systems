@@ -1,0 +1,345 @@
+/* ============================================================
+   Arktera Systems — assessment.css
+   Business Growth Assessment multi-step wizard.
+   Load AFTER style.css + extended.css, on assessment.html only.
+   ============================================================ */
+
+.assessment-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-rest);
+}
+@media (max-width: 640px) {
+  .assessment-wrap {
+    padding: 1.75rem 1.25rem;
+  }
+}
+
+/* ── STEPPER ── */
+.assessment-stepper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.assessment-stepper-track {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  right: 18px;
+  height: 1px;
+  background: var(--border);
+  z-index: 0;
+}
+.assessment-stepper-step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+.assessment-stepper-dot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  transition:
+    border-color 0.3s,
+    color 0.3s,
+    background 0.3s,
+    box-shadow 0.3s;
+}
+.assessment-stepper-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.3s;
+}
+.assessment-stepper-step.is-active .assessment-stepper-dot {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 16px var(--accent-dim);
+}
+.assessment-stepper-step.is-active .assessment-stepper-label {
+  color: var(--accent);
+}
+.assessment-stepper-step.is-complete .assessment-stepper-dot {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: hsl(199, 69%, 5%);
+}
+[data-theme="light"] .assessment-stepper-step.is-complete .assessment-stepper-dot {
+  color: hsl(209, 44%, 8%);
+}
+.assessment-stepper-step.is-complete .assessment-stepper-label {
+  color: var(--text-secondary);
+}
+@media (max-width: 520px) {
+  .assessment-stepper-label {
+    display: none;
+  }
+}
+
+/* ── PROGRESS BAR ── */
+.assessment-progress-bar {
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.assessment-progress-fill {
+  display: block;
+  height: 100%;
+  width: 20%;
+  background: linear-gradient(90deg, var(--accent), hsl(158, 64%, 52%));
+  transition: width 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.assessment-step-indicator {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+/* ── STEP PANELS ── */
+.assessment-step {
+  display: none;
+}
+.assessment-step.active {
+  display: block;
+  animation: stepIn 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+@keyframes stepIn {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.assessment-step-title {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+.assessment-step-sub {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 1.75rem;
+}
+
+/* ── FIELD ERRORS ── */
+.field-error {
+  display: none;
+  font-size: 0.75rem;
+  color: var(--red);
+  font-family: "IBM Plex Mono", monospace;
+}
+.field-error.visible {
+  display: block;
+}
+
+/* ── OPTION CHIPS (checkboxes) ── */
+.option-chip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.option-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition:
+    border-color 0.25s,
+    background 0.25s,
+    transform 0.25s;
+}
+.option-chip:hover {
+  border-color: var(--border-hover);
+}
+.option-chip.is-checked {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+.option-chip input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.option-chip-text {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+.option-chip.is-checked .option-chip-text {
+  color: var(--text-primary);
+}
+.option-chip--confirm {
+  margin-top: 1.75rem;
+  background: var(--bg-glass);
+}
+.option-other-field {
+  margin-top: 0.5rem;
+}
+
+/* ── REVIEW SUMMARY ── */
+.review-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+.review-section {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+.review-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.875rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+.review-section-head h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.review-edit-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.review-edit-btn:hover {
+  opacity: 0.7;
+}
+.review-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.4rem 0;
+  font-size: 0.85rem;
+}
+.review-row span:first-child {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+.review-row span:last-child {
+  color: var(--text-primary);
+  text-align: right;
+}
+@media (max-width: 480px) {
+  .review-row {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .review-row span:last-child {
+    text-align: left;
+  }
+}
+
+/* ── CONTROLS ── */
+.assessment-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border);
+}
+.assessment-controls .btn:only-child {
+  margin-left: auto;
+}
+/* .btn/.assessment-stepper/.form-group all set their own display,
+   which otherwise beats the UA [hidden] rule */
+.assessment-controls [hidden],
+.assessment-stepper[hidden],
+.option-other-field[hidden] {
+  display: none !important;
+}
+
+/* ── SUCCESS SCREEN ── */
+.assessment-success {
+  text-align: center;
+  padding: 3rem 1rem 1rem;
+}
+.assessment-success-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--green-dim);
+  border: 1px solid var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.75rem;
+  color: var(--green);
+  box-shadow: 0 0 32px var(--green-dim);
+}
+.assessment-success h3 {
+  font-size: 1.625rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+.assessment-success p {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto 1rem;
+}
+.assessment-success-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .assessment-step.active {
+    animation: none;
+  }
+}
