@@ -407,8 +407,8 @@ function initNav() {
 function initTextReveal() {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  const STEP = 45; // ms added per word
-  const MAX_DELAY = 500; // ms cap so long headlines don't drag
+  const STEP = 70; // ms added per word
+  const MAX_DELAY = 650; // ms cap so long headlines don't drag
 
   function splitWords(root) {
     let count = 0;

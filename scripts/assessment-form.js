@@ -10,6 +10,7 @@
   if (!form) return;
 
   const STORAGE_KEY = "arktera-assessment-progress";
+  const PROGRESS_TTL_MS = 60 * 60 * 1000; // clear unsubmitted progress after 1 hour away
   const TOTAL_STEPS = 5;
   const STEP_NAMES = [
     "Business Information",
@@ -70,7 +71,12 @@
     try {
       const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
       if (saved && typeof saved === "object") {
-        return Object.assign({}, defaultState, saved);
+        const isExpired = !saved.savedAt || Date.now() - saved.savedAt > PROGRESS_TTL_MS;
+        if (isExpired) {
+          localStorage.removeItem(STORAGE_KEY);
+        } else {
+          return Object.assign({}, defaultState, saved);
+        }
       }
     } catch (err) {
       /* malformed storage — fall through to defaults */
@@ -80,6 +86,7 @@
 
   function saveState() {
     try {
+      state.savedAt = Date.now();
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
     } catch (err) {
       /* storage unavailable — progress just won't persist */
@@ -352,6 +359,7 @@
 
     const payload = Object.assign({ form_type: "assessment" }, state);
     delete payload.currentStep;
+    delete payload.savedAt;
 
     try {
       const { error } = await supabaseClient.functions.invoke("send-contact-email", {
