@@ -1,10 +1,6 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "npm:@supabase/supabase-js@2";
-
-const supabase = createClient(
-  Deno.env.get("SUPABASE_URL")!,
-  Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
-);
+import { sendAdminNotification, sendClientConfirmation } from "../_shared/resend.ts";
 
 Deno.serve(async (req) => {
   try {
@@ -16,10 +12,17 @@ Deno.serve(async (req) => {
         }),
         {
           status: 405,
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+          },
         },
       );
     }
+
+    const supabase = createClient(
+      Deno.env.get("SUPABASE_URL")!,
+      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
+    );
 
     const body = await req.json();
 
@@ -47,9 +50,34 @@ Deno.serve(async (req) => {
         }),
         {
           status: 500,
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+          },
         },
       );
+    }
+
+    // Send confirmation email to client
+    try {
+      await sendClientConfirmation({
+        firstName: body.first_name,
+        email: body.email,
+      });
+    } catch (emailError) {
+      console.error("Client email failed:", emailError);
+    }
+
+    // Send notification email to Arktera
+    try {
+      await sendAdminNotification({
+        firstName: body.first_name,
+        lastName: body.last_name,
+        business: body.business,
+        email: body.email,
+        subject: body.subject,
+      });
+    } catch (emailError) {
+      console.error("Admin email failed:", emailError);
     }
 
     return new Response(
@@ -60,7 +88,9 @@ Deno.serve(async (req) => {
       }),
       {
         status: 201,
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
       },
     );
   } catch (err) {
@@ -73,7 +103,9 @@ Deno.serve(async (req) => {
       }),
       {
         status: 500,
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
       },
     );
   }
