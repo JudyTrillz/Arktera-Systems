@@ -1,5 +1,8 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
-import { sendAdminNotification, sendClientConfirmation } from "../_shared/resend.ts";
+import {
+  sendAssessmentAdminNotification,
+  sendAssessmentClientConfirmation,
+} from "../_shared/resend.ts";
 import { insertAssessmentSubmission } from "../_shared/database.ts";
 import { optionsResponse, successResponse, errorResponse } from "../_shared/responses.ts";
 import { assessmentSchema } from "../_shared/validation.ts";
@@ -51,27 +54,28 @@ Deno.serve(async (req) => {
 
     // Send confirmation email to client
     try {
-      await sendClientConfirmation({
-        firstName: contact.first_name,
+      await sendAssessmentClientConfirmation({
+        firstName: contact.contact_name,
         email: contact.email,
       });
     } catch (emailError) {
-      console.error("Client email failed:", emailError);
+      console.error("Assessment client email failed:", emailError);
     }
 
     // Send notification email to Arktera
     try {
-      await sendAdminNotification({
-        firstName: contact.first_name,
-        lastName: contact.last_name,
-        business: contact.business,
+      await sendAssessmentAdminNotification({
+        businessName: contact.business_name,
+        contactName: contact.contact_name,
         email: contact.email,
         phone: contact.phone,
-        subject: contact.subject,
-        message: contact.message,
+        website: contact.website,
+        industry: contact.industry,
+        challenges: contact.challenges,
+        goals: contact.goals,
       });
     } catch (emailError) {
-      console.error("Admin email failed:", emailError);
+      console.error("Assessment admin email failed:", emailError);
     }
 
     return successResponse(data, "Contact form submitted successfully.", 201);
