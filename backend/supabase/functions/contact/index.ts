@@ -2,7 +2,19 @@ import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { sendAdminNotification, sendClientConfirmation } from "../_shared/resend.ts";
 
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+};
+
 Deno.serve(async (req) => {
+  if (req.method === "OPTIONS") {
+    return new Response("ok", {
+      headers: corsHeaders,
+    });
+  }
+
   try {
     if (req.method !== "POST") {
       return new Response(
@@ -13,6 +25,7 @@ Deno.serve(async (req) => {
         {
           status: 405,
           headers: {
+            ...corsHeaders,
             "Content-Type": "application/json",
           },
         },
@@ -51,6 +64,7 @@ Deno.serve(async (req) => {
         {
           status: 500,
           headers: {
+            ...corsHeaders,
             "Content-Type": "application/json",
           },
         },
@@ -89,6 +103,7 @@ Deno.serve(async (req) => {
       {
         status: 201,
         headers: {
+          ...corsHeaders,
           "Content-Type": "application/json",
         },
       },
@@ -104,6 +119,7 @@ Deno.serve(async (req) => {
       {
         status: 500,
         headers: {
+          ...corsHeaders,
           "Content-Type": "application/json",
         },
       },

@@ -48,12 +48,19 @@ if (form) {
     };
 
     try {
-      const { error } = await supabaseClient.functions.invoke("send-contact-email", {
-        body: formData,
+      const response = await fetch(window.ARKTERA_CONFIG.CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          apikey: window.ARKTERA_CONFIG.PUBLISHABLE_KEY,
+        },
+        body: JSON.stringify(formData),
       });
 
-      if (error) {
-        throw error;
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || "Submission failed.");
       }
 
       // Success UI
