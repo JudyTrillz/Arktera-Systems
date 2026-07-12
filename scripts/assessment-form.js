@@ -253,10 +253,16 @@
   function renderReview() {
     const challenges = state.challenges
       .filter((c) => c !== "Other")
-      .concat(state.challenges.includes("Other") && state.otherChallengeText ? [state.otherChallengeText] : []);
+      .concat(
+        state.challenges.includes("Other") && state.otherChallengeText
+          ? [state.otherChallengeText]
+          : [],
+      );
     const goals = state.goals
       .filter((g) => g !== "Other")
-      .concat(state.goals.includes("Other") && state.otherGoalText ? [state.otherGoalText] : []);
+      .concat(
+        state.goals.includes("Other") && state.otherGoalText ? [state.otherGoalText] : [],
+      );
 
     reviewSummary.innerHTML = `
       <div class="review-section">
@@ -357,12 +363,27 @@
     submitBtn.disabled = true;
     submitBtn.querySelector("span").textContent = "Submitting...";
 
-    const payload = Object.assign({ form_type: "assessment" }, state);
-    delete payload.currentStep;
-    delete payload.savedAt;
+    const payload = {
+      business_name: state.businessName,
+      contact_name: state.yourName,
+      email: state.email,
+      phone: state.phone,
+      website: state.website,
+      business_location: state.businessLocation,
+      industry: state.industry,
+      description: state.description,
+      primary_services: state.primaryServices,
+      ideal_customers: state.idealCustomers,
+      areas_served: state.areasServed,
+      challenges: state.challenges,
+      other_challenge: state.otherChallengeText,
+      goals: state.goals,
+      other_goal: state.otherGoalText,
+      additional_info: state.additionalInfo,
+    };
 
     try {
-      const { error } = await supabaseClient.functions.invoke("send-contact-email", {
+      const { error } = await supabaseClient.functions.invoke("assessment", {
         body: payload,
       });
       if (error) throw error;
@@ -381,7 +402,8 @@
       successBox.focus();
     } catch (err) {
       console.error(err);
-      errorBox.textContent = "Unable to submit your assessment right now. Please try again shortly.";
+      errorBox.textContent =
+        "Unable to submit your assessment right now. Please try again shortly.";
       errorBox.classList.add("visible");
       submitBtn.disabled = false;
       submitBtn.querySelector("span").textContent = "Submit Assessment";

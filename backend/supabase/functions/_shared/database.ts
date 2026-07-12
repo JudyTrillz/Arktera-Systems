@@ -16,3 +16,24 @@ export async function insertContactSubmission(payload: {
 }) {
   return await supabase.from("contact_submissions").insert(payload).select().single();
 }
+
+export async function insertAssessmentSubmission(payload: {
+  business_name: string;
+  contact_name: string;
+  email: string;
+  phone?: string;
+  website: string;
+  business_location: string;
+  industry: string;
+  description: string;
+  primary_services: string;
+  ideal_customers: string;
+  areas_served: string;
+  challenges: string[];
+  other_challenge?: string;
+  goals: string[];
+  other_goal?: string;
+  additional_info?: string;
+}) {
+  return await supabase.from("assessment_submissions").insert(payload).select().single();
+}
