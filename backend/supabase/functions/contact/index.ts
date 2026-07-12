@@ -1,74 +1,34 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
-import { createClient } from "npm:@supabase/supabase-js@2";
 import { sendAdminNotification, sendClientConfirmation } from "../_shared/resend.ts";
-
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-};
+import { insertContactSubmission } from "../_shared/database.ts";
+import { optionsResponse, successResponse, errorResponse } from "../_shared/responses.ts";
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
-    return new Response("ok", {
-      headers: corsHeaders,
-    });
+    return optionsResponse();
   }
 
   try {
     if (req.method !== "POST") {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          message: "Method not allowed",
-        }),
-        {
-          status: 405,
-          headers: {
-            ...corsHeaders,
-            "Content-Type": "application/json",
-          },
-        },
-      );
+      return errorResponse("Method not allowed", 405);
     }
-
-    const supabase = createClient(
-      Deno.env.get("SUPABASE_URL")!,
-      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
-    );
 
     const body = await req.json();
 
-    const { data, error } = await supabase
-      .from("contact_submissions")
-      .insert({
-        first_name: body.first_name,
-        last_name: body.last_name,
-        business: body.business,
-        email: body.email,
-        phone: body.phone,
-        subject: body.subject,
-        message: body.message,
-      })
-      .select()
-      .single();
+    const { data, error } = await insertContactSubmission({
+      first_name: body.first_name,
+      last_name: body.last_name,
+      business: body.business,
+      email: body.email,
+      phone: body.phone,
+      subject: body.subject,
+      message: body.message,
+    });
 
     if (error) {
       console.error(error);
 
-      return new Response(
-        JSON.stringify({
-          success: false,
-          message: error.message,
-        }),
-        {
-          status: 500,
-          headers: {
-            ...corsHeaders,
-            "Content-Type": "application/json",
-          },
-        },
-      );
+      return errorResponse(error.message, 500);
     }
 
     // Send confirmation email to client
@@ -88,41 +48,18 @@ Deno.serve(async (req) => {
         lastName: body.last_name,
         business: body.business,
         email: body.email,
+        phone: body.phone,
         subject: body.subject,
+        message: body.message,
       });
     } catch (emailError) {
       console.error("Admin email failed:", emailError);
     }
 
-    return new Response(
-      JSON.stringify({
-        success: true,
-        message: "Contact form submitted successfully.",
-        data,
-      }),
-      {
-        status: 201,
-        headers: {
-          ...corsHeaders,
-          "Content-Type": "application/json",
-        },
-      },
-    );
+    return successResponse(data, "Contact form submitted successfully.", 201);
   } catch (err) {
     console.error(err);
 
-    return new Response(
-      JSON.stringify({
-        success: false,
-        message: "Internal server error.",
-      }),
-      {
-        status: 500,
-        headers: {
-          ...corsHeaders,
-          "Content-Type": "application/json",
-        },
-      },
-    );
+    return errorResponse("Internal server error.", 500);
   }
 });
