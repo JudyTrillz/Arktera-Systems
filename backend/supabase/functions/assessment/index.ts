@@ -70,9 +70,17 @@ Deno.serve(async (req) => {
         email: contact.email,
         phone: contact.phone,
         website: contact.website,
+        businessLocation: contact.business_location,
         industry: contact.industry,
+        description: contact.description,
+        primaryServices: contact.primary_services,
+        idealCustomers: contact.ideal_customers,
+        areasServed: contact.areas_served,
         challenges: contact.challenges,
+        otherChallenge: contact.other_challenge_text,
         goals: contact.goals,
+        otherGoal: contact.other_goal_text,
+        additionalInfo: contact.additional_info,
       });
     } catch (emailError) {
       console.error("Assessment admin email failed:", emailError);

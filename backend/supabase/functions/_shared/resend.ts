@@ -1,4 +1,6 @@
 import { Resend } from "npm:resend";
+import { buildContactClientEmail } from "./email/contact-client.ts";
+import { buildAssessmentClientEmail } from "./email/assessment-client.ts";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
@@ -13,23 +15,15 @@ export async function sendClientConfirmation({
   firstName: string;
   email: string;
 }) {
+  const message = buildContactClientEmail({
+    firstName,
+  });
+
   return await resend.emails.send({
     from: FROM_EMAIL,
     to: email,
-    subject: "We've received your inquiry",
-    html: `
-      <h2>Hi ${firstName},</h2>
-
-      <p>Thanks for contacting Arktera Systems.</p>
-
-      <p>We've received your inquiry and will review it shortly.</p>
-
-      <p>You can expect a response within one business day.</p>
-
-      <br>
-
-      <p>Arktera Systems</p>
-    `,
+    subject: message.subject,
+    html: message.html,
   });
 }
 
@@ -85,51 +79,60 @@ export async function sendAssessmentClientConfirmation({
   firstName: string;
   email: string;
 }) {
+  const message = buildAssessmentClientEmail({
+    firstName,
+  });
+
   return await resend.emails.send({
     from: FROM_EMAIL,
     to: email,
-    subject: "We've received your business growth assessment",
-    html: `
-      <h2>Hi ${firstName},</h2>
-
-      <p>Thanks for completing the Arktera Systems Business Growth Assessment.</p>
-
-      <p>
-        We've received your responses and our team will review your business
-        goals, challenges, and current growth opportunities.
-      </p>
-
-      <p>
-        You can expect to hear from us within one business day with the next steps.
-      </p>
-
-      <br>
-
-      <p>Arktera Systems</p>
-    `,
+    subject: message.subject,
+    html: message.html,
   });
 }
 
 // Admin notification for assessment form ========>>
-export async function sendAssessmentAdminNotification({
-  businessName,
-  contactName,
-  email,
-  phone,
-  website,
-  industry,
-  challenges,
-  goals,
-}: {
+type AssessmentNotification = {
   businessName: string;
   contactName: string;
   email: string;
   phone?: string;
   website: string;
+  businessLocation: string;
   industry: string;
+  description: string;
+  primaryServices: string;
+  idealCustomers: string;
+  areasServed: string;
   challenges: string[];
+  otherChallenge?: string;
   goals: string[];
-}) {
+  otherGoal?: string;
+  additionalInfo?: string;
+};
+
+export async function sendAssessmentAdminNotification(
+  assessment: AssessmentNotification,
+) {
+  const {
+    businessName,
+    contactName,
+    email,
+    phone,
+    website,
+    businessLocation,
+    industry,
+    description,
+    primaryServices,
+    idealCustomers,
+    areasServed,
+    challenges,
+    otherChallenge,
+    goals,
+    otherGoal,
+    additionalInfo,
+  } = assessment;
+
   return await resend.emails.send({
     from: FROM_EMAIL,
     to: ADMIN_EMAIL,
