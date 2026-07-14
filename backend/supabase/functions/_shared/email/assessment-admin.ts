@@ -1,4 +1,3 @@
-import { AssessmentNotification } from "../types.ts";
 import type { AssessmentNotification } from "../types.ts";
 
 export function buildAssessmentAdminEmail(assessment: AssessmentNotification) {
@@ -33,7 +32,7 @@ export function buildAssessmentAdminEmail(assessment: AssessmentNotification) {
       <p><strong>Contact:</strong> ${contactName}</p>
       <p><strong>Email:</strong> ${email}</p>
       <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
-      <p><strong>Website:</strong> ${website}</p>
+      <p><strong>Website:</strong> ${website || "Not provided"}</p>
       <p><strong>Location:</strong> ${businessLocation}</p>
       <p><strong>Industry:</strong> ${industry}</p>
 

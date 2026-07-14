@@ -23,8 +23,13 @@ export const assessmentSchema = z.object({
   website: z
     .string()
     .trim()
-    .transform((value) => (/^https?:\/\//i.test(value) ? value : `https://${value}`))
-    .pipe(z.string().url("A valid website URL is required")),
+    .transform((value) => {
+      if (!value) return "";
+      return /^https?:\/\//i.test(value) ? value : `https://${value}`;
+    })
+    .refine((value) => value === "" || z.string().url().safeParse(value).success, {
+      message: "A valid website URL is required",
+    }),
 
   business_location: z.string().trim().min(1, "Business location is required"),
 

@@ -77,16 +77,16 @@ Deno.serve(async (req) => {
         idealCustomers: contact.ideal_customers,
         areasServed: contact.areas_served,
         challenges: contact.challenges,
-        otherChallenge: contact.other_challenge_text,
+        otherChallenge: contact.other_challenge,
         goals: contact.goals,
-        otherGoal: contact.other_goal_text,
+        otherGoal: contact.other_goal,
         additionalInfo: contact.additional_info,
       });
     } catch (emailError) {
       console.error("Assessment admin email failed:", emailError);
     }
 
-    return successResponse(data, "Contact form submitted successfully.", 201);
+    return successResponse(data, "Assessment form submitted successfully.", 201);
   } catch (err) {
     console.error(err);
 

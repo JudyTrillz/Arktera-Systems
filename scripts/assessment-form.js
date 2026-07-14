@@ -20,7 +20,7 @@
     "Review",
   ];
   const STEP_REQUIRED = {
-    1: ["businessName", "yourName", "email", "website", "businessLocation", "industry"],
+    1: ["businessName", "yourName", "email", "businessLocation", "industry"],
     2: ["description", "primaryServices", "idealCustomers", "areasServed"],
     3: ["challenges"],
     4: ["goals"],
