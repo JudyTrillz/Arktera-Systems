@@ -139,7 +139,7 @@ function injectNav(activePage) {
             </span>
           </button>
           <!-- TODO: Replace with Calendly booking link -->
-          <a href="#" class="btn btn-nav">Book a Strategy Session</a>
+          <a href="https://calendly.com/hello-arkterasystems/strategy-session" class="btn btn-nav" target="_blank">Book a Strategy Session</a>
           <button class="nav-hamburger" id="navHamburger"
                   aria-label="Open navigation menu"
                   aria-expanded="false"
@@ -158,7 +158,7 @@ function injectNav(activePage) {
         <ul>${buildMobileLinks(activePage)}</ul>
       </nav>
       <!-- TODO: Replace with Calendly booking link -->
-      <a href="#" class="btn btn-primary" style="margin-top:2rem">Book a Strategy Session</a>
+      <a href="https://calendly.com/hello-arkterasystems/strategy-session" target="_blank" class="btn btn-primary" style="margin-top:2rem">Book a Strategy Session</a>
     </div>`;
 
   document.body.prepend(nav);
@@ -442,7 +442,9 @@ function initTextReveal() {
   // Headings that reveal themselves: neutralize their own block
   // fade/slide (via .text-split) so only the words move.
   document
-    .querySelectorAll("h1.reveal-up, .hero-headline.reveal-up, .section-headline.reveal-up")
+    .querySelectorAll(
+      "h1.reveal-up, .hero-headline.reveal-up, .section-headline.reveal-up",
+    )
     .forEach((el) => {
       if (el.dataset.textSplit) return;
       el.dataset.textSplit = "1";
@@ -582,19 +584,21 @@ function initFAQ() {
 
 function initCardTilt() {
   if (window.matchMedia("(pointer: coarse)").matches) return;
-  document.querySelectorAll(".service-card, .breakdown-card, .insight-card").forEach((card) => {
-    card.addEventListener("mousemove", (e) => {
-      const r = card.getBoundingClientRect();
-      const rx = ((e.clientY - r.top - r.height / 2) / r.height) * -5;
-      const ry = ((e.clientX - r.left - r.width / 2) / r.width) * 5;
-      card.style.transform = `translateY(-6px) rotateX(${rx}deg) rotateY(${ry}deg)`;
-      card.style.transition = "box-shadow .15s, border-color .15s";
+  document
+    .querySelectorAll(".service-card, .breakdown-card, .insight-card")
+    .forEach((card) => {
+      card.addEventListener("mousemove", (e) => {
+        const r = card.getBoundingClientRect();
+        const rx = ((e.clientY - r.top - r.height / 2) / r.height) * -5;
+        const ry = ((e.clientX - r.left - r.width / 2) / r.width) * 5;
+        card.style.transform = `translateY(-6px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+        card.style.transition = "box-shadow .15s, border-color .15s";
+      });
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "";
+        card.style.transition = "all .4s ease";
+      });
     });
-    card.addEventListener("mouseleave", () => {
-      card.style.transform = "";
-      card.style.transition = "all .4s ease";
-    });
-  });
 }
 
 function initHeroCanvas() {
@@ -787,7 +791,9 @@ function initMotionPause() {
   const obs = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        entry.target.style.animationPlayState = entry.isIntersecting ? "running" : "paused";
+        entry.target.style.animationPlayState = entry.isIntersecting
+          ? "running"
+          : "paused";
       });
     },
     { rootMargin: "150px" },
