@@ -20,6 +20,8 @@ body {
   font-family: "Space Grotesk", sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
+  background: var(--bg-primary);
+  color: var(--text-primary);
   transition:
     background 0.4s ease,
     color 0.4s ease;
