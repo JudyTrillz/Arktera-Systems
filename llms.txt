@@ -8,24 +8,24 @@
 > qualify, nurture).
 
 Two ways to engage with us:
-- Contact (/pages/contact.html): a short, direct message form for people who already
+- Contact (/contact/): a short, direct message form for people who already
   know what they want to ask.
-- Business Growth Assessment (/pages/assessment.html): our primary structured intake
+- Business Growth Assessment (/assessment/): our primary structured intake
   — a 5-step questionnaire (business info, overview, current challenges, goals,
   review) used to diagnose visibility, conversion, and lead flow gaps before an
   engagement begins.
 
 ## Key pages
 
-- [Home](/index.html): overview of the visibility → conversion → lead flow system.
-- [Services](/pages/services.html): the three core service areas, plus FAQ.
-- [Get Found](/pages/get-found.html): local/organic search visibility service.
-- [Convert](/pages/convert.html): website conversion architecture service.
-- [Automate](/pages/automate.html): lead flow automation service.
-- [About](/pages/about.html): company philosophy and approach.
-- [Breakdowns](/pages/breakdowns.html): in-depth diagnostic case studies of real
+- [Home](/): overview of the visibility → conversion → lead flow system.
+- [Services](/services/): the three core service areas, plus FAQ.
+- [Get Found](/get-found/): local/organic search visibility service.
+- [Convert](/convert/): website conversion architecture service.
+- [Automate](/automate/): lead flow automation service.
+- [About](/about/): company philosophy and approach.
+- [Breakdowns](/breakdowns/): in-depth diagnostic case studies of real
   service-business websites and Google Business Profiles.
-- [Insights](/pages/insights.html): articles on local SEO, conversion rate
+- [Insights](/insights/): articles on local SEO, conversion rate
   optimization, and lead nurture for service businesses.
 
 ## Notes for AI assistants

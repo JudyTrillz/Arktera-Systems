@@ -1,0 +1,3164 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>
+      Why Generic Messaging Is Costing Service Businesses Their Best Leads — Arktera
+      Systems
+    </title>
+    <meta
+      name="description"
+      content="A breakdown of how weak positioning and vague messaging reduce trust, weaken differentiation, and lower conversion performance for service businesses." />
+    <link
+      rel="canonical"
+      href="https://arkterasystems.com/breakdowns/generic-service-business-messaging/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Arktera Systems" />
+    <meta
+      property="og:title"
+      content="Why Generic Messaging Is Costing Service Businesses Their Best Leads — Arktera Systems" />
+    <meta
+      property="og:description"
+      content="A breakdown of how weak positioning and vague messaging reduce trust, weaken differentiation, and lower conversion performance for service businesses." />
+    <meta
+      property="og:url"
+      content="https://arkterasystems.com/breakdowns/generic-service-business-messaging/" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Why Generic Messaging Is Costing Service Businesses Their Best Leads — Arktera Systems" />
+    <meta
+      name="twitter:description"
+      content="A breakdown of how weak positioning and vague messaging reduce trust, weaken differentiation, and lower conversion performance for service businesses." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500;1,600&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/styles/extended.css" />
+    <link rel="stylesheet" href="/styles/motion.css" />
+    <link rel="stylesheet" href="/styles/breakdown-motion.css" />
+    <style>
+      /* ── Hero floating elements — responsive control ──────────────
+         All four elements use inline position:absolute with no
+         external class-based breakpoints. This block overrides them.
+         ──────────────────────────────────────────────────────────── */
+
+      /* TABLET (≤1024px):
+         Floating panels (bd-float--a, --b, --d) overlap the centred
+         hero text. Hide all three. The orbit system sits far right
+         and is safe until ~900px, then also overlaps. */
+      @media (max-width: 1024px) {
+        .bd-float {
+          display: none !important;
+        }
+      }
+
+      @media (max-width: 900px) {
+        /* Orbit system sits at right:4% — starts clipping into text */
+        .msg-orbit-system {
+          display: none !important;
+        }
+        /* Also hide its absolute wrapper (no class, targets the aria-hidden div
+           wrapping msg-orbit-system) via the child selector */
+        .page-hero [aria-hidden="true"]:has(.msg-orbit-system) {
+          display: none !important;
+        }
+      }
+
+      /* MOBILE (≤600px):
+         Glow anchors are decorative radial blurs. The primary one is
+         580px wide centred — wider than the viewport, causing a faint
+         horizontal bloom behind text that reads as noise. Reduce opacity
+         and clamp width so it stays a subtle background wash. */
+      @media (max-width: 600px) {
+        .page-hero .glow-anchor--primary {
+          width: 100vw !important;
+          margin-left: -50vw !important;
+          height: 280px !important;
+          opacity: 0.45;
+        }
+        .page-hero .glow-anchor--secondary {
+          display: none !important;
+        }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://arkterasystems.com/#organization",
+            "name": "Arktera Systems",
+            "url": "https://arkterasystems.com/",
+            "email": "hello@arkterasystems.com",
+            "logo": "https://arkterasystems.com/favicon.svg",
+            "description": "Arktera Systems helps service businesses improve visibility, strengthen conversion performance, and build more reliable lead generation systems.",
+            "sameAs": [
+              "https://facebook.com/arkterasystems",
+              "https://instagram.com/arkterasystems",
+              "https://tiktok.com/@arkterasystems"
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://arkterasystems.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Breakdowns",
+                "item": "https://arkterasystems.com/breakdowns/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Messaging Trust Breakdown",
+                "item": "https://arkterasystems.com/breakdowns/generic-service-business-messaging/"
+              }
+            ]
+          },
+          {
+            "@type": "Article",
+            "headline": "Why Generic Messaging Is Costing Service Businesses Their Best Leads",
+            "description": "A breakdown of how weak positioning and vague messaging reduce trust, weaken differentiation, and lower conversion performance for service businesses.",
+            "url": "https://arkterasystems.com/breakdowns/generic-service-business-messaging/",
+            "publisher": {
+              "@id": "https://arkterasystems.com/#organization"
+            },
+            "author": {
+              "@type": "Organization",
+              "name": "Arktera Systems"
+            },
+            "mainEntityOfPage": "https://arkterasystems.com/breakdowns/generic-service-business-messaging/"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body data-page="breakdowns">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ═══ LIGHTBOX ═══ -->
+    <div
+      class="lx-overlay"
+      id="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Image viewer"
+      hidden>
+      <div class="lx-inner">
+        <div class="lx-frame">
+          <div class="lx-bar">
+            <span class="lx-label" id="lxLabel">Preview</span>
+            <button
+              class="lx-close"
+              id="lxClose"
+              aria-label="Close image viewer"
+              type="button">
+              ✕
+            </button>
+          </div>
+          <div id="lxContent"></div>
+          <div class="lx-footer" id="lxCaption"></div>
+        </div>
+        <div class="lx-nav" aria-label="Navigate images">
+          <button
+            class="lx-nav-btn"
+            id="lxPrev"
+            aria-label="Previous image"
+            type="button">
+            ←
+          </button>
+          <button class="lx-nav-btn" id="lxNext" aria-label="Next image" type="button">
+            →
+          </button>
+        </div>
+        <p class="lx-esc" aria-hidden="true">
+          Press ESC to close · Arrow keys to navigate
+        </p>
+      </div>
+    </div>
+
+    <main id="main-content">
+      <!-- ═══════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════ -->
+      <section
+        class="page-hero"
+        style="padding-bottom: 5rem; overflow: visible"
+        aria-labelledby="hero-h1">
+        <div class="page-hero-bg" aria-hidden="true">
+          <canvas class="hero-canvas" id="heroCanvas"></canvas>
+          <div class="page-hero-grid"></div>
+          <div
+            class="glow-anchor glow-anchor--primary"
+            style="
+              width: 580px;
+              height: 400px;
+              top: -110px;
+              left: 50%;
+              margin-left: -290px;
+              background: radial-gradient(
+                ellipse,
+                hsla(185, 80%, 40%, 0.13) 0%,
+                transparent 70%
+              );
+            "></div>
+          <div
+            class="glow-anchor glow-anchor--secondary"
+            style="
+              width: 300px;
+              height: 300px;
+              bottom: 0;
+              left: 6%;
+              background: radial-gradient(
+                ellipse,
+                hsla(38, 90%, 50%, 0.06) 0%,
+                transparent 70%
+              );
+            "></div>
+        </div>
+
+        <!-- Orbital messaging system -->
+        <div
+          style="
+            position: absolute;
+            top: 50%;
+            right: 4%;
+            margin-top: -150px;
+            z-index: 1;
+            opacity: 0.55;
+          "
+          aria-hidden="true">
+          <div class="msg-orbit-system">
+            <div class="msg-orbit-ring msg-orbit-ring--1">
+              <div class="msg-orbit-node"></div>
+            </div>
+            <div class="msg-orbit-ring msg-orbit-ring--2">
+              <div
+                class="msg-orbit-node msg-orbit-node--good"
+                style="top: auto; bottom: 0; left: 50%; margin-left: -10px"></div>
+            </div>
+            <div class="msg-orbit-core">TRUST<br />CORE</div>
+          </div>
+        </div>
+
+        <div
+          class="page-hero-content"
+          style="position: relative; z-index: 2; max-width: 820px">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a><span class="breadcrumb-sep" aria-hidden="true">›</span>
+            <a href="/breakdowns/">Breakdowns</a
+            ><span class="breadcrumb-sep" aria-hidden="true">›</span>
+            <span aria-current="page">Messaging Trust Breakdown</span>
+          </nav>
+          <p class="page-hero-label reveal-up" aria-hidden="true">
+            <span class="label-line"></span>Messaging Breakdown<span
+              class="label-line"></span>
+          </p>
+          <h1 id="hero-h1" class="reveal-up delay-1">
+            Why Generic Messaging Is Costing<br />Service Businesses<br /><em
+              >Their Best Leads.</em
+            >
+          </h1>
+          <p class="reveal-up delay-2" style="max-width: 620px; margin: 0 auto 2rem">
+            A breakdown of how weak positioning and vague messaging reduce trust, weaken
+            differentiation, and lower conversion performance, with annotated visual
+            evidence illustrating each failure mode.
+          </p>
+          <div
+            class="reveal-up delay-3"
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 1.5rem;
+              flex-wrap: wrap;
+            ">
+            <span
+              style="
+                font-family: &quot;IBM Plex Mono&quot;, monospace;
+                font-size: 0.7rem;
+                color: var(--text-muted);
+                letter-spacing: 0.1em;
+                display: flex;
+                align-items: center;
+                gap: 0.4rem;
+              ">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                aria-hidden="true">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+              </svg>
+              6 min read
+            </span>
+            <span
+              style="
+                font-family: &quot;IBM Plex Mono&quot;, monospace;
+                font-size: 0.7rem;
+                color: var(--accent);
+                letter-spacing: 0.1em;
+              "
+              >Trust Architecture</span
+            >
+            <span
+              style="
+                font-family: &quot;IBM Plex Mono&quot;, monospace;
+                font-size: 0.7rem;
+                color: var(--accent);
+                letter-spacing: 0.1em;
+              "
+              >Messaging Systems</span
+            >
+            <span
+              style="
+                font-family: &quot;IBM Plex Mono&quot;, monospace;
+                font-size: 0.7rem;
+                color: var(--amber);
+                letter-spacing: 0.1em;
+              "
+              >4 failure modes</span
+            >
+          </div>
+        </div>
+
+        <!-- Floating panels -->
+        <div
+          class="bd-float bd-float--a glass-panel"
+          style="
+            position: absolute;
+            top: 22%;
+            left: 2%;
+            padding: 1rem 1.25rem;
+            min-width: 200px;
+            max-width: 218px;
+          "
+          aria-hidden="true">
+          <div
+            style="
+              font-family: &quot;IBM Plex Mono&quot;, monospace;
+              font-size: 0.6rem;
+              color: var(--red);
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+              margin-bottom: 0.5rem;
+            ">
+            Weak Message
+          </div>
+          <div
+            style="
+              font-size: 0.8rem;
+              color: var(--text-muted);
+              font-style: italic;
+              text-decoration: line-through;
+              text-decoration-color: var(--red);
+              line-height: 1.45;
+            ">
+            "Quality Service You Can Trust"
+          </div>
+        </div>
+        <div
+          class="bd-float bd-float--b glass-panel"
+          style="
+            position: absolute;
+            bottom: 18%;
+            left: 1%;
+            padding: 1rem 1.25rem;
+            min-width: 210px;
+            max-width: 230px;
+          "
+          aria-hidden="true">
+          <div
+            style="
+              font-family: &quot;IBM Plex Mono&quot;, monospace;
+              font-size: 0.6rem;
+              color: var(--green);
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+              margin-bottom: 0.5rem;
+            ">
+            Strong Position
+          </div>
+          <div
+            style="
+              font-size: 0.8rem;
+              color: var(--text-primary);
+              font-weight: 500;
+              line-height: 1.45;
+            ">
+            "Systems designed to improve lead consistency for service businesses."
+          </div>
+        </div>
+        <div
+          class="bd-float bd-float--d glass-panel metric-panel"
+          style="position: absolute; top: 14%; right: 2%; min-width: 172px"
+          aria-hidden="true">
+          <div class="scanline-overlay" aria-hidden="true"></div>
+          <div class="metric-panel-header">
+            <span class="metric-panel-status metric-panel-status--amber"></span>
+            <span class="metric-panel-label">Clarity Score</span>
+          </div>
+          <div class="metric-panel-value">
+            <span data-count="18">0</span
+            ><span style="font-size: 1rem; color: var(--text-secondary)">%</span>
+          </div>
+          <div class="metric-panel-sub">Generic homepage audit</div>
+          <div class="metric-panel-bar">
+            <div
+              class="metric-panel-bar-fill metric-panel-bar-fill--amber"
+              style="--fill-target: 18%"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════
+     THE REAL PROBLEM
+═══════════════════════════════════════════════ -->
+      <section
+        style="padding: 5rem 0; background: var(--bg-secondary)"
+        aria-labelledby="problem-h">
+        <div class="container">
+          <p class="section-eyebrow mono reveal-up">
+            <span class="eyebrow-line" aria-hidden="true"></span>The Real Problem
+          </p>
+          <div class="responsive-grid-2" style="align-items: start">
+            <div class="reveal-up delay-1">
+              <h2
+                id="problem-h"
+                style="
+                  font-size: clamp(1.6rem, 3vw, 2.375rem);
+                  font-weight: 600;
+                  line-height: 1.2;
+                  letter-spacing: -0.02em;
+                  color: var(--text-primary);
+                  margin-bottom: 1.25rem;
+                ">
+                Most Service Business Messaging<br /><em
+                  style="
+                    font-style: italic;
+                    font-family: &quot;Playfair Display&quot;, serif;
+                    font-weight: 400;
+                    color: var(--text-secondary);
+                  "
+                  >Sounds Interchangeable.</em
+                >
+              </h2>
+              <p
+                style="
+                  font-size: 0.9375rem;
+                  color: var(--text-secondary);
+                  line-height: 1.78;
+                  margin-bottom: 1.25rem;
+                ">
+                Many businesses use messaging that feels safe and professional but
+                communicates nothing a buyer can act on. The problem is not that the
+                statements are false.
+              </p>
+              <p
+                style="
+                  font-size: 0.9375rem;
+                  color: var(--text-secondary);
+                  line-height: 1.78;
+                ">
+                The problem is that every competitor says the same thing. When all options
+                sound equally trustworthy and equally vague, buyers default to the
+                cheapest, the most familiar, or the highest-ranked option. Differentiation
+                is not about creativity. It is about specificity.
+              </p>
+            </div>
+            <div class="reveal-up delay-2">
+              <figure>
+                <button
+                  class="mock-img-wrap"
+                  data-mock="0"
+                  data-label="The Interchangeable Homepage"
+                  data-caption="Six real homepage headlines collected from service businesses — all indistinguishable from each other and from competitors."
+                  aria-label="Click to view: examples of generic service business messaging"
+                  type="button">
+                  <div class="mock-scan" aria-hidden="true"></div>
+                  <svg
+                    viewBox="0 0 520 300"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    aria-label="Grid of six generic service business headlines, all marked as weak">
+                    <rect width="520" height="300" fill="hsl(209,44%,7%)" />
+                    <text
+                      x="260"
+                      y="22"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="9"
+                      fill="hsl(0,72%,60%)"
+                      text-anchor="middle">
+                      REAL HEADLINES FOUND ON SERVICE BUSINESS WEBSITES
+                    </text>
+                    <!-- 6 cards in 2x3 grid -->
+                    <!-- Row 1 -->
+                    <rect
+                      x="12"
+                      y="34"
+                      width="154"
+                      height="72"
+                      rx="6"
+                      fill="hsl(209,44%,10%)"
+                      stroke="hsl(0,72%,60%)"
+                      stroke-width="1"
+                      stroke-dasharray="4 3" />
+                    <text
+                      x="89"
+                      y="55"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="6.5"
+                      fill="hsl(0,72%,60%)"
+                      text-anchor="middle">
+                      ROOFING CO.
+                    </text>
+                    <text
+                      x="89"
+                      y="70"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(191,9%,65%)"
+                      text-anchor="middle"
+                      font-style="italic">
+                      "Quality You Can Trust"
+                    </text>
+                    <text
+                      x="89"
+                      y="95"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="6"
+                      fill="hsl(0,72%,50%)"
+                      text-anchor="middle">
+                      ✕ Zero differentiation
+                    </text>
+
+                    <rect
+                      x="182"
+                      y="34"
+                      width="154"
+                      height="72"
+                      rx="6"
+                      fill="hsl(209,44%,10%)"
+                      stroke="hsl(0,72%,60%)"
+                      stroke-width="1"
+                      stroke-dasharray="4 3" />
+                    <text
+                      x="259"
+                      y="55"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="6.5"
+                      fill="hsl(0,72%,60%)"
+                      text-anchor="middle">
+                      LANDSCAPING
+                    </text>
+                    <text
+                      x="259"
+                      y="70"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(191,9%,65%)"
+                      text-anchor="middle"
+                      font-style="italic">
+                      "Trusted Professionals"
+                    </text>
+                    <text
+                      x="259"
+                      y="95"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="6"
+                      fill="hsl(0,72%,50%)"
+                      text-anchor="middle">
+                      ✕ Who isn't "trusted"?
+                    </text>
+
+                    <rect
+                      x="352"
+                      y="34"
+                      width="154"
+                      height="72"
+                      rx="6"
+                      fill="hsl(209,44%,10%)"
+                      stroke="hsl(0,72%,60%)"
+                      stroke-width="1"
+                      stroke-dasharray="4 3" />
+                    <text
+                      x="429"
+                      y="55"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="6.5"
+                      fill="hsl(0,72%,60%)"
+                      text-anchor="middle">
+                      PLUMBING CO.
+                    </text>
+                    <text
+                      x="429"
+                      y="70"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(191,9%,65%)"
+                      text-anchor="middle"
+                      font-style="italic">
+                      "We Care About You"
+                    </text>
+                    <text
+                      x="429"
+                      y="95"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="6"
+                      fill="hsl(0,72%,50%)"
+                      text-anchor="middle">
+                      ✕ No evidence of anything
+                    </text>
+
+                    <!-- Row 2 -->
+                    <rect
+                      x="12"
+                      y="118"
+                      width="154"
+                      height="72"
+                      rx="6"
+                      fill="hsl(209,44%,10%)"
+                      stroke="hsl(0,72%,60%)"
+                      stroke-width="1"
+                      stroke-dasharray="4 3" />
+                    <text
+                      x="89"
+                      y="139"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="6.5"
+                      fill="hsl(0,72%,60%)"
+                      text-anchor="middle">
+                      ACCOUNTING
+                    </text>
+                    <text
+                      x="89"
+                      y="157"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9"
+                      fill="hsl(191,9%,65%)"
+                      text-anchor="middle"
+                      font-style="italic">
+                      "Helping Businesses Grow"
+                    </text>
+                    <text
+                      x="89"
+                      y="179"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="6"
+                      fill="hsl(0,72%,50%)"
+                      text-anchor="middle">
+                      ✕ Vague, unverifiable
+                    </text>
+
+                    <rect
+                      x="182"
+                      y="118"
+                      width="154"
+                      height="72"
+                      rx="6"
+                      fill="hsl(209,44%,10%)"
+                      stroke="hsl(0,72%,60%)"
+                      stroke-width="1"
+                      stroke-dasharray="4 3" />
+                    <text
+                      x="259"
+                      y="139"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="6.5"
+                      fill="hsl(0,72%,60%)"
+                      text-anchor="middle">
+                      LEGAL FIRM
+                    </text>
+                    <text
+                      x="259"
+                      y="155"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9"
+                      fill="hsl(191,9%,65%)"
+                      text-anchor="middle"
+                      font-style="italic">
+                      "Your Success Is Our Goal"
+                    </text>
+                    <text
+                      x="259"
+                      y="179"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="6"
+                      fill="hsl(0,72%,50%)"
+                      text-anchor="middle">
+                      ✕ Aspirational filler
+                    </text>
+
+                    <rect
+                      x="352"
+                      y="118"
+                      width="154"
+                      height="72"
+                      rx="6"
+                      fill="hsl(209,44%,10%)"
+                      stroke="hsl(0,72%,60%)"
+                      stroke-width="1"
+                      stroke-dasharray="4 3" />
+                    <text
+                      x="429"
+                      y="139"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="6.5"
+                      fill="hsl(0,72%,60%)"
+                      text-anchor="middle">
+                      DIGITAL AGENCY
+                    </text>
+                    <text
+                      x="429"
+                      y="157"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9"
+                      fill="hsl(191,9%,65%)"
+                      text-anchor="middle"
+                      font-style="italic">
+                      "Results-Driven Marketing"
+                    </text>
+                    <text
+                      x="429"
+                      y="179"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="6"
+                      fill="hsl(0,72%,50%)"
+                      text-anchor="middle">
+                      ✕ Says nothing specific
+                    </text>
+
+                    <!-- bottom note -->
+                    <rect
+                      x="12"
+                      y="204"
+                      width="494"
+                      height="80"
+                      rx="6"
+                      fill="hsla(0,72%,60%,.07)"
+                      stroke="hsl(0,72%,60%)"
+                      stroke-width="1" />
+                    <text
+                      x="259"
+                      y="226"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="8"
+                      fill="hsl(0,72%,60%)"
+                      text-anchor="middle">
+                      THE CORE PROBLEM
+                    </text>
+                    <text
+                      x="259"
+                      y="244"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="10"
+                      fill="hsl(191,9%,60%)"
+                      text-anchor="middle">
+                      Every one of these businesses could swap headlines with a competitor
+                    </text>
+                    <text
+                      x="259"
+                      y="260"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="10"
+                      fill="hsl(191,9%,55%)"
+                      text-anchor="middle">
+                      and their customers would notice no difference.
+                    </text>
+                    <text
+                      x="259"
+                      y="276"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7.5"
+                      fill="hsl(0,72%,50%)"
+                      text-anchor="middle">
+                      When messaging is interchangeable, price becomes the only
+                      differentiator.
+                    </text>
+                  </svg>
+                  <div class="mock-caption">
+                    <span
+                      class="mock-caption-dot mock-caption-dot--red"
+                      aria-hidden="true"></span
+                    >Six real-world generic headlines — all interchangeable with any
+                    competitor
+                  </div>
+                </button>
+                <figcaption class="sr-only">
+                  Grid of six real service business homepage headlines all marked as
+                  generic and interchangeable, with the observation that swapping them
+                  between businesses would be undetectable.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════
+     WHY GENERIC MESSAGING FAILS — 4 CARDS
+═══════════════════════════════════════════════ -->
+      <section
+        style="padding: 5rem 0; background: var(--bg-primary)"
+        aria-labelledby="fails-h">
+        <div class="container">
+          <p class="section-eyebrow mono reveal-up">
+            <span class="eyebrow-line" aria-hidden="true"></span>Why It Fails
+          </p>
+          <h2 id="fails-h" class="section-headline reveal-up delay-1">
+            Four Compounding Failures<br /><em>of Generic Messaging.</em>
+          </h2>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+              gap: 1.25rem;
+            "
+            role="list">
+            <article class="impact-card reveal-up delay-1" role="listitem">
+              <div class="impact-card-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M15 9l-6 6M9 9l6 6" />
+                </svg>
+              </div>
+              <p class="impact-card-num mono">01 — Critical</p>
+              <h3>No Differentiation</h3>
+              <p>
+                When every option uses identical language, the buyer has no rational basis
+                for choosing one over another. Price becomes the deciding factor. Service
+                businesses rarely win on price, and they should not have to.
+              </p>
+            </article>
+            <article class="impact-card reveal-up delay-2" role="listitem">
+              <div class="impact-card-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <p class="impact-card-num mono">02 — Critical</p>
+              <h3>Weak Trust Formation</h3>
+              <p>
+                Trust is built through specificity: specific outcomes, clients, and
+                evidence. Generic claims create no trust because they require no proof. A
+                business can claim "quality service" without ever demonstrating it. Buyers
+                discount unsubstantiated claims.
+              </p>
+            </article>
+            <article class="impact-card reveal-up delay-3" role="listitem">
+              <div class="impact-card-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5">
+                  <path d="M18 20V10M12 20V4M6 20v-6" />
+                </svg>
+              </div>
+              <p class="impact-card-num mono">03 — High Impact</p>
+              <h3>No Strategic Positioning</h3>
+              <p>
+                Positioning occupies a specific, memorable space in the buyer's mind,
+                typically by serving a specific client with a specific problem better than
+                the alternatives. Generic messaging tries to serve everyone and ends up
+                being chosen by no one in particular.
+              </p>
+            </article>
+            <article class="impact-card reveal-up delay-4" role="listitem">
+              <div class="impact-card-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5">
+                  <path d="M9 11l3 3L22 4" />
+                  <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+                </svg>
+              </div>
+              <p class="impact-card-num mono">04 — Revenue Impact</p>
+              <h3>Poor Lead Quality</h3>
+              <p>
+                Vague messaging attracts vague enquiries. When positioning does not
+                specify who the service is for, enquiries often come from poor-fit
+                prospects. These leads require more effort to close, convert at a lower
+                rate, and are more likely to become management problems after signing.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════
+     WEAK VS STRONG MESSAGING — with mock images
+═══════════════════════════════════════════════ -->
+      <section
+        style="padding: 5rem 0; background: var(--bg-secondary)"
+        aria-labelledby="compare-h">
+        <div class="container">
+          <p class="section-eyebrow mono reveal-up">
+            <span class="eyebrow-line" aria-hidden="true"></span>Side-by-Side Analysis
+          </p>
+          <h2 id="compare-h" class="section-headline reveal-up delay-1">
+            Weak vs. Strong Messaging:<br /><em>The Structural Difference.</em>
+          </h2>
+
+          <!-- EXAMPLE 1 -->
+          <div style="margin-bottom: 3.5rem" class="reveal-up delay-1">
+            <div class="issue-with-mock">
+              <figure>
+                <button
+                  class="mock-img-wrap"
+                  data-mock="1"
+                  data-label="Messaging Example 01 — Roofing"
+                  data-caption="Weak generic headline vs specific outcome-driven positioning. The strong version names a fear, a promise, and a timeline."
+                  aria-label="Click to view: roofing messaging comparison"
+                  type="button">
+                  <div class="mock-scan" aria-hidden="true"></div>
+                  <svg
+                    viewBox="0 0 520 280"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    aria-label="Side-by-side comparison of weak and strong roofing headline">
+                    <rect width="520" height="280" fill="hsl(209,44%,7%)" />
+                    <!-- WEAK side -->
+                    <rect x="0" y="0" width="250" height="280" fill="hsl(209,44%,9%)" />
+                    <rect x="0" y="0" width="250" height="36" fill="hsl(209,44%,12%)" />
+                    <text
+                      x="125"
+                      y="23"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="9"
+                      fill="hsl(0,72%,60%)"
+                      text-anchor="middle">
+                      ✕ WEAK — Roofing
+                    </text>
+                    <!-- Mock browser content - weak -->
+                    <rect
+                      x="12"
+                      y="48"
+                      width="226"
+                      height="180"
+                      rx="5"
+                      fill="hsl(209,44%,11%)"
+                      stroke="hsl(208,18%,20%)"
+                      stroke-width="1" />
+                    <!-- nav mock -->
+                    <rect x="12" y="48" width="226" height="24" fill="hsl(209,44%,14%)" />
+                    <rect
+                      x="18"
+                      y="56"
+                      width="48"
+                      height="8"
+                      rx="2"
+                      fill="hsl(208,18%,25%)" />
+                    <!-- headline area -->
+                    <rect
+                      x="20"
+                      y="84"
+                      width="186"
+                      height="14"
+                      rx="3"
+                      fill="hsl(208,18%,22%)"
+                      stroke="hsl(0,72%,60%)"
+                      stroke-width="1"
+                      stroke-dasharray="3 2" />
+                    <text
+                      x="113"
+                      y="95"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="10"
+                      fill="hsl(191,9%,60%)"
+                      text-anchor="middle"
+                      font-style="italic">
+                      Quality Roofing You Can Trust
+                    </text>
+                    <!-- sub -->
+                    <rect
+                      x="20"
+                      y="106"
+                      width="170"
+                      height="7"
+                      rx="2"
+                      fill="hsl(208,18%,17%)" />
+                    <rect
+                      x="20"
+                      y="118"
+                      width="140"
+                      height="7"
+                      rx="2"
+                      fill="hsl(208,18%,17%)" />
+                    <!-- CTA -->
+                    <rect
+                      x="20"
+                      y="136"
+                      width="90"
+                      height="24"
+                      rx="4"
+                      fill="hsl(208,18%,22%)" />
+                    <text
+                      x="65"
+                      y="152"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9"
+                      fill="hsl(191,9%,50%)"
+                      text-anchor="middle">
+                      Contact Us
+                    </text>
+                    <!-- annotations -->
+                    <text
+                      x="20"
+                      y="176"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(0,72%,60%)">
+                      ↑ No client named
+                    </text>
+                    <text
+                      x="20"
+                      y="188"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(0,72%,60%)">
+                      ↑ No problem named
+                    </text>
+                    <text
+                      x="20"
+                      y="200"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(0,72%,60%)">
+                      ↑ No outcome specified
+                    </text>
+                    <text
+                      x="20"
+                      y="212"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(0,72%,60%)">
+                      ↑ Identical to competitors
+                    </text>
+                    <!-- CVR -->
+                    <rect
+                      x="12"
+                      y="240"
+                      width="226"
+                      height="30"
+                      rx="0"
+                      fill="hsla(0,72%,60%,.1)"
+                      stroke="hsl(0,72%,60%)"
+                      stroke-width="1" />
+                    <text
+                      x="125"
+                      y="259"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="8"
+                      fill="hsl(0,72%,60%)"
+                      text-anchor="middle">
+                      Est. CVR: ~1.2% | Bounce: ~76%
+                    </text>
+                    <!-- STRONG side -->
+                    <rect x="260" y="0" width="260" height="280" fill="hsl(209,44%,8%)" />
+                    <rect x="260" y="0" width="260" height="36" fill="hsl(209,44%,11%)" />
+                    <text
+                      x="390"
+                      y="23"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="9"
+                      fill="hsl(158,64%,52%)"
+                      text-anchor="middle">
+                      ✓ STRONG — Roofing
+                    </text>
+                    <!-- browser content strong -->
+                    <rect
+                      x="272"
+                      y="48"
+                      width="236"
+                      height="180"
+                      rx="5"
+                      fill="hsl(209,44%,10%)"
+                      stroke="hsla(185,80%,55%,.3)"
+                      stroke-width="1" />
+                    <rect
+                      x="272"
+                      y="48"
+                      width="236"
+                      height="24"
+                      fill="hsl(209,44%,13%)" />
+                    <rect
+                      x="278"
+                      y="56"
+                      width="48"
+                      height="8"
+                      rx="2"
+                      fill="hsl(208,18%,25%)" />
+                    <!-- strong headline -->
+                    <rect
+                      x="280"
+                      y="82"
+                      width="220"
+                      height="30"
+                      rx="3"
+                      fill="hsl(208,18%,18%)"
+                      stroke="hsl(185,80%,55%)"
+                      stroke-width="1" />
+                    <text
+                      x="390"
+                      y="97"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(165,4%,82%)"
+                      text-anchor="middle"
+                      font-weight="600">
+                      Roof replacements done on schedule.
+                    </text>
+                    <text
+                      x="390"
+                      y="109"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="8.5"
+                      fill="hsl(165,4%,72%)"
+                      text-anchor="middle">
+                      No delays. 10-year guarantee.
+                    </text>
+                    <!-- trust strip -->
+                    <rect
+                      x="280"
+                      y="122"
+                      width="220"
+                      height="16"
+                      rx="3"
+                      fill="hsla(158,64%,52%,.12)"
+                      stroke="hsl(158,64%,52%)"
+                      stroke-width="1" />
+                    <text
+                      x="390"
+                      y="134"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7.5"
+                      fill="hsl(158,64%,52%)"
+                      text-anchor="middle">
+                      ★★★★★ 4.9 · 212 reviews · Licensed &amp; Insured
+                    </text>
+                    <!-- CTAs -->
+                    <rect
+                      x="280"
+                      y="148"
+                      width="140"
+                      height="22"
+                      rx="5"
+                      fill="hsla(185,80%,55%,.25)"
+                      stroke="hsl(185,80%,55%)"
+                      stroke-width="1" />
+                    <text
+                      x="350"
+                      y="163"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9"
+                      fill="hsl(185,80%,55%)"
+                      text-anchor="middle"
+                      font-weight="600">
+                      Get Free Assessment →
+                    </text>
+                    <rect
+                      x="280"
+                      y="178"
+                      width="100"
+                      height="16"
+                      rx="4"
+                      fill="hsl(208,18%,18%)"
+                      stroke="hsl(208,18%,28%)"
+                      stroke-width="1" />
+                    <text
+                      x="330"
+                      y="190"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="8"
+                      fill="hsl(191,9%,55%)"
+                      text-anchor="middle">
+                      See Projects
+                    </text>
+                    <!-- annotations -->
+                    <text
+                      x="272"
+                      y="215"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(158,64%,52%)">
+                      ✓ Specific fear addressed (delays)
+                    </text>
+                    <text
+                      x="272"
+                      y="227"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(158,64%,52%)">
+                      ✓ Specific guarantee named
+                    </text>
+                    <text
+                      x="272"
+                      y="239"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(158,64%,52%)">
+                      ✓ Trust strip immediately visible
+                    </text>
+                    <!-- CVR -->
+                    <rect
+                      x="272"
+                      y="250"
+                      width="236"
+                      height="30"
+                      rx="0"
+                      fill="hsla(158,64%,52%,.1)"
+                      stroke="hsl(158,64%,52%)"
+                      stroke-width="1" />
+                    <text
+                      x="390"
+                      y="269"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="8"
+                      fill="hsl(158,64%,52%)"
+                      text-anchor="middle">
+                      Est. CVR: ~5.8% | Bounce: ~42%
+                    </text>
+                    <!-- divider -->
+                    <line
+                      x1="255"
+                      y1="0"
+                      x2="255"
+                      y2="280"
+                      stroke="hsl(208,18%,22%)"
+                      stroke-width="1.5" />
+                    <text
+                      x="255"
+                      y="148"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(208,18%,35%)"
+                      text-anchor="middle"
+                      transform="rotate(-90,255,148)">
+                      VS
+                    </text>
+                  </svg>
+                  <div class="mock-caption">
+                    <span
+                      class="mock-caption-dot mock-caption-dot--red"
+                      aria-hidden="true"></span
+                    >Generic vs specific: same business, radically different perceived
+                    value
+                  </div>
+                </button>
+                <figcaption class="sr-only">
+                  Side-by-side browser mockup comparing generic roofing headline with
+                  strong specific outcome-driven headline, including estimated CVR
+                  improvement from 1.2% to 5.8%.
+                </figcaption>
+              </figure>
+              <div>
+                <div class="msg-comparison" style="margin-bottom: 1rem">
+                  <div class="msg-comparison-header">
+                    <span
+                      style="
+                        font-family: &quot;IBM Plex Mono&quot;, monospace;
+                        font-size: 0.65rem;
+                        color: var(--text-muted);
+                        letter-spacing: 0.1em;
+                      "
+                      >EXAMPLE 01 — Roofing</span
+                    >
+                  </div>
+                  <div style="padding: 1.25rem 1.5rem">
+                    <div class="msg-tag msg-tag--weak" style="margin-bottom: 0.75rem">
+                      Weak
+                    </div>
+                    <p class="msg-text-weak">
+                      "We provide high-quality roofing solutions for residential and
+                      commercial properties."
+                    </p>
+                    <div
+                      style="
+                        margin: 0.875rem 0;
+                        text-align: center;
+                        color: var(--accent);
+                        font-size: 0.9rem;
+                      "
+                      aria-hidden="true">
+                      ↓
+                    </div>
+                    <div class="msg-tag msg-tag--strong" style="margin-bottom: 0.75rem">
+                      Strong
+                    </div>
+                    <p class="msg-text-strong">
+                      "Roof replacements completed on schedule, with no delays, no damage
+                      to your property, and guaranteed workmanship for 10 years."
+                    </p>
+                  </div>
+                </div>
+                <div
+                  style="
+                    background: var(--bg-primary);
+                    border: 1px solid var(--border);
+                    border-radius: 10px;
+                    padding: 1rem 1.25rem;
+                  ">
+                  <p
+                    style="
+                      font-family: &quot;IBM Plex Mono&quot;, monospace;
+                      font-size: 0.65rem;
+                      color: var(--accent);
+                      letter-spacing: 0.1em;
+                      text-transform: uppercase;
+                      margin-bottom: 0.5rem;
+                    ">
+                    Why This Works
+                  </p>
+                  <p
+                    style="
+                      font-size: 0.8375rem;
+                      color: var(--text-secondary);
+                      line-height: 1.65;
+                    ">
+                    Names the buyer's real fear (delays, damage), makes a specific promise
+                    (schedule, 10 years), and gives the guarantee enough substance to be
+                    credible — not just aspirational.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- EXAMPLE 2 -->
+          <div style="margin-bottom: 3.5rem" class="reveal-up delay-2">
+            <div class="issue-with-mock">
+              <div>
+                <div class="msg-comparison" style="margin-bottom: 1rem">
+                  <div class="msg-comparison-header">
+                    <span
+                      style="
+                        font-family: &quot;IBM Plex Mono&quot;, monospace;
+                        font-size: 0.65rem;
+                        color: var(--text-muted);
+                        letter-spacing: 0.1em;
+                      "
+                      >EXAMPLE 02 — Growth Consulting</span
+                    >
+                  </div>
+                  <div style="padding: 1.25rem 1.5rem">
+                    <div class="msg-tag msg-tag--weak" style="margin-bottom: 0.75rem">
+                      Weak
+                    </div>
+                    <p class="msg-text-weak">
+                      "We help businesses grow and reach their full potential."
+                    </p>
+                    <div
+                      style="
+                        margin: 0.875rem 0;
+                        text-align: center;
+                        color: var(--accent);
+                        font-size: 0.9rem;
+                      "
+                      aria-hidden="true">
+                      ↓
+                    </div>
+                    <div class="msg-tag msg-tag--strong" style="margin-bottom: 0.75rem">
+                      Strong
+                    </div>
+                    <p class="msg-text-strong">
+                      "Conversion-focused visibility systems designed to improve lead
+                      consistency for service businesses without increasing ad spend."
+                    </p>
+                  </div>
+                </div>
+                <div
+                  style="
+                    background: var(--bg-primary);
+                    border: 1px solid var(--border);
+                    border-radius: 10px;
+                    padding: 1rem 1.25rem;
+                  ">
+                  <p
+                    style="
+                      font-family: &quot;IBM Plex Mono&quot;, monospace;
+                      font-size: 0.65rem;
+                      color: var(--accent);
+                      letter-spacing: 0.1em;
+                      text-transform: uppercase;
+                      margin-bottom: 0.5rem;
+                    ">
+                    Why This Works
+                  </p>
+                  <p
+                    style="
+                      font-size: 0.8375rem;
+                      color: var(--text-secondary);
+                      line-height: 1.65;
+                    ">
+                    Names the audience (service businesses), the mechanism (visibility
+                    systems), the outcome (lead consistency), and removes a key objection
+                    (ad spend), all in one sentence.
+                  </p>
+                </div>
+              </div>
+              <figure>
+                <button
+                  class="mock-img-wrap"
+                  data-mock="2"
+                  data-label="Messaging Example 02 — Consulting"
+                  data-caption="Generic growth promise vs specific, mechanism-driven positioning that names audience, outcome, and removes a key objection."
+                  aria-label="Click to view: consulting messaging comparison"
+                  type="button">
+                  <div class="mock-scan" aria-hidden="true"></div>
+                  <svg
+                    viewBox="0 0 520 260"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    aria-label="Comparison of generic vs specific consulting positioning">
+                    <rect width="520" height="260" fill="hsl(209,44%,7%)" />
+                    <!-- Anatomy breakdown of strong message -->
+                    <text
+                      x="260"
+                      y="22"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="9"
+                      fill="hsl(185,80%,55%)"
+                      text-anchor="middle">
+                      ANATOMY OF A STRONG POSITIONING STATEMENT
+                    </text>
+                    <!-- Full message -->
+                    <rect
+                      x="12"
+                      y="34"
+                      width="494"
+                      height="42"
+                      rx="6"
+                      fill="hsla(185,80%,55%,.06)"
+                      stroke="hsl(185,80%,55%)"
+                      stroke-width="1" />
+                    <text
+                      x="259"
+                      y="52"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="11"
+                      fill="hsl(165,4%,85%)"
+                      text-anchor="middle"
+                      font-weight="500">
+                      "Conversion-focused visibility systems designed to improve
+                    </text>
+                    <text
+                      x="259"
+                      y="68"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="11"
+                      fill="hsl(165,4%,85%)"
+                      text-anchor="middle"
+                      font-weight="500">
+                      lead consistency for service businesses — without increasing ad
+                      spend."
+                    </text>
+                    <!-- Labelled anatomy -->
+                    <!-- Mechanism -->
+                    <rect
+                      x="12"
+                      y="90"
+                      width="148"
+                      height="60"
+                      rx="5"
+                      fill="hsla(185,80%,55%,.08)"
+                      stroke="hsl(185,80%,55%)"
+                      stroke-width="1" />
+                    <text
+                      x="86"
+                      y="108"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(185,80%,55%)"
+                      text-anchor="middle">
+                      ① MECHANISM
+                    </text>
+                    <text
+                      x="86"
+                      y="122"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9"
+                      fill="hsl(165,4%,75%)"
+                      text-anchor="middle">
+                      "visibility systems"
+                    </text>
+                    <text
+                      x="86"
+                      y="140"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(191,9%,50%)"
+                      text-anchor="middle">
+                      Shows HOW it works
+                    </text>
+                    <!-- Outcome -->
+                    <rect
+                      x="170"
+                      y="90"
+                      width="148"
+                      height="60"
+                      rx="5"
+                      fill="hsla(158,64%,52%,.08)"
+                      stroke="hsl(158,64%,52%)"
+                      stroke-width="1" />
+                    <text
+                      x="244"
+                      y="108"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(158,64%,52%)"
+                      text-anchor="middle">
+                      ② OUTCOME
+                    </text>
+                    <text
+                      x="244"
+                      y="122"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9"
+                      fill="hsl(165,4%,75%)"
+                      text-anchor="middle">
+                      "lead consistency"
+                    </text>
+                    <text
+                      x="244"
+                      y="140"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(191,9%,50%)"
+                      text-anchor="middle">
+                      Specific, measurable
+                    </text>
+                    <!-- Audience -->
+                    <rect
+                      x="328"
+                      y="90"
+                      width="180"
+                      height="60"
+                      rx="5"
+                      fill="hsla(38,90%,60%,.08)"
+                      stroke="hsl(38,90%,60%)"
+                      stroke-width="1" />
+                    <text
+                      x="418"
+                      y="108"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(38,90%,60%)"
+                      text-anchor="middle">
+                      ③ AUDIENCE
+                    </text>
+                    <text
+                      x="418"
+                      y="122"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9"
+                      fill="hsl(165,4%,75%)"
+                      text-anchor="middle">
+                      "service businesses"
+                    </text>
+                    <text
+                      x="418"
+                      y="140"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(191,9%,50%)"
+                      text-anchor="middle">
+                      Self-identifies the buyer
+                    </text>
+                    <!-- Objection removal -->
+                    <rect
+                      x="86"
+                      y="166"
+                      width="344"
+                      height="60"
+                      rx="5"
+                      fill="hsla(0,72%,60%,.08)"
+                      stroke="hsl(0,72%,60%)"
+                      stroke-width="1"
+                      stroke-dasharray="4 3" />
+                    <text
+                      x="258"
+                      y="184"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(0,72%,60%)"
+                      text-anchor="middle">
+                      ④ OBJECTION REMOVED
+                    </text>
+                    <text
+                      x="258"
+                      y="200"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9"
+                      fill="hsl(165,4%,75%)"
+                      text-anchor="middle">
+                      "without increasing ad spend"
+                    </text>
+                    <text
+                      x="258"
+                      y="216"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(191,9%,50%)"
+                      text-anchor="middle">
+                      Removes the most common barrier before it's raised — preemptive
+                      trust
+                    </text>
+                    <!-- weak vs -->
+                    <rect
+                      x="12"
+                      y="236"
+                      width="494"
+                      height="18"
+                      rx="4"
+                      fill="hsl(209,44%,10%)" />
+                    <text
+                      x="122"
+                      y="249"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7.5"
+                      fill="hsl(0,72%,60%)"
+                      text-anchor="middle">
+                      WEAK: "We help businesses grow"
+                    </text>
+                    <text
+                      x="376"
+                      y="249"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7.5"
+                      fill="hsl(158,64%,52%)"
+                      text-anchor="middle">
+                      → Contains ZERO of the above four elements
+                    </text>
+                    <line
+                      x1="254"
+                      y1="236"
+                      x2="254"
+                      y2="254"
+                      stroke="hsl(208,18%,28%)"
+                      stroke-width="1" />
+                  </svg>
+                  <div class="mock-caption">
+                    <span
+                      class="mock-caption-dot mock-caption-dot--accent"
+                      aria-hidden="true"></span
+                    >Anatomy of a strong positioning statement — mechanism, outcome,
+                    audience, objection removed
+                  </div>
+                </button>
+                <figcaption class="sr-only">
+                  Diagram breaking down a strong positioning statement into four
+                  components: mechanism (how), outcome (what), audience (who), and
+                  objection removed (why now).
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <!-- EXAMPLE 3 -->
+          <div style="margin-bottom: 3.5rem" class="reveal-up delay-3">
+            <div class="issue-with-mock">
+              <figure>
+                <button
+                  class="mock-img-wrap"
+                  data-mock="3"
+                  data-label="Messaging Example 03 — Legal Services"
+                  data-caption="Legal firm headline: generic experience claim vs specific client type, problem, and process promise."
+                  aria-label="Click to view: legal messaging comparison"
+                  type="button">
+                  <div class="mock-scan" aria-hidden="true"></div>
+                  <svg
+                    viewBox="0 0 520 280"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    aria-label="Legal firm homepage comparison: generic vs specific headline">
+                    <rect width="520" height="280" fill="hsl(209,44%,7%)" />
+                    <text
+                      x="260"
+                      y="22"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="9"
+                      fill="hsl(208,18%,45%)"
+                      text-anchor="middle">
+                      EXAMPLE 03 — LEGAL SERVICES
+                    </text>
+                    <!-- Weak page left -->
+                    <rect
+                      x="12"
+                      y="34"
+                      width="226"
+                      height="200"
+                      rx="6"
+                      fill="hsl(209,44%,9%)"
+                      stroke="hsl(0,72%,60%)"
+                      stroke-width="1"
+                      stroke-dasharray="4 3" />
+                    <text
+                      x="125"
+                      y="52"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="8"
+                      fill="hsl(0,72%,60%)"
+                      text-anchor="middle">
+                      ✕ WEAK
+                    </text>
+                    <!-- nav -->
+                    <rect x="12" y="58" width="226" height="18" fill="hsl(209,44%,12%)" />
+                    <rect
+                      x="18"
+                      y="63"
+                      width="44"
+                      height="8"
+                      rx="2"
+                      fill="hsl(208,18%,22%)" />
+                    <!-- headline -->
+                    <text
+                      x="125"
+                      y="100"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="10"
+                      fill="hsl(191,9%,60%)"
+                      text-anchor="middle"
+                      font-style="italic">
+                      "Experienced Attorneys
+                    </text>
+                    <text
+                      x="125"
+                      y="114"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="10"
+                      fill="hsl(191,9%,60%)"
+                      text-anchor="middle"
+                      font-style="italic">
+                      Committed to Your Success"
+                    </text>
+                    <!-- who is this for? -->
+                    <rect
+                      x="18"
+                      y="124"
+                      width="214"
+                      height="26"
+                      rx="4"
+                      fill="hsla(0,72%,60%,.08)"
+                      stroke="hsl(0,72%,60%)"
+                      stroke-width="1"
+                      stroke-dasharray="3 2" />
+                    <text
+                      x="125"
+                      y="136"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(0,72%,60%)"
+                      text-anchor="middle">
+                      ? Who is the client?
+                    </text>
+                    <text
+                      x="125"
+                      y="146"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(0,72%,55%)"
+                      text-anchor="middle">
+                      ? What legal area? What outcome?
+                    </text>
+                    <!-- issues list -->
+                    <text
+                      x="18"
+                      y="168"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(0,72%,60%)">
+                      ✕ "Experienced" — proves nothing
+                    </text>
+                    <text
+                      x="18"
+                      y="180"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(0,72%,60%)">
+                      ✕ "Committed" — empty promise
+                    </text>
+                    <text
+                      x="18"
+                      y="192"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(0,72%,60%)">
+                      ✕ "Your success" — whose success?
+                    </text>
+                    <text
+                      x="18"
+                      y="204"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(0,72%,60%)">
+                      ✕ No client type named
+                    </text>
+                    <text
+                      x="18"
+                      y="216"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(0,72%,60%)">
+                      ✕ No legal area specified
+                    </text>
+                    <!-- Strong page right -->
+                    <rect
+                      x="254"
+                      y="34"
+                      width="252"
+                      height="200"
+                      rx="6"
+                      fill="hsl(209,44%,9%)"
+                      stroke="hsl(158,64%,52%)"
+                      stroke-width="1" />
+                    <text
+                      x="380"
+                      y="52"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="8"
+                      fill="hsl(158,64%,52%)"
+                      text-anchor="middle">
+                      ✓ STRONG
+                    </text>
+                    <rect
+                      x="254"
+                      y="58"
+                      width="252"
+                      height="18"
+                      fill="hsl(209,44%,12%)" />
+                    <rect
+                      x="260"
+                      y="63"
+                      width="44"
+                      height="8"
+                      rx="2"
+                      fill="hsl(208,18%,22%)" />
+                    <!-- strong headline -->
+                    <text
+                      x="380"
+                      y="96"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(165,4%,85%)"
+                      text-anchor="middle"
+                      font-weight="600">
+                      "Commercial dispute resolution
+                    </text>
+                    <text
+                      x="380"
+                      y="110"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(165,4%,85%)"
+                      text-anchor="middle"
+                      font-weight="600">
+                      for SME owners — resolved
+                    </text>
+                    <text
+                      x="380"
+                      y="124"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(165,4%,80%)"
+                      text-anchor="middle">
+                      without drawn-out litigation."
+                    </text>
+                    <!-- trust -->
+                    <rect
+                      x="262"
+                      y="134"
+                      width="235"
+                      height="14"
+                      rx="3"
+                      fill="hsla(158,64%,52%,.1)"
+                      stroke="hsl(158,64%,52%)"
+                      stroke-width="1" />
+                    <text
+                      x="380"
+                      y="145"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(158,64%,52%)"
+                      text-anchor="middle">
+                      147 disputes resolved · Avg 6 weeks · No hidden fees
+                    </text>
+                    <!-- annotations -->
+                    <text
+                      x="260"
+                      y="166"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(158,64%,52%)">
+                      ✓ "Commercial dispute" — specific area
+                    </text>
+                    <text
+                      x="260"
+                      y="178"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(158,64%,52%)">
+                      ✓ "SME owners" — specific client
+                    </text>
+                    <text
+                      x="260"
+                      y="190"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(158,64%,52%)">
+                      ✓ "without litigation" — fear removed
+                    </text>
+                    <text
+                      x="260"
+                      y="202"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(158,64%,52%)">
+                      ✓ "147 disputes" — specific evidence
+                    </text>
+                    <text
+                      x="260"
+                      y="214"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(158,64%,52%)">
+                      ✓ "Avg 6 weeks" — specific timeline
+                    </text>
+                    <!-- vs label -->
+                    <rect
+                      x="238"
+                      y="108"
+                      width="18"
+                      height="18"
+                      rx="9"
+                      fill="hsl(209,44%,13%)"
+                      stroke="hsl(208,18%,25%)"
+                      stroke-width="1" />
+                    <text
+                      x="247"
+                      y="121"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="7"
+                      fill="hsl(208,18%,40%)"
+                      text-anchor="middle">
+                      VS
+                    </text>
+                  </svg>
+                  <div class="mock-caption">
+                    <span
+                      class="mock-caption-dot mock-caption-dot--red"
+                      aria-hidden="true"></span
+                    >Generic legal "commitment" vs specific client, problem, and
+                    fear-removal
+                  </div>
+                </button>
+                <figcaption class="sr-only">
+                  Legal firm homepage comparison showing generic "Experienced Attorneys"
+                  headline vs specific commercial dispute resolution positioning for SME
+                  owners with outcome evidence.
+                </figcaption>
+              </figure>
+              <div>
+                <div class="msg-comparison" style="margin-bottom: 1rem">
+                  <div class="msg-comparison-header">
+                    <span
+                      style="
+                        font-family: &quot;IBM Plex Mono&quot;, monospace;
+                        font-size: 0.65rem;
+                        color: var(--text-muted);
+                        letter-spacing: 0.1em;
+                      "
+                      >EXAMPLE 03 — Legal Services</span
+                    >
+                  </div>
+                  <div style="padding: 1.25rem 1.5rem">
+                    <div class="msg-tag msg-tag--weak" style="margin-bottom: 0.75rem">
+                      Weak
+                    </div>
+                    <p class="msg-text-weak">
+                      "Experienced attorneys committed to achieving the best outcomes for
+                      our clients."
+                    </p>
+                    <div
+                      style="
+                        margin: 0.875rem 0;
+                        text-align: center;
+                        color: var(--accent);
+                        font-size: 0.9rem;
+                      "
+                      aria-hidden="true">
+                      ↓
+                    </div>
+                    <div class="msg-tag msg-tag--strong" style="margin-bottom: 0.75rem">
+                      Strong
+                    </div>
+                    <p class="msg-text-strong">
+                      "Commercial dispute resolution for SME owners. Resolved efficiently,
+                      without drawn-out litigation that disrupts your business."
+                    </p>
+                  </div>
+                </div>
+                <div
+                  style="
+                    background: var(--bg-primary);
+                    border: 1px solid var(--border);
+                    border-radius: 10px;
+                    padding: 1rem 1.25rem;
+                  ">
+                  <p
+                    style="
+                      font-family: &quot;IBM Plex Mono&quot;, monospace;
+                      font-size: 0.65rem;
+                      color: var(--accent);
+                      letter-spacing: 0.1em;
+                      text-transform: uppercase;
+                      margin-bottom: 0.5rem;
+                    ">
+                    Why This Works
+                  </p>
+                  <p
+                    style="
+                      font-size: 0.8375rem;
+                      color: var(--text-secondary);
+                      line-height: 1.65;
+                    ">
+                    Names the exact legal area, the exact client, and removes the primary
+                    fear ("drawn-out litigation") before it's raised. A qualifying
+                    business owner reads this and immediately knows: this is for me.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- EXAMPLE 4 -->
+          <div class="reveal-up delay-2">
+            <div class="issue-with-mock">
+              <div>
+                <div class="msg-comparison" style="margin-bottom: 1rem">
+                  <div class="msg-comparison-header">
+                    <span
+                      style="
+                        font-family: &quot;IBM Plex Mono&quot;, monospace;
+                        font-size: 0.65rem;
+                        color: var(--text-muted);
+                        letter-spacing: 0.1em;
+                      "
+                      >EXAMPLE 04 — Accounting</span
+                    >
+                  </div>
+                  <div style="padding: 1.25rem 1.5rem">
+                    <div class="msg-tag msg-tag--weak" style="margin-bottom: 0.75rem">
+                      Weak
+                    </div>
+                    <p class="msg-text-weak">
+                      "Professional accounting services for businesses of all sizes."
+                    </p>
+                    <div
+                      style="
+                        margin: 0.875rem 0;
+                        text-align: center;
+                        color: var(--accent);
+                        font-size: 0.9rem;
+                      "
+                      aria-hidden="true">
+                      ↓
+                    </div>
+                    <div class="msg-tag msg-tag--strong" style="margin-bottom: 0.75rem">
+                      Strong
+                    </div>
+                    <p class="msg-text-strong">
+                      "Accounting for trade and construction businesses.
+                      <em>Accurate job costing</em>, <em>tax planning</em>, and
+                      <em>payroll</em>
+                      without the constant back and forth."
+                    </p>
+                  </div>
+                </div>
+                <div
+                  style="
+                    background: var(--bg-primary);
+                    border: 1px solid var(--border);
+                    border-radius: 10px;
+                    padding: 1rem 1.25rem;
+                  ">
+                  <p
+                    style="
+                      font-family: &quot;IBM Plex Mono&quot;, monospace;
+                      font-size: 0.65rem;
+                      color: var(--accent);
+                      letter-spacing: 0.1em;
+                      text-transform: uppercase;
+                      margin-bottom: 0.5rem;
+                    ">
+                    Why This Works
+                  </p>
+                  <p
+                    style="
+                      font-size: 0.8375rem;
+                      color: var(--text-secondary);
+                      line-height: 1.65;
+                    ">
+                    "For businesses of all sizes" is code for "we are a generalist and
+                    don't know your world." The strong version names an industry, three
+                    specific services, and removes the friction people hate most about
+                    accountants.
+                  </p>
+                </div>
+              </div>
+              <figure>
+                <button
+                  class="mock-img-wrap"
+                  data-mock="4"
+                  data-label="Messaging Example 04 — Accounting"
+                  data-caption="'Businesses of all sizes' signals generalist. Industry-specific positioning with named services converts at significantly higher rates."
+                  aria-label="Click to view: accounting messaging comparison"
+                  type="button">
+                  <div class="mock-scan" aria-hidden="true"></div>
+                  <svg
+                    viewBox="0 0 520 260"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    aria-label="Accounting firm: generalist positioning vs trade-specialist positioning">
+                    <rect width="520" height="260" fill="hsl(209,44%,7%)" />
+                    <text
+                      x="260"
+                      y="20"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="9"
+                      fill="hsl(208,18%,45%)"
+                      text-anchor="middle">
+                      EXAMPLE 04 — ACCOUNTING FIRM · BUYER EXPERIENCE
+                    </text>
+                    <!-- What buyer sees with generic message -->
+                    <rect
+                      x="12"
+                      y="30"
+                      width="494"
+                      height="70"
+                      rx="6"
+                      fill="hsl(209,44%,9%)"
+                      stroke="hsl(0,72%,60%)"
+                      stroke-width="1"
+                      stroke-dasharray="4 3" />
+                    <text
+                      x="260"
+                      y="50"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="8"
+                      fill="hsl(0,72%,60%)"
+                      text-anchor="middle">
+                      WHAT THE BUYER THINKS WHEN THEY READ "BUSINESSES OF ALL SIZES"
+                    </text>
+                    <text
+                      x="50"
+                      y="70"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(191,9%,55%)"
+                      text-anchor="middle">
+                      "Do they know
+                    </text>
+                    <text
+                      x="50"
+                      y="84"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(191,9%,50%)"
+                      text-anchor="middle">
+                      my industry?"
+                    </text>
+                    <text
+                      x="175"
+                      y="70"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(191,9%,55%)"
+                      text-anchor="middle">
+                      "Probably a
+                    </text>
+                    <text
+                      x="175"
+                      y="84"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(191,9%,50%)"
+                      text-anchor="middle">
+                      generalist."
+                    </text>
+                    <text
+                      x="300"
+                      y="70"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(191,9%,55%)"
+                      text-anchor="middle">
+                      "I'll keep
+                    </text>
+                    <text
+                      x="300"
+                      y="84"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(191,9%,50%)"
+                      text-anchor="middle">
+                      looking."
+                    </text>
+                    <text
+                      x="430"
+                      y="70"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(0,72%,60%)"
+                      text-anchor="middle">
+                      → BOUNCE
+                    </text>
+                    <text
+                      x="430"
+                      y="84"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(0,72%,55%)"
+                      text-anchor="middle">
+                      rate +40%
+                    </text>
+                    <!-- What buyer sees with specific -->
+                    <rect
+                      x="12"
+                      y="114"
+                      width="494"
+                      height="70"
+                      rx="6"
+                      fill="hsl(209,44%,9%)"
+                      stroke="hsl(158,64%,52%)"
+                      stroke-width="1" />
+                    <text
+                      x="260"
+                      y="132"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="8"
+                      fill="hsl(158,64%,52%)"
+                      text-anchor="middle">
+                      WHAT THE BUYER THINKS: "ACCOUNTING FOR TRADE &amp; CONSTRUCTION"
+                    </text>
+                    <text
+                      x="60"
+                      y="154"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(165,4%,75%)"
+                      text-anchor="middle">
+                      "They know
+                    </text>
+                    <text
+                      x="60"
+                      y="168"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(165,4%,72%)"
+                      text-anchor="middle">
+                      job costing."
+                    </text>
+                    <text
+                      x="185"
+                      y="154"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(165,4%,75%)"
+                      text-anchor="middle">
+                      "No more
+                    </text>
+                    <text
+                      x="185"
+                      y="168"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(165,4%,72%)"
+                      text-anchor="middle">
+                      explaining."
+                    </text>
+                    <text
+                      x="315"
+                      y="154"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(165,4%,75%)"
+                      text-anchor="middle">
+                      "This is
+                    </text>
+                    <text
+                      x="315"
+                      y="168"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(165,4%,72%)"
+                      text-anchor="middle">
+                      exactly me."
+                    </text>
+                    <text
+                      x="440"
+                      y="154"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(158,64%,52%)"
+                      text-anchor="middle">
+                      → ENQUIRE
+                    </text>
+                    <text
+                      x="440"
+                      y="168"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(158,64%,48%)"
+                      text-anchor="middle">
+                      CVR +280%
+                    </text>
+                    <!-- note -->
+                    <rect
+                      x="12"
+                      y="200"
+                      width="494"
+                      height="48"
+                      rx="5"
+                      fill="hsl(209,44%,10%)" />
+                    <text
+                      x="260"
+                      y="220"
+                      font-family="IBM Plex Mono, monospace"
+                      font-size="8"
+                      fill="hsl(185,80%,55%)"
+                      text-anchor="middle">
+                      THE PARADOX OF SPECIFIC POSITIONING
+                    </text>
+                    <text
+                      x="260"
+                      y="236"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9.5"
+                      fill="hsl(191,9%,60%)"
+                      text-anchor="middle">
+                      Narrowing your audience in messaging does not reduce your leads — it
+                      improves their quality.
+                    </text>
+                    <text
+                      x="260"
+                      y="248"
+                      font-family="Space Grotesk, sans-serif"
+                      font-size="9"
+                      fill="hsl(191,9%,50%)"
+                      text-anchor="middle">
+                      The right buyers self-select in. The wrong ones self-select out.
+                      Both outcomes save you time.
+                    </text>
+                  </svg>
+                  <div class="mock-caption">
+                    <span
+                      class="mock-caption-dot mock-caption-dot--accent"
+                      aria-hidden="true"></span
+                    >The paradox of specific positioning — narrower messaging, better-fit
+                    leads
+                  </div>
+                </button>
+                <figcaption class="sr-only">
+                  Diagram showing buyer psychology when reading generalist "businesses of
+                  all sizes" (leads to bounce) vs specialist "trade and construction"
+                  (leads to immediate recognition and enquiry).
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════
+     TRUST FRAMEWORK
+═══════════════════════════════════════════════ -->
+      <section
+        style="padding: 5rem 0; background: var(--bg-primary)"
+        aria-labelledby="framework-h">
+        <div class="container">
+          <p class="section-eyebrow mono reveal-up">
+            <span class="eyebrow-line" aria-hidden="true"></span>Structural Framework
+          </p>
+          <h2 id="framework-h" class="section-headline reveal-up delay-1">
+            High-Converting Messaging<br /><em>Builds Trust in Layers.</em>
+          </h2>
+          <div class="responsive-grid-2" style="align-items: start; gap: 3rem">
+            <div>
+              <p
+                style="
+                  font-size: 0.9375rem;
+                  color: var(--text-secondary);
+                  line-height: 1.78;
+                  margin-bottom: 2rem;
+                "
+                class="reveal-up delay-2">
+                Each layer serves a distinct purpose in moving the buyer from uncertainty
+                to confidence. Remove any layer and the trust structure weakens at that
+                decision point.
+              </p>
+              <div class="trust-framework reveal-up delay-2" role="list">
+                <div class="trust-layer" role="listitem" aria-label="Layer 1: Clarity">
+                  <div
+                    class="trust-layer-bar trust-layer-bar--1"
+                    aria-hidden="true"></div>
+                  <span class="trust-layer-num" aria-hidden="true">01</span>
+                  <div class="trust-layer-icon" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5">
+                      <path
+                        d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+                    </svg>
+                  </div>
+                  <div class="trust-layer-body">
+                    <h4>Clarity</h4>
+                    <p>
+                      <em><strong>What you do</strong></em
+                      >, <em><strong>who you serve</strong></em
+                      >, and the <em><strong>problem you solve</strong></em
+                      >. Understood within 3 seconds. No inference required.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="trust-layer"
+                  role="listitem"
+                  aria-label="Layer 2: Specificity">
+                  <div
+                    class="trust-layer-bar trust-layer-bar--2"
+                    aria-hidden="true"></div>
+                  <span class="trust-layer-num" aria-hidden="true">02</span>
+                  <div class="trust-layer-icon" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5">
+                      <path d="M9 11l3 3L22 4" />
+                    </svg>
+                  </div>
+                  <div class="trust-layer-body">
+                    <h4>Specificity</h4>
+                    <p>
+                      Specific clients, outcomes, timelines, and processes. Specificity is
+                      the currency of credibility. Vague claims are free to make. Specific
+                      claims carry accountability.
+                    </p>
+                  </div>
+                </div>
+                <div class="trust-layer" role="listitem" aria-label="Layer 3: Relevance">
+                  <div
+                    class="trust-layer-bar trust-layer-bar--3"
+                    aria-hidden="true"></div>
+                  <span class="trust-layer-num" aria-hidden="true">03</span>
+                  <div class="trust-layer-icon" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5">
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                    </svg>
+                  </div>
+                  <div class="trust-layer-body">
+                    <h4>Relevance</h4>
+                    <p>
+                      The buyer recognises themselves. The problem described is their
+                      problem. Relevant messaging creates the feeling: "this is exactly
+                      what I was looking for."
+                    </p>
+                  </div>
+                </div>
+                <div class="trust-layer" role="listitem" aria-label="Layer 4: Authority">
+                  <div
+                    class="trust-layer-bar trust-layer-bar--4"
+                    aria-hidden="true"></div>
+                  <span class="trust-layer-num" aria-hidden="true">04</span>
+                  <div class="trust-layer-icon" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                  </div>
+                  <div class="trust-layer-body">
+                    <h4>Authority</h4>
+                    <p>
+                      Communicated through the quality of the problem description and the
+                      confidence of the solution, not through self-proclaimed expertise. A
+                      business that describes your problem better than you can is
+                      immediately perceived as the expert.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="trust-layer"
+                  role="listitem"
+                  aria-label="Layer 5: Operational Confidence">
+                  <div
+                    class="trust-layer-bar trust-layer-bar--5"
+                    aria-hidden="true"></div>
+                  <span class="trust-layer-num" aria-hidden="true">05</span>
+                  <div class="trust-layer-icon" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5">
+                      <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                    </svg>
+                  </div>
+                  <div class="trust-layer-body">
+                    <h4>Operational Confidence</h4>
+                    <p>
+                      A clear picture of what engagement looks like: process, timeline,
+                      and communication. Reduces the perceived risk of contacting an
+                      unknown business.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <figure class="reveal-up delay-3">
+              <button
+                class="mock-img-wrap"
+                data-mock="5"
+                data-label="Trust Layer Framework — Visual"
+                data-caption="The five-layer trust architecture. Each layer builds on the previous. Remove any one and the structure weakens at that decision point."
+                aria-label="Click to view: trust framework diagram"
+                type="button">
+                <div class="mock-scan" aria-hidden="true"></div>
+                <svg
+                  viewBox="0 0 480 380"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Pyramid diagram of five trust layers from clarity at top to operational confidence at base">
+                  <rect width="480" height="380" fill="hsl(209,44%,7%)" />
+                  <text
+                    x="240"
+                    y="24"
+                    font-family="IBM Plex Mono, monospace"
+                    font-size="9"
+                    fill="hsl(185,80%,55%)"
+                    text-anchor="middle">
+                    TRUST ARCHITECTURE — 5-LAYER SYSTEM
+                  </text>
+                  <!-- Layer bars stacked (bottom to top = foundation to peak) -->
+                  <!-- Layer 5 — bottom / widest: Op Confidence -->
+                  <rect
+                    x="20"
+                    y="320"
+                    width="440"
+                    height="44"
+                    rx="5"
+                    fill="hsla(158,50%,50%,.12)"
+                    stroke="hsl(158,50%,50%)"
+                    stroke-width="1" />
+                  <text
+                    x="240"
+                    y="339"
+                    font-family="IBM Plex Mono, monospace"
+                    font-size="8"
+                    fill="hsl(158,50%,55%)"
+                    text-anchor="middle">
+                    05 — OPERATIONAL CONFIDENCE
+                  </text>
+                  <text
+                    x="240"
+                    y="354"
+                    font-family="Space Grotesk, sans-serif"
+                    font-size="9"
+                    fill="hsl(191,9%,55%)"
+                    text-anchor="middle">
+                    Process clarity · Timeline · Expectation management
+                  </text>
+                  <!-- Layer 4 -->
+                  <rect
+                    x="44"
+                    y="264"
+                    width="392"
+                    height="44"
+                    rx="5"
+                    fill="hsla(158,64%,52%,.12)"
+                    stroke="hsl(158,64%,52%)"
+                    stroke-width="1" />
+                  <text
+                    x="240"
+                    y="283"
+                    font-family="IBM Plex Mono, monospace"
+                    font-size="8"
+                    fill="hsl(158,64%,52%)"
+                    text-anchor="middle">
+                    04 — AUTHORITY
+                  </text>
+                  <text
+                    x="240"
+                    y="298"
+                    font-family="Space Grotesk, sans-serif"
+                    font-size="9"
+                    fill="hsl(191,9%,55%)"
+                    text-anchor="middle">
+                    Demonstrated through problem depth · Not self-proclaimed
+                  </text>
+                  <!-- Layer 3 -->
+                  <rect
+                    x="70"
+                    y="208"
+                    width="340"
+                    height="44"
+                    rx="5"
+                    fill="hsla(185,70%,45%,.12)"
+                    stroke="hsl(185,70%,45%)"
+                    stroke-width="1" />
+                  <text
+                    x="240"
+                    y="227"
+                    font-family="IBM Plex Mono, monospace"
+                    font-size="8"
+                    fill="hsl(185,70%,50%)"
+                    text-anchor="middle">
+                    03 — RELEVANCE
+                  </text>
+                  <text
+                    x="240"
+                    y="242"
+                    font-family="Space Grotesk, sans-serif"
+                    font-size="9"
+                    fill="hsl(191,9%,55%)"
+                    text-anchor="middle">
+                    Buyer recognises themselves · Self-selection signal
+                  </text>
+                  <!-- Layer 2 -->
+                  <rect
+                    x="96"
+                    y="152"
+                    width="288"
+                    height="44"
+                    rx="5"
+                    fill="hsla(185,75%,50%,.14)"
+                    stroke="hsl(185,75%,50%)"
+                    stroke-width="1" />
+                  <text
+                    x="240"
+                    y="171"
+                    font-family="IBM Plex Mono, monospace"
+                    font-size="8"
+                    fill="hsl(185,75%,55%)"
+                    text-anchor="middle">
+                    02 — SPECIFICITY
+                  </text>
+                  <text
+                    x="240"
+                    y="186"
+                    font-family="Space Grotesk, sans-serif"
+                    font-size="9"
+                    fill="hsl(191,9%,55%)"
+                    text-anchor="middle">
+                    Named clients, outcomes, timelines, evidence
+                  </text>
+                  <!-- Layer 1 — top / peak: Clarity -->
+                  <rect
+                    x="124"
+                    y="96"
+                    width="232"
+                    height="44"
+                    rx="5"
+                    fill="hsla(185,80%,55%,.2)"
+                    stroke="hsl(185,80%,55%)"
+                    stroke-width="1.5" />
+                  <text
+                    x="240"
+                    y="115"
+                    font-family="IBM Plex Mono, monospace"
+                    font-size="8"
+                    fill="hsl(185,80%,60%)"
+                    text-anchor="middle">
+                    01 — CLARITY
+                  </text>
+                  <text
+                    x="240"
+                    y="130"
+                    font-family="Space Grotesk, sans-serif"
+                    font-size="9"
+                    fill="hsl(165,4%,80%)"
+                    text-anchor="middle">
+                    What · Who · Problem — in under 3 seconds
+                  </text>
+                  <!-- Arrow annotations -->
+                  <text
+                    x="20"
+                    y="200"
+                    font-family="IBM Plex Mono, monospace"
+                    font-size="7.5"
+                    fill="hsl(208,18%,40%)">
+                    Foundation
+                  </text>
+                  <text
+                    x="20"
+                    y="188"
+                    font-family="IBM Plex Mono, monospace"
+                    font-size="7.5"
+                    fill="hsl(208,18%,35%)">
+                    (most ignored)
+                  </text>
+                  <text
+                    x="376"
+                    y="118"
+                    font-family="IBM Plex Mono, monospace"
+                    font-size="7.5"
+                    fill="hsl(185,80%,55%)">
+                    Peak impact
+                  </text>
+                  <text
+                    x="376"
+                    y="130"
+                    font-family="IBM Plex Mono, monospace"
+                    font-size="7.5"
+                    fill="hsl(185,70%,50%)">
+                    (most neglected)
+                  </text>
+                  <!-- Note at bottom -->
+                  <rect x="20" y="370" width="440" height="0" rx="0" fill="none" />
+                  <text
+                    x="240"
+                    y="372"
+                    font-family="IBM Plex Mono, monospace"
+                    font-size="7.5"
+                    fill="hsl(208,18%,38%)"
+                    text-anchor="middle">
+                    Remove any layer → trust fails at that decision point
+                  </text>
+                </svg>
+                <div class="mock-caption">
+                  <span
+                    class="mock-caption-dot mock-caption-dot--accent"
+                    aria-hidden="true"></span
+                  >Five-layer trust pyramid — clarity at peak, operational confidence as
+                  foundation
+                </div>
+              </button>
+              <figcaption class="sr-only">
+                Pyramid diagram showing five trust layers from top (clarity) to bottom
+                foundation (operational confidence), with notes on which are most
+                neglected and most ignored.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════
+     WHAT STRONG POSITIONING DOES
+═══════════════════════════════════════════════ -->
+      <section
+        style="padding: 5rem 0; background: var(--bg-secondary)"
+        aria-labelledby="outcomes-h">
+        <div class="container">
+          <p class="section-eyebrow mono reveal-up">
+            <span class="eyebrow-line" aria-hidden="true"></span>Strategic Outcomes
+          </p>
+          <h2 id="outcomes-h" class="section-headline reveal-up delay-1">
+            What Strong Positioning<br /><em>Actually Produces.</em>
+          </h2>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+              gap: 1.25rem;
+            "
+            role="list">
+            <article class="impact-card reveal-up delay-1" role="listitem">
+              <div class="impact-card-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <h3>Improved Trust</h3>
+              <p>
+                Specific messaging signals competence and accountability. Buyers assign
+                higher credibility to businesses that can articulate the problem in detail
+                because detailed problem knowledge implies solution experience.
+              </p>
+            </article>
+            <article class="impact-card reveal-up delay-2" role="listitem">
+              <div class="impact-card-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                </svg>
+              </div>
+              <h3>Increased Conversion Intent</h3>
+              <p>
+                When a buyer immediately recognises their problem and sees a credible
+                solution, the distance between arrival and enquiry shortens. Reduced
+                cognitive distance produces faster and higher conversion intent.
+              </p>
+            </article>
+            <article class="impact-card reveal-up delay-3" role="listitem">
+              <div class="impact-card-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5">
+                  <path d="M9 11l3 3L22 4" />
+                  <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+                </svg>
+              </div>
+              <h3>Filters Poor-Fit Leads</h3>
+              <p>
+                Specific positioning naturally excludes poor-fit buyers, resulting in
+                fewer but better enquiries. This leads to less conversion effort, higher
+                close rates, and clients who are easier to serve after signing.
+              </p>
+            </article>
+            <article class="impact-card reveal-up delay-1" role="listitem">
+              <div class="impact-card-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5">
+                  <path
+                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+              </div>
+              <h3>Stronger Perceived Expertise</h3>
+              <p>
+                A business that describes your problem better than you can is immediately
+                perceived as the expert. This is the deepest trust signal available, built
+                entirely through messaging quality rather than credentials.
+              </p>
+            </article>
+            <article class="impact-card reveal-up delay-2" role="listitem">
+              <div class="impact-card-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5">
+                  <path d="M3 12h18M3 6h18M3 18h12" />
+                </svg>
+              </div>
+              <h3>Improved CTA Engagement</h3>
+              <p>
+                When messaging builds trust and relevance effectively, CTA engagement
+                improves naturally because taking action feels like the logical next step,
+                not a risk that requires more confidence than has been earned.
+              </p>
+            </article>
+          </div>
+          <div
+            class="outcome-chips reveal-up delay-3"
+            style="margin-top: 3rem"
+            role="list">
+            <div class="outcome-chip" role="listitem">
+              <span class="outcome-chip-dot" aria-hidden="true"></span>Higher trust
+              formation rate
+            </div>
+            <div class="outcome-chip" role="listitem">
+              <span class="outcome-chip-dot" aria-hidden="true"></span>Better-fit
+              enquiries
+            </div>
+            <div class="outcome-chip" role="listitem">
+              <span class="outcome-chip-dot" aria-hidden="true"></span>Faster decision
+              journeys
+            </div>
+            <div class="outcome-chip" role="listitem">
+              <span class="outcome-chip-dot" aria-hidden="true"></span>Lower acquisition
+              cost
+            </div>
+            <div class="outcome-chip" role="listitem">
+              <span class="outcome-chip-dot" aria-hidden="true"></span>Stronger perceived
+              authority
+            </div>
+            <div class="outcome-chip" role="listitem">
+              <span class="outcome-chip-dot" aria-hidden="true"></span>Improved close
+              rates
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════
+     TAKEAWAY
+═══════════════════════════════════════════════ -->
+      <section
+        style="padding: 5rem 0; background: var(--bg-primary)"
+        aria-labelledby="takeaway-h">
+        <div class="container" style="max-width: 760px">
+          <p class="section-eyebrow mono reveal-up">
+            <span class="eyebrow-line" aria-hidden="true"></span>Strategic Takeaway
+          </p>
+          <h2 id="takeaway-h" class="section-headline reveal-up delay-1">
+            Better Messaging Is Not About<br /><em>Sounding Smarter.</em>
+          </h2>
+          <div class="reveal-up delay-2">
+            <p
+              style="
+                font-size: 0.9375rem;
+                color: var(--text-secondary);
+                line-height: 1.78;
+                margin-bottom: 1.25rem;
+              ">
+              It is about reducing uncertainty at the precise moment people decide whether
+              they trust your business enough to reach out. Buyers are not evaluating your
+              marketing. They are managing their own risk. Every vague claim increases
+              that risk. Every specific, relevant statement reduces it.
+            </p>
+            <p
+              style="
+                font-size: 0.9375rem;
+                color: var(--text-secondary);
+                line-height: 1.78;
+                margin-bottom: 2rem;
+              ">
+              The strongest messaging systems create clarity, confidence, differentiation,
+              and momentum toward action. They achieve this not by being clever, but by
+              being precise about who the service is for, what it delivers, and why it
+              should be trusted.
+            </p>
+            <div class="diagnostic-dashboard">
+              <div class="scanline-overlay" aria-hidden="true"></div>
+              <div class="diag-header">
+                <span class="diag-title">MESSAGING FRAMEWORK — TARGET SCORES</span>
+                <span class="diag-live"
+                  ><span class="diag-live-dot" aria-hidden="true"></span>Optimised
+                  state</span
+                >
+              </div>
+              <div class="diag-row" aria-label="Clarity: 90/100">
+                <span class="diag-label">Clarity</span>
+                <div class="diag-bar-track">
+                  <div class="diag-bar-fill diag-bar-fill--green" data-width="90%"></div>
+                </div>
+                <span class="diag-score diag-score--green">90</span>
+              </div>
+              <div class="diag-row" aria-label="Specificity: 85/100">
+                <span class="diag-label">Specificity</span>
+                <div class="diag-bar-track">
+                  <div class="diag-bar-fill diag-bar-fill--green" data-width="85%"></div>
+                </div>
+                <span class="diag-score diag-score--green">85</span>
+              </div>
+              <div class="diag-row" aria-label="Relevance: 88/100">
+                <span class="diag-label">Relevance</span>
+                <div class="diag-bar-track">
+                  <div class="diag-bar-fill diag-bar-fill--green" data-width="88%"></div>
+                </div>
+                <span class="diag-score diag-score--green">88</span>
+              </div>
+              <div class="diag-row" aria-label="Authority Signals: 82/100">
+                <span class="diag-label">Authority Signals</span>
+                <div class="diag-bar-track">
+                  <div class="diag-bar-fill diag-bar-fill--accent" data-width="82%"></div>
+                </div>
+                <span class="diag-score" style="color: var(--accent)">82</span>
+              </div>
+              <div class="diag-row" aria-label="Operational Confidence: 78/100">
+                <span class="diag-label">Op. Confidence</span>
+                <div class="diag-bar-track">
+                  <div class="diag-bar-fill diag-bar-fill--accent" data-width="78%"></div>
+                </div>
+                <span class="diag-score" style="color: var(--accent)">78</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════
+     CTA
+═══════════════════════════════════════════════ -->
+      <section class="cta-section" aria-labelledby="cta-h">
+        <div class="cta-bg" aria-hidden="true">
+          <div class="cta-glow-1"></div>
+          <div class="cta-glow-2"></div>
+          <div class="cta-grid"></div>
+        </div>
+        <div class="container">
+          <div class="cta-inner reveal-up">
+            <p class="cta-label mono">
+              <span class="label-line" aria-hidden="true"></span>Identify Your Messaging
+              Gaps<span class="label-line" aria-hidden="true"></span>
+            </p>
+            <h2 id="cta-h" class="cta-headline">
+              Identify the Messaging Problems<br />Reducing Trust and Conversion
+              Performance.
+            </h2>
+            <p class="cta-body">
+              Request a visibility audit and we'll identify the specific structural gaps
+              affecting your trust, positioning, and lead generation performance.
+            </p>
+            <div class="cta-buttons">
+              <a href="/assessment/" class="btn btn-primary btn-large"
+                >Request Growth Assessment<svg
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true">
+                  <path d="M4 10h12M10 4l6 6-6 6" /></svg
+              ></a>
+              <a
+                href="https://calendly.com/hello-arkterasystems/strategy-session"
+                target="_blank"
+                class="btn btn-ghost btn-large"
+                >Book Strategy Session</a
+              >
+            </div>
+            <p class="cta-reassurance mono">
+              No commitment required. Response within 24 hours.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/scripts/component.js"></script>
+
+    <script>
+      (function () {
+        /* ── LIGHTBOX ── */
+        const overlay = document.getElementById("lightbox");
+        const content = document.getElementById("lxContent");
+        const lxLabel = document.getElementById("lxLabel");
+        const lxCap = document.getElementById("lxCaption");
+        const prev = document.getElementById("lxPrev");
+        const next = document.getElementById("lxNext");
+        const closeBtn = document.getElementById("lxClose");
+        const mocks = [...document.querySelectorAll("[data-mock]")];
+        let current = 0;
+
+        function open(idx) {
+          current = idx;
+          const btn = mocks[idx];
+          const svg = btn.querySelector("svg").cloneNode(true);
+          content.innerHTML = "";
+          content.appendChild(svg);
+          lxLabel.textContent = btn.dataset.label || "Preview";
+          lxCap.textContent = btn.dataset.caption || "";
+          prev.disabled = idx === 0;
+          next.disabled = idx === mocks.length - 1;
+          overlay.removeAttribute("hidden");
+          requestAnimationFrame(() => overlay.classList.add("open"));
+          closeBtn.focus();
+        }
+
+        function closeLx() {
+          overlay.classList.remove("open");
+          setTimeout(() => {
+            overlay.setAttribute("hidden", "");
+            content.innerHTML = "";
+          }, 380);
+          if (mocks[current]) mocks[current].focus();
+        }
+
+        mocks.forEach((btn, i) => btn.addEventListener("click", () => open(i)));
+        closeBtn.addEventListener("click", closeLx);
+        prev.addEventListener("click", () => {
+          if (current > 0) open(current - 1);
+        });
+        next.addEventListener("click", () => {
+          if (current < mocks.length - 1) open(current + 1);
+        });
+        overlay.addEventListener("click", (e) => {
+          if (e.target === overlay) closeLx();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (!overlay.classList.contains("open")) return;
+          if (e.key === "Escape") closeLx();
+          if (e.key === "ArrowLeft" && current > 0) open(current - 1);
+          if (e.key === "ArrowRight" && current < mocks.length - 1) open(current + 1);
+        });
+
+        /* ── DIAGNOSTIC BARS ── */
+        const dobs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (!e.isIntersecting) return;
+              e.target
+                .querySelectorAll(".diag-bar-fill")
+                .forEach((f) => (f.style.width = f.dataset.width || "50%"));
+              dobs.unobserve(e.target);
+            });
+          },
+          { threshold: 0.2 },
+        );
+        document
+          .querySelectorAll(".diagnostic-dashboard")
+          .forEach((d) => dobs.observe(d));
+
+        /* ── TRUST LAYERS ── */
+        const tobs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (!e.isIntersecting) return;
+              e.target
+                .querySelectorAll(".trust-layer")
+                .forEach((l) => l.classList.add("animated"));
+              tobs.unobserve(e.target);
+            });
+          },
+          { threshold: 0.15 },
+        );
+        document.querySelectorAll(".trust-framework").forEach((tf) => tobs.observe(tf));
+
+        /* ── METRIC FILLS ── */
+        const pobs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (!e.isIntersecting) return;
+              e.target
+                .querySelectorAll(".metric-panel-bar-fill")
+                .forEach((f) => f.classList.add("animated"));
+              pobs.unobserve(e.target);
+            });
+          },
+          { threshold: 0.3 },
+        );
+        document.querySelectorAll(".glass-panel").forEach((el) => pobs.observe(el));
+      })();
+    </script>
+  </body>
+</html>

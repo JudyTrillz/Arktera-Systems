@@ -54,41 +54,37 @@ const LOGO_SVG = `
     fill="currentColor" opacity="0.55">SYSTEMS</text>
 </svg>`;
 
-// Resolve base path dynamically based on current page depth
-const _depth = (window.location.pathname.match(/\//g) || []).length - 1;
-const _base = "/";
-const HOME_PATH = _base;
-const PAGE_PATH = _base + "pages/";
+const HOME_PATH = "/";
 
 const NAV_LINKS = [
   { href: HOME_PATH, label: "Home", key: "home" },
 
   {
-    href: PAGE_PATH + "about.html",
+    href: "/about/",
     label: "About",
     key: "about",
   },
 
   {
-    href: PAGE_PATH + "services.html",
+    href: "/services/",
     label: "Services",
     key: "services",
   },
 
   {
-    href: PAGE_PATH + "breakdowns.html",
+    href: "/breakdowns/",
     label: "Breakdowns",
     key: "breakdowns",
   },
 
   {
-    href: PAGE_PATH + "insights.html",
+    href: "/insights/",
     label: "Insights",
     key: "insights",
   },
 
   {
-    href: PAGE_PATH + "contact.html",
+    href: "/contact/",
     label: "Contact",
     key: "contact",
   },
@@ -180,28 +176,28 @@ function injectFooter() {
         <div class="footer-col">
           <p class="footer-col-title mono">Pages</p>
           <ul>
-            <li><a href="${PAGE_PATH}index.html">Home</a></li>
-            <li><a href="${PAGE_PATH}about.html">About</a></li>
-            <li><a href="${PAGE_PATH}services.html">Services</a></li>
-            <li><a href="${PAGE_PATH}breakdowns.html">Breakdowns</a></li>
-            <li><a href="${PAGE_PATH}insights.html">Insights</a></li>
-            <li><a href="${PAGE_PATH}contact.html">Contact</a></li>
+            <li><a href="${HOME_PATH}">Home</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/breakdowns/">Breakdowns</a></li>
+            <li><a href="/insights/">Insights</a></li>
+            <li><a href="/contact/">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <p class="footer-col-title mono">Services</p>
           <ul>
-            <li><a href="${PAGE_PATH}get-found.html">Visibility Systems</a></li>
-            <li><a href="${PAGE_PATH}convert.html">Conversion Engineering</a></li>
-            <li><a href="${PAGE_PATH}automate.html">Lead Flow Automation</a></li>
-            <li><a href="${PAGE_PATH}services.html">All Services</a></li>
+            <li><a href="/get-found/">Visibility Systems</a></li>
+            <li><a href="/convert/">Conversion Engineering</a></li>
+            <li><a href="/automate/">Lead Flow Automation</a></li>
+            <li><a href="/services/">All Services</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <p class="footer-col-title mono">Legal</p>
           <ul>
-            <li><a href="${PAGE_PATH}privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="${PAGE_PATH}terms.html">Terms of Service</a></li>
+            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+            <li><a href="/terms/">Terms of Service</a></li>
           </ul>
           <div style="margin-top:1.5rem">
             <p class="footer-col-title mono">Contact</p>

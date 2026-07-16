@@ -1,0 +1,1588 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>
+      The 7 Conversion Failures We Find on Every Service Business Website | Arktera
+      Systems
+    </title>
+    <meta
+      name="description"
+      content="A diagnostic walkthrough of the most common CRO failures reducing leads on service business websites — and the structural changes that recover them." />
+    <link rel="canonical" href="https://arkterasystems.com/breakdowns/seven-conversion-failures/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Arktera Systems" />
+    <meta property="og:title" content="The 7 Conversion Failures We Find on Every Service Business Website | Arktera Systems" />
+    <meta property="og:description" content="A diagnostic walkthrough of the most common CRO failures reducing leads on service business websites — and the structural changes that recover them." />
+    <meta property="og:url" content="https://arkterasystems.com/breakdowns/seven-conversion-failures/" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="The 7 Conversion Failures We Find on Every Service Business Website | Arktera Systems" />
+    <meta name="twitter:description" content="A diagnostic walkthrough of the most common CRO failures reducing leads on service business websites — and the structural changes that recover them." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500;1,600&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/styles/extended.css" />
+    <link rel="stylesheet" href="/styles/motion.css" />
+    <link rel="stylesheet" href="/styles/breakdown-motion.css" />
+    <style>
+      /* ── Minimal page-scoped additions ── */
+
+      /* Conversion failure diagnostic card */
+      .cro-failure {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+        margin-bottom: 1.25rem;
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s;
+        position: relative;
+      }
+      .cro-failure:hover {
+        border-color: var(--accent);
+        box-shadow: var(--shadow-card);
+      }
+      .cro-failure::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--red), transparent);
+      }
+      .cro-failure-header {
+        display: flex;
+        align-items: center;
+        gap: 1.125rem;
+        padding: 1.25rem 1.5rem;
+        border-bottom: 1px solid var(--border);
+        background: var(--bg-tertiary);
+      }
+
+      @media (max-width: 768px) {
+        .cro-failure-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.75rem;
+          padding: 1rem;
+        }
+
+        .cro-num {
+          align-self: flex-start;
+          margin-bottom: -20px;
+        }
+
+        .cro-failure-title {
+          width: 100%;
+          margin: 0;
+          line-height: 1.4;
+        }
+      }
+
+      .cro-num {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--red);
+        background: var(--red-dim);
+        border: 1px solid var(--red);
+        border-radius: 4px;
+        padding: 0.22rem 0.65rem;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .cro-num .pulse-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--red);
+        animation: criticalPulse 2.5s ease-in-out infinite;
+        flex-shrink: 0;
+      }
+      .cro-failure-title {
+        font-size: 0.9375rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        line-height: 1.3;
+      }
+      .cro-failure-body {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0;
+      }
+      @media (max-width: 720px) {
+        .cro-failure-body {
+          grid-template-columns: 1fr;
+        }
+      }
+      .cro-col {
+        padding: 1.125rem 1.375rem;
+        border-right: 1px solid var(--border);
+      }
+      .cro-col:last-child {
+        border-right: none;
+      }
+      @media (max-width: 720px) {
+        .cro-col {
+          border-right: none;
+          border-bottom: 1px solid var(--border);
+        }
+        .cro-col:last-child {
+          border-bottom: none;
+        }
+      }
+      .cro-col-label {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.62rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 0.6rem;
+      }
+      .cro-col-label--problem {
+        color: var(--red);
+      }
+      .cro-col-label--impact {
+        color: var(--amber);
+      }
+      .cro-col-label--fix {
+        color: var(--green);
+      }
+      .cro-col p {
+        font-size: 0.8375rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+      .cro-meter {
+        padding: 0.875rem 1.5rem;
+        border-top: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background: var(--bg-primary);
+      }
+      .cro-meter-label {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.68rem;
+        color: var(--text-muted);
+        flex-shrink: 0;
+        min-width: 120px;
+      }
+      .cro-meter-bar {
+        flex: 1;
+        height: 5px;
+        background: var(--border);
+        border-radius: 2.5px;
+        overflow: hidden;
+      }
+      .cro-meter-fill {
+        height: 100%;
+        border-radius: 2.5px;
+        width: 0;
+        background: var(--red);
+        transition: width 1.8s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .cro-meter-val {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.7rem;
+        color: var(--red);
+        flex-shrink: 0;
+      }
+
+      /* CVR comparison bar */
+      .cvr-bar-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.875rem 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .cvr-bar-row:last-child {
+        border-bottom: none;
+      }
+      .cvr-bar-site {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        min-width: 180px;
+        flex-shrink: 0;
+      }
+      .cvr-bar-track {
+        flex: 1;
+        height: 10px;
+        background: var(--border);
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      .cvr-bar-fill {
+        height: 100%;
+        border-radius: 5px;
+        width: 0;
+        transition: width 1.8s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .cvr-bar-fill--low {
+        background: linear-gradient(90deg, var(--red), var(--amber));
+      }
+      .cvr-bar-fill--high {
+        background: linear-gradient(90deg, var(--accent), var(--green));
+      }
+      .cvr-bar-val {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.78rem;
+        font-weight: 600;
+        flex-shrink: 0;
+        min-width: 52px;
+        text-align: right;
+      }
+
+      @media (max-width: 768px) {
+        .cvr-bar-row {
+          flex-wrap: wrap;
+          gap: 0.75rem;
+        }
+
+        .cvr-bar-site {
+          min-width: auto;
+          flex: 1;
+        }
+
+        .cvr-bar-val {
+          min-width: auto;
+          text-align: right;
+        }
+
+        .cvr-bar-track {
+          flex: 0 0 100%;
+          width: 100%;
+          order: 3;
+        }
+      }
+
+      /* What high-converting sites do — card grid */
+      .hcvr-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.125rem;
+        margin: 1.75rem 0;
+      }
+      .hcvr-card {
+        background: var(--bg-glass);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 1.5rem;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        position: relative;
+        overflow: hidden;
+        transition:
+          border-color 0.35s,
+          transform 0.35s;
+      }
+      .hcvr-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-4px);
+      }
+      .hcvr-card:hover::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 80% 60% at 50% 0%,
+          var(--accent-glow),
+          transparent 70%
+        );
+        border-radius: inherit;
+        pointer-events: none;
+      }
+      .hcvr-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: var(--accent-dim);
+        border: 1px solid var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent);
+        margin-bottom: 1rem;
+        transition: background 0.3s;
+      }
+      .hcvr-card:hover .hcvr-icon {
+        background: var(--accent);
+        color: hsl(199, 69%, 5%);
+      }
+      [data-theme="light"] .hcvr-card:hover .hcvr-icon {
+        color: hsl(209, 44%, 8%);
+      }
+      .hcvr-icon svg {
+        width: 18px;
+        height: 18px;
+      }
+      .hcvr-card h4 {
+        font-size: 0.9375rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.4rem;
+      }
+      .hcvr-card p {
+        font-size: 0.8125rem;
+        color: var(--text-secondary);
+        line-height: 1.65;
+      }
+
+      /* Lead leakage funnel (hero visual) */
+      .leakage-funnel {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        max-width: 340px;
+        width: 100%;
+      }
+      .lk-stage {
+        display: flex;
+        align-items: center;
+        gap: 0.875rem;
+        padding: 0.875rem 1.25rem;
+        border-radius: 8px;
+        margin-bottom: 2px;
+        border: 1px solid;
+      }
+      .lk-stage--full {
+        border-color: var(--accent);
+        background: var(--accent-dim);
+      }
+      .lk-stage--mid {
+        border-color: var(--amber);
+        background: var(--amber-dim);
+      }
+      .lk-stage--low {
+        border-color: var(--red);
+        background: var(--red-dim);
+      }
+      .lk-stage-icon {
+        font-size: 0.9rem;
+        flex-shrink: 0;
+        width: 22px;
+        text-align: center;
+      }
+      .lk-stage-label {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.7rem;
+        letter-spacing: 0.06em;
+        color: var(--text-secondary);
+        flex: 1;
+      }
+      .lk-stage-val {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+      .lk-stage--full .lk-stage-val {
+        color: var(--accent);
+      }
+      .lk-stage--mid .lk-stage-val {
+        color: var(--amber);
+      }
+      .lk-stage--low .lk-stage-val {
+        color: var(--red);
+      }
+      .lk-arrow {
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.7rem;
+        font-family: "IBM Plex Mono", monospace;
+        padding: 0.1rem 0;
+        letter-spacing: 0.1em;
+      }
+    </style>
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://arkterasystems.com/#organization",
+      "name": "Arktera Systems",
+      "url": "https://arkterasystems.com/",
+      "email": "hello@arkterasystems.com",
+      "logo": "https://arkterasystems.com/favicon.svg",
+      "description": "Arktera Systems helps service businesses improve visibility, strengthen conversion performance, and build more reliable lead generation systems.",
+      "sameAs": [
+        "https://facebook.com/arkterasystems",
+        "https://instagram.com/arkterasystems",
+        "https://tiktok.com/@arkterasystems"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://arkterasystems.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "7 Conversion Failures",
+          "item": "https://arkterasystems.com/breakdowns/seven-conversion-failures/"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "The 7 Conversion Failures We Find on Every Service Business Website",
+      "description": "A diagnostic walkthrough of the most common CRO failures reducing leads on service business websites — and the structural changes that recover them.",
+      "url": "https://arkterasystems.com/breakdowns/seven-conversion-failures/",
+      "publisher": {
+        "@id": "https://arkterasystems.com/#organization"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Arktera Systems"
+      },
+      "mainEntityOfPage": "https://arkterasystems.com/breakdowns/seven-conversion-failures/"
+    }
+  ]
+}
+</script>
+  </head>
+  <body data-page="breakdowns">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+
+    <main id="main-content">
+      <!-- ═══════════════════ HERO ═══════════════════ -->
+      <section
+        class="page-hero"
+        style="padding-bottom: 4rem; overflow: visible; min-height: auto"
+        aria-labelledby="article-h1">
+        <div class="page-hero-bg" aria-hidden="true">
+          <canvas class="hero-canvas" id="heroCanvas"></canvas>
+          <div class="page-hero-grid"></div>
+          <div
+            class="glow-anchor glow-anchor--primary"
+            style="
+              width: 580px;
+              height: 400px;
+              top: -100px;
+              left: 50%;
+              margin-left: -290px;
+              background: radial-gradient(
+                ellipse,
+                hsla(185, 80%, 40%, 0.13) 0%,
+                transparent 70%
+              );
+            "></div>
+          <div
+            class="glow-anchor glow-anchor--secondary"
+            style="
+              width: 260px;
+              height: 260px;
+              bottom: 0;
+              right: 6%;
+              background: radial-gradient(
+                ellipse,
+                hsla(0, 72%, 50%, 0.07) 0%,
+                transparent 70%
+              );
+            "></div>
+        </div>
+
+        <!-- Orbital system -->
+        <div
+          class="orbital-system"
+          style="
+            width: 380px;
+            height: 380px;
+            position: absolute;
+            top: 50%;
+            right: 3%;
+            margin-top: -190px;
+            z-index: 0;
+          "
+          aria-hidden="true">
+          <div
+            class="orbital-ring orbital-ring--slow-cw"
+            style="width: 100%; height: 100%; opacity: 0.09">
+            <div class="orbital-dot"></div>
+          </div>
+          <div
+            class="orbital-ring orbital-ring--slow-ccw"
+            style="width: 62%; height: 62%; opacity: 0.07">
+            <div class="orbital-dot orbital-dot--dim"></div>
+          </div>
+          <div class="orbital-ring" style="width: 34%; height: 34%; opacity: 0.04"></div>
+        </div>
+
+        <!-- Floating ambient panels -->
+        <div
+          class="fdp fdp--a glass-panel metric-panel"
+          style="position: absolute; top: 16%; right: 3%; min-width: 174px"
+          aria-hidden="true">
+          <div class="scanline-overlay"></div>
+          <div class="metric-panel-header">
+            <span
+              class="metric-panel-status metric-panel-status--red"
+              style="background: var(--red); box-shadow: 0 0 6px var(--red)"></span>
+            <span class="metric-panel-label">Avg Service CVR</span>
+          </div>
+          <div class="metric-panel-value">
+            <span style="color: var(--red)" data-count="2">0</span
+            ><span style="font-size: 1rem; color: var(--text-secondary)">–4%</span>
+          </div>
+          <div class="metric-panel-sub">industry benchmark</div>
+          <div class="metric-panel-bar">
+            <div
+              class="metric-panel-bar-fill metric-panel-bar-fill--amber"
+              style="--fill-target: 30%"></div>
+          </div>
+        </div>
+
+        <div
+          class="fdp fdp--c glass-panel metric-panel"
+          style="position: absolute; top: 50%; left: 2%; min-width: 168px"
+          aria-hidden="true">
+          <div class="metric-panel-header">
+            <span class="metric-panel-status metric-panel-status--green"></span>
+            <span class="metric-panel-label">Optimised CVR</span>
+          </div>
+          <div class="metric-panel-value">
+            <span class="accent" data-count="5">0</span
+            ><span style="font-size: 1rem; color: var(--text-secondary)">–8%+</span>
+          </div>
+          <div class="metric-panel-sub">structured system</div>
+          <div class="metric-panel-bar">
+            <div class="metric-panel-bar-fill" style="--fill-target: 76%"></div>
+          </div>
+        </div>
+
+        <div
+          class="fdp fdp--b glass-panel"
+          style="
+            position: absolute;
+            bottom: 14%;
+            right: 1%;
+            padding: 1rem 1.25rem;
+            min-width: 180px;
+          "
+          aria-hidden="true">
+          <div
+            style="
+              font-family: &quot;IBM Plex Mono&quot;, monospace;
+              font-size: 0.6rem;
+              color: var(--accent);
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+              margin-bottom: 0.6rem;
+            ">
+            7 Failures Found
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.38rem">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-size: 0.75rem;
+                color: var(--red);
+              ">
+              <span>✕</span>No value prop above fold
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-size: 0.75rem;
+                color: var(--red);
+              ">
+              <span>✕</span>CTA hidden below fold
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-size: 0.75rem;
+                color: var(--red);
+              ">
+              <span>✕</span>Trust buried late
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-size: 0.75rem;
+                color: var(--amber);
+              ">
+              <span>△</span>Mobile friction
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="page-hero-content"
+          style="position: relative; z-index: 2; max-width: 800px">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a><span class="breadcrumb-sep" aria-hidden="true">›</span>
+            <a href="/breakdowns/">Breakdowns</a
+            ><span class="breadcrumb-sep" aria-hidden="true">›</span>
+            <span aria-current="page">7 Conversion Failures</span>
+          </nav>
+          <p class="page-hero-label reveal-up" aria-hidden="true">
+            <span class="label-line"></span>Conversion Analysis · 5 min read<span
+              class="label-line"></span>
+          </p>
+          <h1
+            id="article-h1"
+            class="reveal-up delay-1"
+            style="font-size: clamp(1.875rem, 4vw, 3rem)">
+            The 7 Conversion Failures We Find<br /><em
+              >on Every Service Business Website.</em
+            >
+          </h1>
+          <p
+            class="reveal-up delay-2"
+            style="
+              max-width: 640px;
+              margin: 1.25rem auto 2rem;
+              font-size: 1.0625rem;
+              color: var(--text-secondary);
+              line-height: 1.75;
+            ">
+            A diagnostic walkthrough of the most common CRO failures and the structural
+            changes that recover lost leads — without increasing traffic spend.
+          </p>
+          <div
+            class="article-meta reveal-up delay-3"
+            style="
+              justify-content: center;
+              border-bottom: none;
+              margin-bottom: 0;
+              padding-bottom: 0;
+            ">
+            <span class="article-meta-tag">Conversion Analysis</span>
+            <span class="article-meta-item"
+              ><svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                aria-hidden="true">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" /></svg
+              >5 min read</span
+            >
+            <span class="article-meta-item">Arktera Systems Research</span>
+          </div>
+        </div>
+
+        <!-- Lead leakage funnel visual -->
+        <div class="container" style="margin-top: 3rem; position: relative; z-index: 2">
+          <div style="display: flex; justify-content: center" class="reveal-up delay-2">
+            <div
+              class="leakage-funnel"
+              role="region"
+              aria-label="Lead leakage funnel showing how 100 visitors produce only 2 to 4 leads on average">
+              <div class="lk-stage lk-stage--full" role="listitem">
+                <span class="lk-stage-icon" aria-hidden="true">→</span>
+                <span class="lk-stage-label">Visitors arrive</span>
+                <span class="lk-stage-val">100</span>
+              </div>
+              <div class="lk-arrow" aria-hidden="true">↓ Messaging failure: −30</div>
+              <div class="lk-stage lk-stage--mid" role="listitem">
+                <span class="lk-stage-icon" aria-hidden="true">↓</span>
+                <span class="lk-stage-label">Understood the offer</span>
+                <span class="lk-stage-val">70</span>
+              </div>
+              <div class="lk-arrow" aria-hidden="true">↓ CTA / trust failure: −40</div>
+              <div class="lk-stage lk-stage--mid" role="listitem">
+                <span class="lk-stage-icon" aria-hidden="true">↓</span>
+                <span class="lk-stage-label">Considered acting</span>
+                <span class="lk-stage-val">30</span>
+              </div>
+              <div class="lk-arrow" aria-hidden="true">↓ Friction / mobile: −26</div>
+              <div class="lk-stage lk-stage--low" role="listitem">
+                <span class="lk-stage-icon" aria-hidden="true">↓</span>
+                <span class="lk-stage-label">Enquiries generated</span>
+                <span class="lk-stage-val">2–4</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════ ARTICLE BODY ═══════════════════ -->
+      <div style="background: var(--bg-primary)">
+        <div class="article-body">
+          <!-- INTRODUCTION -->
+          <p>
+            Most service business owners assume they have a traffic problem. In reality,
+            they usually have a conversion problem. Across service industries including
+            roofing, HVAC, legal services, landscaping, remodelling, plumbing, accounting,
+            and consulting, the average website conversion rate sits between roughly 2%
+            and 4%.
+          </p>
+          <p>
+            High-performing websites commonly reach 5% to 8%, and in some high-intent
+            local categories even higher. That means two businesses can receive the exact
+            same amount of traffic and generate completely different levels of revenue —
+            simply because one website converts visitors into leads more efficiently.
+          </p>
+          <p>
+            The problem is that most service websites repeat the same structural mistakes.
+            After reviewing hundreds of service business websites, the same seven
+            conversion failures appear again and again.
+          </p>
+
+          <!-- CVR gap -->
+          <div
+            class="visual-panel reveal-up"
+            role="region"
+            aria-label="Conversion rate gap between average and optimised service websites">
+            <div class="visual-panel-header">
+              <span class="visual-panel-title"
+                >CVR Gap — Average vs Optimised Service Website</span
+              >
+              <span
+                class="diag-live"
+                style="display: flex; align-items: center; gap: 0.5rem"
+                ><span class="diag-live-dot" aria-hidden="true"></span
+                ><span
+                  style="
+                    font-family: &quot;IBM Plex Mono&quot;, monospace;
+                    font-size: 0.65rem;
+                    color: var(--text-muted);
+                  "
+                  >Benchmark data</span
+                ></span
+              >
+            </div>
+            <div class="visual-panel-body">
+              <div
+                class="cvr-bar-row"
+                role="listitem"
+                aria-label="Generic service website: 1.8 to 2.2 percent CVR">
+                <span class="cvr-bar-site">Generic service site</span>
+                <div class="cvr-bar-track">
+                  <div class="cvr-bar-fill cvr-bar-fill--low" data-width="22%"></div>
+                </div>
+                <span class="cvr-bar-val" style="color: var(--red)">1.8–2.2%</span>
+              </div>
+              <div
+                class="cvr-bar-row"
+                role="listitem"
+                aria-label="Average service website: 2 to 4 percent CVR">
+                <span class="cvr-bar-site">Average service website</span>
+                <div class="cvr-bar-track">
+                  <div class="cvr-bar-fill cvr-bar-fill--low" data-width="36%"></div>
+                </div>
+                <span class="cvr-bar-val" style="color: var(--amber)">2–4%</span>
+              </div>
+              <div
+                class="cvr-bar-row"
+                role="listitem"
+                aria-label="Improved messaging only: 3.5 to 4.5 percent CVR">
+                <span class="cvr-bar-site">Improved messaging only</span>
+                <div class="cvr-bar-track">
+                  <div class="cvr-bar-fill cvr-bar-fill--low" data-width="44%"></div>
+                </div>
+                <span class="cvr-bar-val" style="color: var(--amber)">3.5–4.5%</span>
+              </div>
+              <div
+                class="cvr-bar-row"
+                role="listitem"
+                aria-label="Structured conversion system: 5 to 8 percent CVR">
+                <span class="cvr-bar-site">Structured conversion system</span>
+                <div class="cvr-bar-track">
+                  <div class="cvr-bar-fill cvr-bar-fill--high" data-width="76%"></div>
+                </div>
+                <span class="cvr-bar-val" style="color: var(--green)">5–8%+</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- THE SEVEN FAILURES -->
+          <h2>The Seven Conversion Failures</h2>
+          <p>
+            Each failure below represents a distinct structural breakdown in the
+            visitor-to-lead journey. They rarely appear in isolation — most
+            underperforming websites exhibit four or more simultaneously, compounding the
+            conversion loss at every stage.
+          </p>
+
+          <!-- FAILURE 1 -->
+          <div class="cro-failure reveal-up" role="article" aria-labelledby="f1-title">
+            <div class="cro-failure-header">
+              <span class="cro-num"
+                ><span class="pulse-dot" aria-hidden="true"></span>Failure 01</span
+              >
+              <h3 id="f1-title" class="cro-failure-title">
+                Homepage Does Not Explain What the Business Actually Does
+              </h3>
+            </div>
+            <div class="cro-failure-body">
+              <div class="cro-col">
+                <p class="cro-col-label cro-col-label--problem">Problem</p>
+                <p>
+                  Generic messaging — "we help businesses grow," "quality you can trust" —
+                  communicates nothing specific. Visitors cannot determine within 3
+                  seconds whether this business is relevant to their situation.
+                </p>
+              </div>
+              <div class="cro-col">
+                <p class="cro-col-label cro-col-label--impact">Conversion Impact</p>
+                <p>
+                  Visitors bounce immediately when relevance is unclear. The decision to
+                  stay or leave is made in 3–8 seconds — and vague positioning fails that
+                  test every time.
+                </p>
+              </div>
+              <div class="cro-col">
+                <p class="cro-col-label cro-col-label--fix">Structural Fix</p>
+                <p>
+                  State the specific service, the specific audience, the location, and the
+                  primary differentiator in the headline. Make it impossible for a
+                  competitor to use the same sentence.
+                </p>
+              </div>
+            </div>
+            <div
+              class="cro-meter"
+              aria-label="Conversion impact: 88% of visitors lost at this stage">
+              <span class="cro-meter-label">Visitors lost here</span>
+              <div class="cro-meter-bar">
+                <div class="cro-meter-fill" data-width="88%"></div>
+              </div>
+              <span class="cro-meter-val">~88%</span>
+            </div>
+          </div>
+
+          <!-- FAILURE 2 -->
+          <div class="cro-failure reveal-up" role="article" aria-labelledby="f2-title">
+            <div class="cro-failure-header">
+              <span class="cro-num"
+                ><span class="pulse-dot" aria-hidden="true"></span>Failure 02</span
+              >
+              <h3 id="f2-title" class="cro-failure-title">
+                No Visible Conversion Path Above the Fold
+              </h3>
+            </div>
+            <div class="cro-failure-body">
+              <div class="cro-col">
+                <p class="cro-col-label cro-col-label--problem">Problem</p>
+                <p>
+                  The primary action is hidden below the fold or buried in the navigation.
+                  Visitors must scroll to find a way to contact — and most never do. The
+                  conversion opportunity is invisible at the moment of peak attention.
+                </p>
+              </div>
+              <div class="cro-col">
+                <p class="cro-col-label cro-col-label--impact">Conversion Impact</p>
+                <p>
+                  Research shows 80%+ of clicks occur in the first two visible screen
+                  lengths. A CTA placed only below the fold is structurally invisible to
+                  the majority of visitors who arrive with intent.
+                </p>
+              </div>
+              <div class="cro-col">
+                <p class="cro-col-label cro-col-label--fix">Structural Fix</p>
+                <p>
+                  Place a primary CTA — specific, outcome-oriented — above the fold on
+                  every page. Repeat it after each trust milestone. The pattern is:
+                  evidence then action, not action before evidence.
+                </p>
+              </div>
+            </div>
+            <div
+              class="cro-meter"
+              aria-label="Conversion impact: 74% of ready visitors never find the CTA">
+              <span class="cro-meter-label">Ready visitors lost</span>
+              <div class="cro-meter-bar">
+                <div class="cro-meter-fill" data-width="74%"></div>
+              </div>
+              <span class="cro-meter-val">~74%</span>
+            </div>
+          </div>
+
+          <!-- FAILURE 3 -->
+          <div class="cro-failure reveal-up" role="article" aria-labelledby="f3-title">
+            <div class="cro-failure-header">
+              <span class="cro-num"
+                ><span class="pulse-dot" aria-hidden="true"></span>Failure 03</span
+              >
+              <h3 id="f3-title" class="cro-failure-title">
+                Trust Signals Appear Too Late
+              </h3>
+            </div>
+            <div class="cro-failure-body">
+              <div class="cro-col">
+                <p class="cro-col-label cro-col-label--problem">Problem</p>
+                <p>
+                  Reviews, credentials, and proof elements are grouped in a single
+                  "Testimonials" section placed well below the fold — after most visitors
+                  have already decided whether to trust the business.
+                </p>
+              </div>
+              <div class="cro-col">
+                <p class="cro-col-label cro-col-label--impact">Conversion Impact</p>
+                <p>
+                  Trust is formed within the first scroll. Evidence presented after that
+                  decision point fails to influence it. Visitors who do not trust the
+                  business by scroll 2 rarely convert at any later stage.
+                </p>
+              </div>
+              <div class="cro-col">
+                <p class="cro-col-label cro-col-label--fix">Structural Fix</p>
+                <p>
+                  Distribute trust signals throughout the page. Star rating and review
+                  count immediately below the headline. Strongest testimonial directly
+                  above the primary CTA. Credentials adjacent to action points — not in a
+                  separate section.
+                </p>
+              </div>
+            </div>
+            <div
+              class="cro-meter"
+              aria-label="Conversion impact: 68% trust deficit at decision point">
+              <span class="cro-meter-label">Trust deficit at CTA</span>
+              <div class="cro-meter-bar">
+                <div class="cro-meter-fill" data-width="68%"></div>
+              </div>
+              <span class="cro-meter-val">~68%</span>
+            </div>
+          </div>
+
+          <!-- FAILURE 4 -->
+          <div class="cro-failure reveal-up" role="article" aria-labelledby="f4-title">
+            <div class="cro-failure-header">
+              <span class="cro-num"
+                ><span class="pulse-dot" aria-hidden="true"></span>Failure 04</span
+              >
+              <h3 id="f4-title" class="cro-failure-title">
+                Mobile Experience Is Treated as Secondary
+              </h3>
+            </div>
+            <div class="cro-failure-body">
+              <div class="cro-col">
+                <p class="cro-col-label cro-col-label--problem">Problem</p>
+                <p>
+                  Desktop layout compressed onto mobile: small tap targets, unclickable
+                  phone numbers, navigation requiring horizontal scroll, hero images that
+                  compress into illegibility, and CTAs below a screen's worth of content.
+                </p>
+              </div>
+              <div class="cro-col">
+                <p class="cro-col-label cro-col-label--impact">Conversion Impact</p>
+                <p>
+                  Local searches predominantly happen on mobile. A friction-heavy mobile
+                  experience at the moment of highest intent is one of the most expensive
+                  structural failures available — it affects the majority of visitors, not
+                  the minority.
+                </p>
+              </div>
+              <div class="cro-col">
+                <p class="cro-col-label cro-col-label--fix">Structural Fix</p>
+                <p>
+                  Design mobile-first. Sticky call button. Full-width CTAs at 48px minimum
+                  tap target. Click-to-call phone numbers. Simplified navigation.
+                  Single-column layout for complex content. Mobile optimisation is
+                  operational — not cosmetic.
+                </p>
+              </div>
+            </div>
+            <div
+              class="cro-meter"
+              aria-label="Conversion impact: 81% of mobile visitors experience friction">
+              <span class="cro-meter-label">Mobile friction rate</span>
+              <div class="cro-meter-bar">
+                <div class="cro-meter-fill" data-width="81%"></div>
+              </div>
+              <span class="cro-meter-val">~81%</span>
+            </div>
+          </div>
+
+          <!-- FAILURE 5 -->
+          <div class="cro-failure reveal-up" role="article" aria-labelledby="f5-title">
+            <div class="cro-failure-header">
+              <span class="cro-num"
+                ><span class="pulse-dot" aria-hidden="true"></span>Failure 05</span
+              >
+              <h3 id="f5-title" class="cro-failure-title">Generic Calls-to-Action</h3>
+            </div>
+            <div class="cro-failure-body">
+              <div class="cro-col">
+                <p class="cro-col-label cro-col-label--problem">Problem</p>
+                <p>
+                  "Contact Us," "Submit," "Get Started," "Learn More." These CTAs describe
+                  an action the business wants the visitor to perform — not a value the
+                  visitor receives. They leave the next step ambiguous and create
+                  hesitation at the decision point.
+                </p>
+              </div>
+              <div class="cro-col">
+                <p class="cro-col-label cro-col-label--impact">Conversion Impact</p>
+                <p>
+                  A vague CTA leaves the buyer's most critical question unanswered: what
+                  happens when I click this? Unanswered questions produce hesitation.
+                  Hesitation produces abandonment — even when intent was present.
+                </p>
+              </div>
+              <div class="cro-col">
+                <p class="cro-col-label cro-col-label--fix">Structural Fix</p>
+                <p>
+                  Use outcome-focused CTAs that name a specific deliverable: "Request Free
+                  Roof Assessment," "Book Visibility Audit," "Get Repair Estimate." The
+                  visitor understands exactly what they receive — reducing perceived
+                  commitment and increasing click rate by 3–5×.
+                </p>
+              </div>
+            </div>
+            <div
+              class="cro-meter"
+              aria-label="Conversion impact: 61% lower intent with generic CTA">
+              <span class="cro-meter-label">Intent reduction</span>
+              <div class="cro-meter-bar">
+                <div class="cro-meter-fill" data-width="61%"></div>
+              </div>
+              <span class="cro-meter-val">~61%</span>
+            </div>
+          </div>
+
+          <!-- FAILURE 6 -->
+          <div class="cro-failure reveal-up" role="article" aria-labelledby="f6-title">
+            <div class="cro-failure-header">
+              <span class="cro-num"
+                ><span class="pulse-dot" aria-hidden="true"></span>Failure 06</span
+              >
+              <h3 id="f6-title" class="cro-failure-title">Too Many Navigation Choices</h3>
+            </div>
+            <div class="cro-failure-body">
+              <div class="cro-col">
+                <p class="cro-col-label cro-col-label--problem">Problem</p>
+                <p>
+                  Navigation menus with 8–12 items, dropdown submenus, footer links
+                  competing with header links, and multiple equally-weighted pathways.
+                  Every choice a visitor must make increases cognitive effort and reduces
+                  conversion probability.
+                </p>
+              </div>
+              <div class="cro-col">
+                <p class="cro-col-label cro-col-label--impact">Conversion Impact</p>
+                <p>
+                  Hick's Law: conversion probability decreases as the number of choices
+                  increases. A visitor who cannot immediately identify the right path
+                  abandons rather than exploring. Navigation should guide — not overwhelm.
+                </p>
+              </div>
+              <div class="cro-col">
+                <p class="cro-col-label cro-col-label--fix">Structural Fix</p>
+                <p>
+                  Simplify navigation to 4–5 primary items maximum. Remove anything that
+                  does not directly serve conversion or trust-building. One primary CTA in
+                  the nav — specific, not generic. Guide the user journey rather than
+                  offering an index.
+                </p>
+              </div>
+            </div>
+            <div
+              class="cro-meter"
+              aria-label="Conversion impact: 52% of visitors experience choice paralysis">
+              <span class="cro-meter-label">Choice paralysis rate</span>
+              <div class="cro-meter-bar">
+                <div class="cro-meter-fill" data-width="52%"></div>
+              </div>
+              <span class="cro-meter-val">~52%</span>
+            </div>
+          </div>
+
+          <!-- FAILURE 7 -->
+          <div class="cro-failure reveal-up" role="article" aria-labelledby="f7-title">
+            <div class="cro-failure-header">
+              <span class="cro-num"
+                ><span class="pulse-dot" aria-hidden="true"></span>Failure 07</span
+              >
+              <h3 id="f7-title" class="cro-failure-title">
+                Website Functions Like a Brochure
+              </h3>
+            </div>
+            <div class="cro-failure-body">
+              <div class="cro-col">
+                <p class="cro-col-label cro-col-label--problem">Problem</p>
+                <p>
+                  Pages designed to display information rather than facilitate decisions.
+                  Beautiful layouts with no conversion architecture — no structured
+                  journey, no progressive trust-building, no deliberate flow from problem
+                  recognition to confident action.
+                </p>
+              </div>
+              <div class="cro-col">
+                <p class="cro-col-label cro-col-label--impact">Conversion Impact</p>
+                <p>
+                  A brochure is read at the visitor's discretion with no guided sequence.
+                  A conversion system moves visitors through a deliberate path. The same
+                  content, structured differently, can produce 3× the conversion rate —
+                  with no additional traffic.
+                </p>
+              </div>
+              <div class="cro-col">
+                <p class="cro-col-label cro-col-label--fix">Structural Fix</p>
+                <p>
+                  Rebuild the page sequence to follow buyer psychology: problem
+                  recognition → relevance → trust evidence → process clarity → action.
+                  Every section should serve a conversion function — not simply display
+                  information for its own sake.
+                </p>
+              </div>
+            </div>
+            <div
+              class="cro-meter"
+              aria-label="Conversion impact: 77% of conversions lost to unguided journeys">
+              <span class="cro-meter-label">Unguided journey loss</span>
+              <div class="cro-meter-bar">
+                <div class="cro-meter-fill" data-width="77%"></div>
+              </div>
+              <span class="cro-meter-val">~77%</span>
+            </div>
+          </div>
+
+          <!-- CONVERSION COMPARISON -->
+          <h2>The Conversion Rate Gap</h2>
+          <p>
+            Two businesses with identical traffic volumes can generate radically different
+            lead volumes based purely on conversion architecture. The difference between a
+            2% and a 6% conversion rate on 1,000 monthly visitors is the difference
+            between 20 and 60 enquiries per month — with zero change to advertising spend.
+          </p>
+
+          <div
+            class="visual-panel reveal-up"
+            role="region"
+            aria-label="Structured conversion system comparison — average vs optimised">
+            <div class="visual-panel-header">
+              <span class="visual-panel-title"
+                >Conversion System — Average vs Structured</span
+              >
+              <span
+                class="diag-live"
+                style="display: flex; align-items: center; gap: 0.5rem"
+                ><span class="diag-live-dot" aria-hidden="true"></span
+                ><span
+                  style="
+                    font-family: &quot;IBM Plex Mono&quot;, monospace;
+                    font-size: 0.65rem;
+                    color: var(--text-muted);
+                  "
+                  >Live comparison</span
+                ></span
+              >
+            </div>
+            <div class="visual-panel-body">
+              <div
+                class="diagnostic-dashboard"
+                style="background: transparent; border: none; padding: 0">
+                <div
+                  class="diag-row"
+                  aria-label="Messaging clarity: average 14%, structured 88%">
+                  <span class="diag-label">Messaging Clarity</span>
+                  <div class="diag-bar-track">
+                    <div
+                      class="diag-bar-fill factor-bar-fill--high"
+                      data-width="88%"></div>
+                  </div>
+                  <span class="diag-score" style="color: var(--green)">88%</span>
+                </div>
+                <div class="diag-row" aria-label="CTA specificity: structured system">
+                  <span class="diag-label">CTA Specificity</span>
+                  <div class="diag-bar-track">
+                    <div
+                      class="diag-bar-fill factor-bar-fill--high"
+                      data-width="91%"></div>
+                  </div>
+                  <span class="diag-score" style="color: var(--green)">91%</span>
+                </div>
+                <div
+                  class="diag-row"
+                  aria-label="Trust proximity to action: structured system">
+                  <span class="diag-label">Trust Proximity to CTA</span>
+                  <div class="diag-bar-track">
+                    <div
+                      class="diag-bar-fill factor-bar-fill--high"
+                      data-width="84%"></div>
+                  </div>
+                  <span class="diag-score" style="color: var(--green)">84%</span>
+                </div>
+                <div
+                  class="diag-row"
+                  aria-label="Mobile conversion optimised: structured system">
+                  <span class="diag-label">Mobile Conversion</span>
+                  <div class="diag-bar-track">
+                    <div
+                      class="diag-bar-fill factor-bar-fill--high"
+                      data-width="79%"></div>
+                  </div>
+                  <span class="diag-score" style="color: var(--green)">79%</span>
+                </div>
+                <div
+                  class="diag-row"
+                  aria-label="Conversion flow structure: structured system">
+                  <span class="diag-label">Flow Structure</span>
+                  <div class="diag-bar-track">
+                    <div
+                      class="diag-bar-fill factor-bar-fill--high"
+                      data-width="86%"></div>
+                  </div>
+                  <span class="diag-score" style="color: var(--green)">86%</span>
+                </div>
+              </div>
+              <div class="result-grid" style="margin-top: 1.5rem">
+                <div class="result-item">
+                  <div class="result-num">3×</div>
+                  <div class="result-label">More leads from same traffic</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-num" style="color: var(--green)">+180%</div>
+                  <div class="result-label">Lead volume improvement</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-num">£0</div>
+                  <div class="result-label">Additional ad spend required</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-num" style="color: var(--accent)">14wk</div>
+                  <div class="result-label">Typical improvement timeline</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- WHAT HIGH-CONVERTING SITES DO -->
+          <h2>What High-Converting Service Websites Do Differently</h2>
+          <p>
+            The differences between high and low-converting service websites are
+            structural, not aesthetic. High-performing sites consistently share five
+            characteristics — each addressing a specific stage of the visitor-to-lead
+            journey.
+          </p>
+
+          <div class="hcvr-grid reveal-up" role="list">
+            <div class="hcvr-card" role="listitem">
+              <div class="hcvr-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5">
+                  <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+                </svg>
+              </div>
+              <h4>Clear Positioning</h4>
+              <p>
+                The headline immediately names the audience, the problem solved, and the
+                differentiator. Visitors identify relevance in under 3 seconds — before
+                the bounce decision is made.
+              </p>
+            </div>
+            <div class="hcvr-card" role="listitem">
+              <div class="hcvr-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <h4>Trust Architecture</h4>
+              <p>
+                Reviews, credentials, and proof elements are distributed throughout the
+                page — positioned at the moments buyers are evaluating whether to proceed,
+                not grouped in a dedicated section below the fold.
+              </p>
+            </div>
+            <div class="hcvr-card" role="listitem">
+              <div class="hcvr-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                </svg>
+              </div>
+              <h4>Reduced Friction</h4>
+              <p>
+                Every unnecessary decision, confusing navigation item, or ambiguous next
+                step is eliminated. The cognitive path from arrival to enquiry is as short
+                and frictionless as possible.
+              </p>
+            </div>
+            <div class="hcvr-card" role="listitem">
+              <div class="hcvr-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5">
+                  <rect x="5" y="2" width="14" height="20" rx="2" />
+                  <path d="M12 18h.01" />
+                </svg>
+              </div>
+              <h4>Mobile Performance</h4>
+              <p>
+                Designed mobile-first with sticky CTAs, full-width action buttons at
+                minimum 48px tap targets, click-to-call phone numbers, and simplified
+                navigation that works at every screen size.
+              </p>
+            </div>
+            <div class="hcvr-card" role="listitem">
+              <div class="hcvr-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                </svg>
+              </div>
+              <h4>Conversion Systems</h4>
+              <p>
+                Pages follow buyer psychology: problem → relevance → trust → process →
+                action. Each section serves a conversion function. The visitor is guided
+                rather than left to navigate independently.
+              </p>
+            </div>
+          </div>
+
+          <!-- FINAL OBSERVATION -->
+          <h2>Final Observation</h2>
+          <p>
+            Most businesses try to solve low lead volume by buying more traffic. More ads.
+            More SEO. More content. But traffic rarely fixes conversion failures.
+          </p>
+
+          <div class="pull-quote">
+            <p>
+              "A website converting at 2% that improves to 5% can more than double lead
+              volume without increasing visitor count. That is why conversion optimisation
+              consistently produces higher ROI than acquisition alone."
+            </p>
+          </div>
+
+          <p>
+            The opportunity is usually not attracting more people. It is converting more
+            of the people already arriving. Every visitor who leaves without enquiring
+            represents a lead that was paid for — through advertising, SEO investment, or
+            content effort — but not captured.
+          </p>
+
+          <div class="priority-list reveal-up" role="list">
+            <div class="priority-item" role="listitem">
+              <span class="priority-num">Fix 1</span>
+              <div>
+                <h4>
+                  Audit your page against all seven failures before buying more traffic
+                </h4>
+                <p>
+                  Identify which failures are present on your highest-traffic pages. Each
+                  one represents a recoverable leak in your lead generation system that
+                  compounds across every visitor who encounters it.
+                </p>
+              </div>
+            </div>
+            <div class="priority-item" role="listitem">
+              <span class="priority-num">Fix 2</span>
+              <div>
+                <h4>
+                  Fix messaging and CTA structure first — they have the highest leverage
+                </h4>
+                <p>
+                  Failures 1 and 5 (messaging clarity and CTA specificity) produce the
+                  largest gains because they affect every visitor from the first second of
+                  arrival. Both can be improved without a full redesign.
+                </p>
+              </div>
+            </div>
+            <div class="priority-item" role="listitem">
+              <span class="priority-num">Fix 3</span>
+              <div>
+                <h4>Treat your website as a conversion system, not a digital brochure</h4>
+                <p>
+                  Every section should serve a deliberate function in moving the visitor
+                  from problem recognition to confident action. If a section does not
+                  contribute to that progression, it is either friction or filler — and
+                  both reduce conversion rate.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Related -->
+          <div
+            style="
+              margin-top: 3.5rem;
+              padding-top: 2.5rem;
+              border-top: 1px solid var(--border);
+            ">
+            <h3
+              style="
+                font-size: 1rem;
+                font-weight: 600;
+                color: var(--text-primary);
+                margin-bottom: 1.25rem;
+                font-family: &quot;IBM Plex Mono&quot;, monospace;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+              ">
+              Related Insights
+            </h3>
+            <div class="related-articles" role="list">
+              <a
+                href="/insights/increased-lead-volume-without-more-ad-spend/"
+                class="related-card"
+                role="listitem">
+                <span class="related-card-tag">Case Study</span>
+                <h4>How We Increased Lead Volume by 340% Without More Ad Spend</h4>
+                <p>
+                  The structural changes that produced dramatic lead growth without
+                  additional budget.
+                </p>
+                <span class="related-card-arrow">Read Insight →</span>
+              </a>
+              <a
+                href="/breakdowns/vague-homepage-cta-analysis/"
+                class="related-card"
+                role="listitem">
+                <span class="related-card-tag">CTA Analysis</span>
+                <h4>Why Vague CTAs Kill Lead Volume for Service Businesses</h4>
+                <p>
+                  A structural analysis of the CTA failures that reduce conversion intent.
+                </p>
+                <span class="related-card-arrow">Read Breakdown →</span>
+              </a>
+              <a
+                href="/insights/weak-messaging-hurts-trust/"
+                class="related-card"
+                role="listitem">
+                <span class="related-card-tag">Messaging</span>
+                <h4>Why Weak Messaging Hurts Trust — Even When Traffic Is Strong</h4>
+                <p>
+                  How vague positioning erodes buyer confidence at the critical moment of
+                  decision.
+                </p>
+                <span class="related-card-arrow">Read Insight →</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- /article-body -->
+      </div>
+      <!-- /bg -->
+
+      <!-- ═══════════════════ CTA ═══════════════════ -->
+      <section class="cta-section" aria-labelledby="cta-h">
+        <div class="cta-bg" aria-hidden="true">
+          <div class="cta-glow-1"></div>
+          <div class="cta-glow-2"></div>
+          <div class="cta-grid"></div>
+        </div>
+        <div class="container">
+          <div class="cta-inner reveal-up">
+            <p class="cta-label mono">
+              <span class="label-line" aria-hidden="true"></span>Strategy Session<span
+                class="label-line"
+                aria-hidden="true"></span>
+            </p>
+            <h2 id="cta-h" class="cta-headline">
+              How Many Leads Is Your<br />Website Losing?
+            </h2>
+            <p class="cta-body">
+              Most service businesses focus on generating more traffic before fixing the
+              conversion leaks already costing them opportunities. Book a strategy session
+              and identify the highest-impact improvements.
+            </p>
+            <div class="cta-buttons">
+            <a
+                href="https://calendly.com/hello-arkterasystems/strategy-session"
+                target="_blank"
+                class="btn btn-primary btn-large"
+                >Book a Strategy Session<svg
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true">
+                  <path d="M4 10h12M10 4l6 6-6 6" /></svg
+              ></a>
+              <a href="/services/" class="btn btn-ghost btn-large"
+                >Explore Conversion Services</a
+              >
+            </div>
+            <p class="cta-reassurance mono">
+              No commitment required. Response within 24 hours.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="/scripts/component.js"></script>
+    <script>
+      (function () {
+        const bar = document.getElementById("readingProgress");
+        const body = document.querySelector(".article-body");
+        if (bar && body) {
+          window.addEventListener(
+            "scroll",
+            () => {
+              const total = body.offsetHeight - window.innerHeight;
+              const scrolled = -body.getBoundingClientRect().top;
+              bar.style.width =
+                Math.min(Math.max((scrolled / total) * 100, 0), 100) + "%";
+            },
+            { passive: true },
+          );
+        }
+
+        const obs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (!e.isIntersecting) return;
+              e.target
+                .querySelectorAll(
+                  ".factor-bar-fill, .diag-bar-fill, .cvr-bar-fill, .cro-meter-fill",
+                )
+                .forEach((f) => {
+                  f.style.width = f.getAttribute("data-width") || "60%";
+                });
+              e.target
+                .querySelectorAll(".metric-panel-bar-fill")
+                .forEach((f) => f.classList.add("animated"));
+              obs.unobserve(e.target);
+            });
+          },
+          { threshold: 0.12 },
+        );
+        document
+          .querySelectorAll(
+            ".visual-panel, .glass-panel, .diagnostic-dashboard, .cro-failure",
+          )
+          .forEach((el) => obs.observe(el));
+      })();
+    </script>
+  </body>
+</html>
