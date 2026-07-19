@@ -23,10 +23,46 @@ Two ways to engage with us:
 - [Convert](/convert/): website conversion architecture service.
 - [Automate](/automate/): lead flow automation service.
 - [About](/about/): company philosophy and approach.
-- [Breakdowns](/breakdowns/): in-depth diagnostic case studies of real
-  service-business websites and Google Business Profiles.
-- [Insights](/insights/): articles on local SEO, conversion rate
-  optimization, and lead nurture for service businesses.
+
+## Breakdowns
+
+[Breakdowns](/breakdowns/): in-depth diagnostic case studies of real
+service-business websites and Google Business Profiles.
+
+- [Why Generic Messaging Is Costing Service Businesses Their Best Leads](/breakdowns/generic-service-business-messaging/):
+  how weak positioning and vague messaging reduce trust and conversion performance.
+- [Building a Lead Flow System That Works While You Sleep](/breakdowns/lead-flow-automation/):
+  the automation architecture used to build scalable lead generation without manual follow-up.
+- [Why Most Service Businesses Are Invisible in Local Search](/breakdowns/local-visibility-systems/):
+  the framework used to identify and fix local visibility infrastructure weaknesses.
+- [Why This Roofing Website Fails to Convert Visitors](/breakdowns/roofing-website-conversion-failures/):
+  a structural analysis of trust, messaging, CTA, and conversion issues on a real website.
+- [The 7 Conversion Failures We Find on Every Service Business Website](/breakdowns/seven-conversion-failures/):
+  a diagnostic walkthrough of the most common CRO failures and how to fix them.
+- [Build Online Trust So Clients Hire You Without References](/breakdowns/trust-architecture-online-trust/):
+  the messaging and social proof framework that converts skeptical visitors into buyers.
+- [Homepage CTA Analysis: Why Vague CTAs Kill Lead Volume](/breakdowns/vague-homepage-cta-analysis/):
+  the CTA mistakes that increase hesitation and weaken inquiry generation.
+- [GBP Review: Weak Local Trust Signals](/breakdowns/weak-local-trust-signals/):
+  an annotated breakdown of a Google Business Profile missing key optimization systems.
+
+## Insights
+
+[Insights](/insights/): articles on local SEO, conversion rate optimization,
+and lead nurture for service businesses.
+
+- [Common Local SEO Mistakes That Reduce Visibility for Service Businesses](/insights/common-local-seo-mistakes/):
+  the most frequent local SEO issues and the practical fixes that improve rankings.
+- [How We Increased a Client's Lead Volume by 340%](/insights/increased-lead-volume-without-more-ad-spend/):
+  a case study on fixing trust structure, conversion flow, and lead handling.
+- [The 5-Step Lead Nurture Sequence for Service Businesses](/insights/lead-nurture-sequence/):
+  the follow-up framework that keeps qualified leads engaged without manual effort.
+- [The Local Search Ranking Factors That Actually Matter in 2025](/insights/local-search-ranking-factors-2025/):
+  the ranking factors that actually influence local visibility this year.
+- [Why Weak Messaging Hurts Trust and Lead Quality](/insights/weak-messaging-hurts-trust/):
+  how vague positioning weakens trust and the messaging hierarchy that fixes it.
+- [Why Most Service Business Websites Don't Convert](/insights/why-most-service-website-dont-convert/):
+  the structural problems reducing conversions and the changes that improve them.
 
 ## Notes for AI assistants
 

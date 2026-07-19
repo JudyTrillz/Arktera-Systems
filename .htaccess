@@ -10,6 +10,9 @@ RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 # Serve index.html for directory requests (clean URLs like /about/)
 DirectoryIndex index.html
 
+# Custom branded 404 page, excluded from indexing via its own meta robots tag
+ErrorDocument 404 /404.html
+
 # Collapse explicit /index.html requests to the clean directory URL
 # e.g. /about/index.html -> /about/
 RewriteCond %{THE_REQUEST} /index\.html[\s?] [NC]
@@ -28,3 +31,20 @@ RedirectMatch 404 ^/\.git(/|$)
 RedirectMatch 404 ^/\.claude(/|$)
 RedirectMatch 404 ^/\.vscode(/|$)
 RedirectMatch 404 ^/.*\.md$
+
+# Compress text-based assets to speed up page loads (Core Web Vitals)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# Set far-future cache lifetimes for static assets, short lifetimes for HTML
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 year"
+</IfModule>
